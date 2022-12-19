@@ -1,0 +1,45 @@
+mixin Pricing-2
+	+Section.bg-200#pricing-2
+		.row.justify-content-center
+			.col-12.text-center
+				h2 What works for you
+				p.mt-3 Buy single license for a project or developer license
+					br.d-none.d-sm-block
+					| for the multiple projects, choice is yours.
+
+			.col-sm-6.col-lg-5.col-xl-4.mt-6
+				.rounded-3.bg-white.overflow-hidden.h-100
+					.text-center.pt-5.px-3
+						img(src=`${CWD}assets/img/watch.jpg` alt="Pricing Image").img-fluid
+
+					.row.align-items-center.mx-4.mt-5
+						.col-12
+							h3.fw-light &dollar;39
+								small.fs--1.text-500 / year
+						.col-12
+							h4.my-0 Single License
+						
+					.row.mx-4.mb-5.mt-4
+						.col
+							p.mb-4 Unlimited layouts to make web-design ridiculously simple.
+							
+							a(href=purchase_link target='_blank').fw-semi-bold.d-block.mt-4 Get Started Free
+								img(src=`${CWD}assets/img/icons/icon-angle-right.svg` height=13 alt='').ms-1
+
+			.col-sm-6.col-lg-5.col-xl-4.mt-6
+				.rounded-3.bg-white.overflow-hidden.h-100
+					.text-center.pt-5.px-3
+						img(src=`${CWD}assets/img/watch-2.jpg` alt="Pricing Image").img-fluid
+
+					.row.align-items-center.mx-4.mt-5
+						.col-12
+							h3.fw-light &dollar;#{numbers.price}
+								small.fs--1.text-500 / year
+						.col-12
+							h4.my-0 Extended License
+
+					.row.mx-4.mb-5.mt-4
+						.col
+							p.mb-4 Unlock powerful time-saving tools for creating beautiful websites.
+							a(href=purchase_link target='_blank').fw-semi-bold.d-block.mt-4 Try free for 15
+								img(src=`${CWD}assets/img/icons/icon-angle-right.svg` height=13 alt='').ms-1

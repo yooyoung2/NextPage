@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 넥스트페이지 공지사항 -->
+
+<mapper
+	namespace="kr.or.ddit.nextpage.faq.dao.NextPageFAQDAO">
+
+
+	<select id="selectTotalRecord" parameterType="PagingVO"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM FAQ
+	</select>
+
+	<!-- FAQ 게시물 조회 -->
+	<select id="selectFAQList" parameterType="PagingVO"
+		resultType="FaqVO">
+		WITH SORTEDBOARD AS (
+		SELECT
+		    FAQ_ID,
+		    ADMIN_ID,
+		    FAQ_TITLE,
+		    FAQ_CNTNT,
+		    FILE_NAME,
+			SAVE_NAME,
+			SAVE_PATH
+		FROM
+		    FAQ
+		ORDER BY FAQ_ID DESC
+
+		), RNUMBOARD AS (
+		SELECT ROWNUM RNUM, SORTEDBOARD.
+		*
+		FROM SORTEDBOARD
+		)
+		SELECT *
+		FROM RNUMBOARD
+			<![CDATA[
+ 			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+ 		]]>
+	</select>
+
+
+	<!-- FAQ 게시물 추가 -->
+	<insert id="insertFAQBoard" parameterType="FaqVO">
+		<selectKey resultType="int" keyProperty="faqId"
+			order="BEFORE">
+			SELECT FAQ_SEQ.NEXTVAL
+			FROM DUAL
+		</selectKey>
+		INSERT INTO FAQ (
+		    FAQ_ID,
+		    ADMIN_ID,
+		    FAQ_TITLE,
+		    FAQ_CNTNT,
+		    FILE_NAME,
+			SAVE_NAME,
+			SAVE_PATH
+		) VALUES (
+		    #{faqId, jdbcType=NUMERIC},
+			#{adminId, jdbcType=VARCHAR},
+			#{faqTitle, jdbcType=VARCHAR},
+			#{faqCntnt, jdbcType=VARCHAR},
+			#{fileName, jdbcType=VARCHAR},
+			#{saveName, jdbcType=VARCHAR},
+			#{savePath, jdbcType=VARCHAR}
+			
+			
+		)
+	</insert>
+	
+	<!-- 파일업로드(업데이트)해주는 쿼리 -->
+	<update id="insertFAQBoardFile" parameterType="FaqVO">
+		UPDATE  FAQ
+		SET     FILE_NAME=#{attatchList[0].fileName},
+        		SAVE_NAME=#{attatchList[0].saveName},
+        		SAVE_PATH='/FAQ/'
+		WHERE   FAQ_ID=#{faqId}
+	</update>
+
+
+<!-- 상세조회 -->
+	<select id="selectFaq" parameterType="int" resultType="FaqVO">
+	SELECT
+	 FAQ_ID,
+ 	 ADMIN_ID,
+	 FAQ_TITLE,
+   	 FAQ_CNTNT,
+ 	 FILE_NAME,
+	SAVE_NAME,
+	SAVE_PATH
+	FROM
+	 FAQ
+	WHERE FAQ_ID = #{faqId, jdbcType=NUMERIC}
+	</select>
+
+<!-- 	FAQ 수정 -->
+
+	<update id="updateFaq" parameterType="FaqVO">
+	UPDATE FAQ
+	SET
+		FAQ_TITLE =  #{faqTitle, jdbcType=VARCHAR},
+		FAQ_CNTNT =  #{faqCntnt, jdbcType=VARCHAR}
+	WHERE FAQ_ID = #{faqId, jdbcType=NUMERIC}
+	</update>
+
+
+
+<!-- 	FAQ 삭제 -->
+	<delete id="deleteFaq" parameterType="int">
+	DELETE FROM FAQ
+	WHERE FAQ_ID = #{faqId, jdbcType=NUMERIC}
+	</delete>
+
+
+</mapper>
+

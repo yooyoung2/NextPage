@@ -1,0 +1,25 @@
+extends ../layouts/LayoutTheme
+include ../mixins/common/HamburgerMenu
+include ../mixins/blocks/navigation/Navigation-14
+include ../mixins/blocks/features/Features-22
+include ../mixins/blocks/content/Content-25
+include ../mixins/blocks/contact/Contact-3
+include ../mixins/blocks/footer/Footer-10
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+
+append mainContent
+	+Navigation-14('Slick').navbar-light.bg-white
+	+Features-22
+	+Content-25 
+	+Contact-3
+	+Footer-10
+

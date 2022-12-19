@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.student.Insert.dao.StudentFileDAO">
+
+
+	<insert id="insertAttatches222" parameterType="SchMemberFileListVO">
+		
+		INSERT ALL
+		
+		<foreach collection="attatchList" item="attatch" index="idx">
+		
+			INTO POI_PATH 
+			(
+				ATT_NO
+				, BO_NO
+				, ATT_FILENAME
+				, ATT_SAVENAME
+				, ATT_MIME
+				, ATT_FILESIZE
+				, ATT_FANCYSIZE
+			) 
+			VALUES 
+			(
+				'1'
+				, 2
+				, #{attatch.attFilename,jdbcType=VARCHAR}
+				, #{attatch.attSavename,jdbcType=VARCHAR}
+				, #{attatch.attMime,jdbcType=VARCHAR}
+				, #{attatch.attFilesize,jdbcType=NUMERIC}
+				, #{attatch.attFancysize,jdbcType=VARCHAR}
+			)
+		
+		</foreach>
+		
+		SELECT * FROM DUAL
+	</insert>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

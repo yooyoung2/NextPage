@@ -1,0 +1,26 @@
+mixin Navigation-12(brand, btnOutline, isNavbarONScroll)
+	nav.navbar.navbar-expand-lg.py-2&attributes(attributes)(data-navbar-dark-on-scroll!=isNavbarONScroll)=attrs
+		.container
+			a.navbar-brand(href=`${CWD}index.html`)
+				!=brand
+			button.navbar-toggler.hamburger.hamburger--emphatic(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+				span.hamburger-box
+					span.hamburger-inner
+
+			.collapse.navbar-collapse#navbarNav
+				ul.navbar-nav.ms-auto
+					li.nav-item
+						a.nav-link(aria-current='page' href='#!') Home
+					li.nav-item
+						a.nav-link(href='#!') Feature
+					li.nav-item
+						a.nav-link(href='#!') Blog
+					li.nav-item
+						a.nav-link(href='#!') Shop
+					li.nav-item
+						a.nav-link(href='#!') Help
+							
+				ul.navbar-nav.ms-auto.pt-0
+					li.nav-item
+						a(href='#' class=`btn-outline-${btnOutline}`).btn.btn-sm.border-0.w-100 Sign Up
+	

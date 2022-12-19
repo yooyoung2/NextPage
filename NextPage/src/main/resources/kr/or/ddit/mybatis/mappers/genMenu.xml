@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이유영 -->
+<mapper namespace="kr.or.ddit.school.manager.menu.manage.dao.MenuManageDAO">
+
+	
+	<select id="selectGenMenuList" parameterType="string" resultType="GenMenuVO">
+      	WITH SORTMENU AS (
+		    SELECT 
+		        SCH_ID, TOP_MENU_ID, MENU_NM,
+		        MENU_LINK, MENU_ID, TOP 
+		    FROM GEN_MENU 
+		    WHERE SCH_ID = #{schId}
+		)   SELECT LEVEL, LPAD(' ', 4*(LEVEL-1)) || MENU_ID MENU_ID, MENU_NM, MENU_LINK, TOP_MENU_ID
+		    FROM SORTMENU
+		    START WITH TOP ='OK'
+			CONNECT BY PRIOR MENU_ID=TOP_MENU_ID
+      
+   </select>
+
+	<select id="selectGenMenu" parameterType="GenMenuVO" resultType="GenMenuVO">
+		SELECT
+		    SCH_ID, TOP_MENU_ID, MENU_NM,
+		    MENU_LINK, MENU_ID, TOP
+		FROM
+		    GEN_MENU
+		WHERE MENU_ID = #{menuId}
+		AND SCH_ID = #{schId}
+	</select>
+	
+	<select id="selectTopMaxMenuId" parameterType="String" resultType="Integer">
+		SELECT MAX(MENU_ID) 
+		FROM GEN_MENU 
+		WHERE TOP_MENU_ID IS NULL
+		AND SCH_ID = #{schId}
+	</select>
+	
+	<select id="selectSubMaxMenuId" parameterType="GenMenuVO" resultType="Integer">
+		SELECT MAX(MENU_ID) 
+		FROM GEN_MENU 
+		WHERE TOP_MENU_ID = #{topMenuId}
+		AND SCH_ID = #{schId}
+	</select>
+	
+	<insert id="insertGenMenu" parameterType="GenMenuVO" >
+		INSERT INTO GEN_MENU (
+		    SCH_ID, TOP_MENU_ID, MENU_NM,
+		    MENU_LINK, MENU_ID, TOP, MENU_USE_OK,
+		    MENU_TYPE, RTRN_JSP
+		) VALUES (
+		      #{schId,jdbcType=VARCHAR} 
+		    , #{topMenuId, jdbcType=NUMERIC}
+		    , #{menuNm,jdbcType=VARCHAR}
+		    , #{menuLink,jdbcType=VARCHAR} 
+		    , #{menuId, jdbcType=NUMERIC}
+		    , #{top,jdbcType=VARCHAR}
+		    , #{menuUseOk,jdbcType=VARCHAR}
+		    , #{menuType,jdbcType=VARCHAR}
+		    , #{rtrnJsp,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="selectSetGenMenu" parameterType="GenMenuVO" resultType="GenMenuVO">
+		SELECT SCH_ID, G.TOP_MENU_ID, MENU_NM, 
+		       MENU_LINK, MENU_ID, TOP, MENU_USE_OK, MENU_TYPE,
+		       (SELECT MENU_NM 
+		          FROM GEN_MENU GG 
+		         WHERE GG.MENU_ID = G.TOP_MENU_ID 
+		           AND SCH_ID=#{schId}) TOP_MENU_NM
+			FROM GEN_MENU G
+			WHERE MENU_ID=#{menuId}
+			AND SCH_ID=#{schId}
+	</select>
+	
+	
+	<update id="updateGenMenu" parameterType="GenMenuVO">
+		UPDATE GEN_MENU
+		    SET
+		          MENU_NM = #{menuNm}
+		        , MENU_LINK = #{menuLink}
+		        , MENU_USE_OK = #{MenuUseOk}
+		        , MENU_TYPE = #{menuType}
+		        , RTRN_JSP = #{rtrnJsp}
+		WHERE
+		MENU_ID = #{menuId}
+		AND SCH_ID = #{schId}
+	</update>
+	
+	<select id="selectTopMenuId" parameterType="GenMenuVO" resultType="int">
+		SELECT TOP_MENU_ID
+		FROM GEN_MENU 
+		WHERE SCH_ID = #{schId}
+		AND MENU_ID = #{menuId}
+	</select>
+	
+	<delete id="deleteMenuId" parameterType="GenMenuVO">
+		DELETE FROM GEN_MENU
+		WHERE SCH_ID = #{schId}
+		AND MENU_ID = #{menuId}
+	</delete>
+	
+	<delete id="deleteTopMenuId">
+		DELETE FROM GEN_MENU
+		WHERE SCH_ID = #{schId}
+		AND TOP_MENU_ID = #{topMenuId}
+	</delete>
+	
+	<select id="selectMenuId" parameterType="GenMenuVO" resultType="int">
+		SELECT MENU_ID 
+		FROM GEN_MENU 
+		WHERE TOP_MENU_ID = #{topMenuId}
+		AND SCH_ID = #{schId}
+	</select>
+	
+	<select id="selectRtrnJSP" parameterType="string" resultType="string">
+		SELECT RTRN_JSP 
+		FROM RTRN_VIEWNAME
+		WHERE RTRN_TYPE = #{rtrnType} 
+	</select>
+
+	<insert id="insertMenuSignUp" parameterType="GenMenuVO">
+		INSERT INTO GEN_MENU (
+		    SCH_ID, MENU_NM, MENU_LINK,
+		    MENU_ID, MENU_USE_OK, MENU_TYPE
+		    
+		) VALUES (
+		    #{schId},
+		    #{menuNm},
+		    #{menuLink},
+		    #{menuId},
+		    #{menuUseOk},
+		    #{menuType}
+		)
+	</insert>
+	
+	<insert id="insertPrjctSignUp" parameterType="PrjctVO">
+		INSERT INTO PRJCT (
+		    PRJCT_ID, SCH_ID
+		) VALUES (
+		    'PRJ'||LPAD(PRJCT_SEQ.NEXTVAL, 3, 0),
+		    #{schId}
+		)
+	</insert>
+	
+	<select id="selectPrjctList" parameterType="string" resultType="PrjctVO">
+		SELECT PRJCT_ID, SCH_ID, LAYOUT_ID 
+		FROM PRJCT 
+		WHERE SCH_ID = #{schId}
+	</select>
+	
+	<insert id="insertGenSite" parameterType="GenSiteVO">	
+		INSERT INTO GEN_SITE (
+		    PRJCT_ID
+		   
+		) VALUES (
+		    #{prjctId}
+		)
+	</insert>
+	
+	<insert id="insertSchLogo" parameterType="SchLogoVO">
+		INSERT INTO SCH_LOGO (
+		    SCH_ID
+		) VALUES (
+		    #{schId}
+		)
+	</insert>
+	
+	<insert id="insertGenMainImg" parameterType="GenMainImgVO">
+		INSERT INTO GEN_MAIN_IMG (
+		    SCH_ID,
+		    ORD_NUM
+		
+		) VALUES (
+		    #{schId},
+		    #{ordNum}
+		)
+	
+	</insert>
+	
+	<insert id="insertGenAlertBrd" parameterType="GenAlertBrdVO">
+		INSERT INTO GEN_ALERT_BRD (
+		    SCH_ID,
+		    ORD_NUM
+		
+		) VALUES (
+		     #{schId},
+		    #{ordNum}
+		)
+	</insert>
+	
+	<insert id="insertGenFooter" parameterType="GenFooterVO"> 
+		INSERT INTO GEN_FOOTER (
+		    SCH_ID
+		
+		) VALUES (
+		    #{schId}
+		)
+	</insert>
+	
+	<insert id="insertGenCald" parameterType="GenCaldVO">
+		INSERT INTO GEN_CALD (
+		    SCH_ID
+		
+		) VALUES (
+		    #{schId}
+		)
+	</insert>
+	
+</mapper>

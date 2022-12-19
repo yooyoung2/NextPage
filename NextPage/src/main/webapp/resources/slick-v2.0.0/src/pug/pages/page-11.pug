@@ -1,0 +1,20 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-13
+include ../mixins/blocks/features/Features-16
+include ../mixins/blocks/content/Content-28
+include ../mixins/blocks/footer/Footer-10
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Navigation-13('Slick').navbar-light.bg-white.shadow-lg
+	+Features-16
+	+Content-28
+	+Footer-10

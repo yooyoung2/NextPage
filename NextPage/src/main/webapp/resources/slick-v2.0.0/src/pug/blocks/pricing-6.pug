@@ -1,0 +1,15 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/pricing/Pricing-6
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+	link(href=`${CWD}vendors/basictable/basictable.min.css` rel='stylesheet')
+	
+append scripts
+	script(src=`${CWD}vendors/basictable/basictable.min.js`)
+
+append mainContent
+	+Pricing-6

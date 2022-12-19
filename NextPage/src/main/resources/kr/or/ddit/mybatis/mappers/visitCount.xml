@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.operator.Index.dao.VisitCountDAO">
+<!--
+
+	작성자 : 최현우
+ 
+ -->
+	
+	<!-- 누적 방문자 수 -->
+	<select id = "selectVistorsAll" resultType="int">
+		SELECT COUNT(*) FROM VISITOR
+	</select>
+	
+
+	<!-- 일간 방문자 수 -->
+	<select id = "selectDailyVisitor" resultType = "VisitCountVO">
+		SELECT	DISTINCT TO_DATE(VISIT_TIME) AS day, 
+				COUNT(*) AS visitorAmount 
+		FROM VISITOR 
+		WHERE TO_DATE(VISIT_TIME) = TO_CHAR(SYSDATE,'YYYY/MM/DD')
+		GROUP BY TO_DATE(VISIT_TIME)
+		ORDER BY TO_DATE(VISIT_TIME)
+	</select>
+	
+	<!-- 주간 방문자 수 -->
+	<select id = "selectWeeklyVisitor" resultType = "VisitCountVO">
+		SELECT	DISTINCT TO_DATE(VISIT_TIME) AS day,
+				COUNT(*) AS visitorAmount 
+		FROM VISITOR 
+		WHERE TO_DATE(VISIT_TIME) BETWEEN SYSDATE - 7 AND SYSDATE
+		GROUP BY TO_DATE(VISIT_TIME)
+		ORDER BY TO_DATE(VISIT_TIME)
+	</select>
+	
+	<!-- 월간 방문자 수 -->
+	<select id = "selectMonthlyVisitor" resultType = "VisitCountVO">
+		SELECT	DISTINCT TO_DATE(VISIT_TIME) AS day,
+				COUNT(*) AS visitorAmount 
+		FROM VISITOR 
+		WHERE TO_DATE(VISIT_TIME) BETWEEN SYSDATE - 30 AND SYSDATE
+		GROUP BY TO_DATE(VISIT_TIME)
+		ORDER BY TO_DATE(VISIT_TIME)
+	</select>
+	
+	
+
+</mapper>

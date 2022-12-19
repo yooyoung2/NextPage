@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="kr.or.ddit.operator.select.authority.dao.SelectAuthorityDAO">
+
+	<!-- 검색, 페이징처리 -->
+	<sql id="searchFrag">
+		WHERE 1 = 1
+		<trim prefix="AND(" suffix=")">
+			1 = 1
+			<if test="simpleCondition neq null">
+				<if test="simpleCondition.searchType neq null and simpleCondition.searchType neq '' ">
+					AND NPM.MEM_AUTH = #{simpleCondition.searchType}
+				</if>
+				<if test="simpleCondition.searchWord neq null and simpleCondition.searchWord neq '' ">
+					AND INSTR(SCH_NM, #{simpleCondition.searchWord}) > 0
+					OR INSTR(NPD.ADMIN_NM,#{simpleCondition.searchWord} ) > 0
+				</if>
+			</if>
+		</trim>
+	</sql>
+
+<select id="selectTotalRecord" parameterType="PagingVO" resultType="int">
+     SELECT COUNT(*)
+	 FROM    NP_MEMBER NPM
+		FULL OUTER JOIN NP_ADMIN NPD ON NPD.ADMIN_ID = NPM.NP_MEM_ID
+		FULL OUTER JOIN SCHOOL S ON S.SCH_ID = NPM.NP_MEM_ID
+      <include refid="searchFrag" />
+   </select>
+
+	<select id="selectAllmember" parameterType="PagingVO" resultType="NpMemberVO">
+	WITH SORTEDBOARD AS (
+
+		SELECT  NPM.NP_MEM_ID,
+	       		NPM.MEM_AUTH,
+	        	S.SCH_NM,
+	        	NPD.ADMIN_NM
+		FROM    NP_MEMBER NPM
+			FULL OUTER JOIN NP_ADMIN NPD ON NPD.ADMIN_ID = NPM.NP_MEM_ID
+			FULL OUTER JOIN SCHOOL S ON S.SCH_ID = NPM.NP_MEM_ID
+		<include refid="searchFrag" />
+		ORDER BY NPM.MEM_AUTH,S.SCH_NM,NPM.NP_MEM_ID
+	), RNUMBOARD AS (
+	    SELECT ROWNUM RNUM, SORTEDBOARD.*
+	    FROM SORTEDBOARD
+	)
+	SELECT *
+	FROM RNUMBOARD
+		<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+	]]>
+	</select>
+
+
+</mapper>

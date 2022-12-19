@@ -1,0 +1,27 @@
+mixin Header-12
+	+Section({image: `${CWD}assets/img/51.jpg`, className: "overlay overlay-0"},).py-sm-0.text-center#header-12
+		.row.min-vh-100.align-items-center
+			.col.my-6
+				img(src=`${CWD}assets/img/slick-logo.svg` width=70 alt='')
+				h6.fw-semi-bold.fs-0.ls.text-200.mb-6.mt-3 Welcome to Slick
+				h1.fs-lg-7.fw-semi-bold.text-white.lh-1 The Smart UI Kit
+				.row.justify-content-center
+					.col-lg-8
+						#carouselExampleIndicators.carousel.slide(data-bs-ride='carousel')
+							.carousel-inner.mt-3
+								.carousel-item.active
+									p.lead.text-400.px-xl-5.mb-4 Customize your design magically with minimum coding knowledge and no CSS at all with prebuilt #{numbers.csshelpers} CSS helpers.
+								.carousel-item
+									p.lead.text-400.px-xl-5.mb-4 Have the power to built beautiful websites in no time with 156 unique sections, 20 prebuilt demo pages and 32 component sets.
+								.carousel-item
+									p.lead.text-400.px-xl-5.mb-4 All the hassle of editing jumbled code is finally alleviated with Slick's properly indented, structured and fully modular core.
+							.row.mt-4
+								.col.position-relative
+									.carousel-indicators
+										button.active(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+										button(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2')
+										button(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3')
+				
+				a(href=generator_link target='_blank').btn.btn-light.rounded-pill.mt-4
+					span.fas.fa-play.me-2
+					| Start Creating

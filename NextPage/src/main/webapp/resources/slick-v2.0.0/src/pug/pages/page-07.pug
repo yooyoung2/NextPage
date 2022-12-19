@@ -1,0 +1,17 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/header/Header-7
+include ../mixins/blocks/footer/Footer-1
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	
+append mainContent
+	+Header-7
+	hr.bg-300.opacity-100
+	+Footer-1
+

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="kr.or.ddit.operator.payment.status.dao.PaymentStatusDAO">
+
+	<!-- 검색, 페이징처리 -->
+	<sql id="searchFrag">
+		<trim prefix="AND(" suffix=")">
+			1 = 1
+			<if test="simpleCondition neq null">
+				<if
+					test="simpleCondition.searchType neq null and simpleCondition.searchType neq '' ">
+					AND B.LOG_TYPE_ID = #{simpleCondition.searchType}
+				</if>
+				<if
+					test="simpleCondition.searchWord neq null and simpleCondition.searchWord neq '' ">
+					AND INSTR(B.LOG_HPN_ID, #{simpleCondition.searchWord}) > 0
+				</if>
+				<if
+					test="simpleCondition.searchStartDate neq null and simpleCondition.searchStartDate neq ''">
+					AND B.LOG_HPN_TIME BETWEEN #{simpleCondition.searchStartDate}
+					AND
+					#{simpleCondition.searchEndDate}
+				</if>
+			</if>
+		</trim>
+	</sql>
+
+<!-- ===================================================================================================== -->
+
+	<!-- 페이징 -->
+	<select id = "getList" resultType = "PayVO">
+		<![CDATA[
+			
+			
+			SELECT  *
+        
+			FROM ( SELECT ROWNUM RN,
+			        A.*
+			        FROM(   
+
+			       			SELECT  PB.PAY_DATE payDate,
+			        		SCH.SCH_NM schNm,
+			        		GT.TMPLT_ID tmpltId,
+			        		GT.TMPLT_NM tmpltNm
+			        
+							FROM    GEN_TEMPLATE GT
+							FULL OUTER JOIN GEN_SITE GS ON GT.TMPLT_ID = GS.TMPLT_ID
+							FULL OUTER JOIN PRJCT PRJ ON GS.PRJCT_ID = PRJ.PRJCT_ID
+							FULL OUTER JOIN SCHOOL SCH ON PRJ.SCH_ID = SCH.SCH_ID
+							FULL OUTER JOIN CART ON CART.SCH_ID = SCH.SCH_ID
+							FULL OUTER JOIN PAY_BRKDWN PB ON CART.CART_ID = PB.CART_ID
+							WHERE   PB.PAY_DATE IS NOT NULL
+							        AND
+							        SCH.SCH_NM IS NOT NULL
+							        AND
+							        GT.TMPLT_ID IS NOT NULL
+							        AND
+							        GT.TMPLT_NM IS NOT NULL
+			        
+			            ) A 
+			        )
+                WHERE RN > ( #{pageNum} - 1 ) * #{amount} AND RN <= #{pageNum} * #{amount}
+					
+		]]>
+	</select>
+	
+<!-- ===================================================================================================== -->
+	<select id="selectTotalRecord" parameterType="PagingVO"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM SCHOOL A, NP_LOG B
+		WHERE A.SCH_ID= B.LOG_HPN_ID
+		<include refid="searchFrag" />
+	</select>
+
+
+	<select id="selectAllLog" parameterType="PagingVO"
+		resultType="LogVO">
+
+		WITH SORTEDBOARD AS (
+
+		SELECT
+		A.SCH_ID
+		,A.SCH_NM
+		,B.LOG_ID
+		,B.LOG_TYPE_ID
+		,B.LOG_HPN_ID
+		,TO_CHAR(B.LOG_HPN_TIME, 'YYYY-MM-DD HH24:MI:SS') LOG_HPN_TIME
+		,B.LOG_CNTNT
+		FROM SCHOOL A, NP_LOG B
+		WHERE A.SCH_ID= B.LOG_HPN_ID
+		<include refid="searchFrag" />
+		ORDER BY
+		B.LOG_HPN_TIME DESC
+		), RNUMBOARD AS (
+		SELECT ROWNUM RNUM, SORTEDBOARD.*
+		FROM SORTEDBOARD
+		)
+		SELECT *
+		FROM RNUMBOARD
+		<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+	]]>
+	</select>
+
+	<select id="selectLog" resultType="LogVO"
+		parameterType="Integer">
+		SELECT
+		LOG_ID,
+		LOG_TYPE_ID,
+		LOG_HPN_ID,
+		LOG_HPN_TIME,
+		LOG_CNTNT
+		FROM
+		NP_LOG
+		WHERE LOG_TYPE_ID = #{logTypeId,jdbcType=NUMERIC}
+		ORDER BY LOG_HPN_TIME DESC
+	</select>
+
+</mapper>

@@ -1,0 +1,27 @@
+mixin ComponentCard
+  .component-preview
+    block
+    pre.language-html.border.mb-0.p-3.mt-5
+      code
+        +escape
+          block
+              
+mixin ComponentCardLib(config)
+  - config = Object.assign({lang: 'html'}, config)
+  if config.codeTitle
+    h5.mt-3(class=`${config.codeTitleClass || ''}`)=config.codeTitle
+  pre.my-3.px-3
+    code.language-html
+      +escape
+        block
+      
+mixin PreviewBlock(config={})
+  div(class=`${config.previewContainerClass || 'mb-2'}`)&attributes(attributes) 
+    if config.title || config.desc 
+      .pb-3
+        if config.title
+          h5(class=`${config.titleClass || ''}`)= config.title 
+        if config.desc
+          p(class=`${config.descClass || ''}`)!=config.desc
+    div(class=`${config.previewClass || ''}`)
+      block

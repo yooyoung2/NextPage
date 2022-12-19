@@ -1,0 +1,28 @@
+mixin Contact-5
+	+Section#contact-5
+		.row.justify-content-center
+			.col-lg-6.text-center
+				h2 Don't hesitate to reach us
+				p.lead.mt-3.pe-lg-4 We are a community driven, open minded team. Share your thoughts, advices or insights with us.
+			.col-12.col-lg-10.mt-5
+				form.row.gx-4.gy-3.justify-content-center.p-3.p-md-5.bg-100.rounded-3.border.text-300(data-form)
+					.col-md-12
+						input.form-control.bg-white.border-2(type="hidden" name="to" value="username@domain.extension")
+					.col-md-6
+						label(for='exampleInputName1').ls.text-uppercase.text-900.fw-bold.mb-0 First Name
+						input#exampleInputName1.form-control.bg-white(type="text" name="firstname" required)
+					.col-md-6
+						label(for='exampleInputName2').ls.text-uppercase.text-900.fw-bold.mb-0 Last Name
+						input#exampleInputName2.form-control.bg-white(type="text" name="lastname" required)
+					.col-md-6
+						label(for='exampleInputCompany').ls.text-uppercase.text-900.fw-bold.mb-0 Company
+						input#exampleInputCompany.form-control.bg-white(type="text" name="company" required)
+					.col-md-6
+						label(for='exampleInputEmail1').ls.text-uppercase.text-900.fw-bold.mb-0 Email
+						input#exampleInputEmail1.form-control.bg-white(type="email" name="from" required)
+					.col-12.mb-3
+						label(for='exampleInputPassword1').ls.text-uppercase.text-900.fw-bold.mb-0 Message
+						textarea#exampleInputPassword1.form-control.bg-white(rows='8' name="message")
+					.col-md-6.text-center.mt-4.d-grid
+						input.btn.btn-primary(type="submit" name="submit" value="Send!")
+					.feedback.mt-3

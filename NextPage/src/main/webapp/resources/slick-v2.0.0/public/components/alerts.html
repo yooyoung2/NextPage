@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Slick | Create Beautiful Websites. Effortlessly.</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="../vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../vendors/prism/prism.css" rel="stylesheet">
+    <link href="../vendors/hamburgers/hamburgers.min.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet" />
+    <link href="../assets/css/user.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../vendors/iconsmind/iconsmind.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </head>
+
+
+  <body>
+    <div class="preloader" id="preloader" data-preloader>
+      <div class="preloader-wrapper big active" data-preloader>
+        <div class="spinner-layer spinner-white-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-slick navbar-expand-lg navbar-dark fixed-top py-2 bg-dark sticky-top">
+      <div class="container container-wide-xl"><a class="navbar-brand ls-2 p-0 me-4" href="../index.html"><img src="../assets/img/slick-logo.svg" alt="SLiCK" width="50" /></a>
+        <button class="navbar-toggler hamburger hamburger--emphatic" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="../showcase-pages.html">Pages</a></li>
+            <li class="nav-item"><a class="nav-link" href="../all-blocks.html">All Blocks</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink" href="#!" data-bs-toggle="dropdown" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Components<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <div class="dropdown-menu fade dropdown-components shadow-lg" aria-labelledby="navbarDropdownMenuLink">
+                <div class="row justify-content-between">
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/accordion.html">Accordion</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/alerts.html">Alerts</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/backgrounds.html">Backgrounds</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/badges.html">Badges</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/borders.html">Borders</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/buttons.html">Buttons</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/cards.html">Cards</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/carousel.html">Carousel</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/colors.html">Colors</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/dropdowns.html">Dropdowns</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/filter.html">Filter</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/fontawesome.html">Fontawesome</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/forms.html">Forms</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/googlemap.html">Google Map</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/grid.html">Grid</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/iconsmind.html">Iconsmind</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/lightbox.html">Lightbox</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/masonary.html">Masonary</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal-video.html">Modal video</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal.html">Modal</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navbar.html">Navbar</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/parallax.html">Parallax</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/scrollspy.html">Scrollspy</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/sizing.html">Sizing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/smtpjs.html">Smtpjs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/spacing.html">Spacing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tables.html">Tables</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tooltips.html">Tooltips</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typed-text.html">Typed text</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typography.html">Typography</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/zanimation.html">Zanimation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink2" href="#!" data-bs-toggle="dropdown-on-hover" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Docs<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <ul class="dropdown-menu rounded fade border-0 bg-white shadow-lg" aria-labelledby="navbarDropdownMenuLink2">
+                <li><a class="dropdown-item link-700" href="../docs/getting-started.html">Getting Started</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/file-structure.html">File Structure</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/customization.html">Customization</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/gulp.html">Gulp</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/generator.html">Generator</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/plugins.html">Plugins</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/changelog.html">Changelog </a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="../sitemap.html">Sitemap</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://prium.github.io/slick/v2.0.0/generator.html" target="_blank">Generator</a></li>
+            <li class="nav-item"><a class="btn btn-outline-light rounded-pill btn-sm border-2 ms-lg-2" href="https://themewagon.com/themes/slick/" target="_blank">Purchase </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-8 pb-6 bg-200">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="fw-medium font-sans-serif fs-3 fs-sm-4">Alerts</h1>
+            </div>
+            <div class="col-lg-6">
+              <p class="text-800 fs-1 font-sans-serif">These modular elements can be readily used and customized in every layout across pages.</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-0 pb-5">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-9 pt-8">
+              <p class="fs-1 font-sans-serif">For detail documentation. <a href="https://getbootstrap.com/docs/5.1/components/alerts/" target="_blank">View Alerts on Bootstrap<span class="d-inline-block ms-1">&xrarr;</span></a></p>
+              <div class="row">
+                <div class="col-lg-12 mb-4 mb-lg-0">
+                  <h5>Basic Example</h5>
+                  <div class="component-preview">
+                    <div class="alert alert-primary" role="alert">A simple primary alert—check it out!</div>
+                    <div class="alert alert-secondary" role="alert">A simple secondary alert—check it out!</div>
+                    <div class="alert alert-success" role="alert">A simple success alert—check it out!</div>
+                    <div class="alert alert-danger" role="alert">A simple danger alert—check it out!</div>
+                    <div class="alert alert-warning" role="alert">A simple warning alert—check it out!</div>
+                    <div class="alert alert-info" role="alert">A simple info alert—check it out!</div>
+                    <div class="alert alert-light" role="alert">A simple light alert—check it out!</div>
+                    <div class="alert alert-dark mb-0" role="alert">A simple dark alert—check it out!</div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;A simple primary alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-secondary&quot; role=&quot;alert&quot;&gt;A simple secondary alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;A simple success alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;A simple danger alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot;&gt;A simple warning alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;A simple info alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-light&quot; role=&quot;alert&quot;&gt;A simple light alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-dark mb-0&quot; role=&quot;alert&quot;&gt;A simple dark alert—check it out!&lt;/div&gt;</code></pre>
+                  </div>
+                  <h5 class="mt-4">Additional Content</h5>
+                  <div class="component-preview">
+                    <div class="alert alert-success" role="alert">
+                      <h4 class="alert-heading fw-semi-bold">Well done!</h4>
+                      <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                      <hr />
+                      <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+  &lt;h4 class=&quot;alert-heading fw-semi-bold&quot;&gt;Well done!&lt;/h4&gt;
+  &lt;p&gt;Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.&lt;/p&gt;
+  &lt;hr /&gt;
+  &lt;p class=&quot;mb-0&quot;&gt;Whenever you need to, be sure to use margin utilities to keep things nice and tidy.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                  <h5 class="mt-4">Icons</h5>
+                  <div class="component-preview">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+                      </symbol>
+                      <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path>
+                      </symbol>
+                      <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                      </symbol>
+                    </svg>
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                      <svg class="bi me-2" width="24" height="24" role="img" aria-label="Info:">
+                        <use href="#info-fill"></use>
+                      </svg>
+                      <div>
+                        An example alert with an icon
+
+                      </div>
+                    </div>
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                      <svg class="bi me-2" width="24" height="24" role="img" aria-label="Success:">
+                        <use href="#check-circle-fill"></use>
+                      </svg>
+                      <div>
+                        An example success alert with an icon
+
+                      </div>
+                    </div>
+                    <div class="alert alert-warning d-flex align-items-center" role="alert">
+                      <svg class="bi me-2" width="24" height="24" role="img" aria-label="Warning:">
+                        <use href="#exclamation-triangle-fill"></use>
+                      </svg>
+                      <div>
+                        An example warning alert with an icon
+
+                      </div>
+                    </div>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                      <svg class="bi me-2" width="24" height="24" role="img" aria-label="Danger:">
+                        <use href="#exclamation-triangle-fill"></use>
+                      </svg>
+                      <div>
+                        An example danger alert with an icon
+
+                      </div>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;display: none;&quot;&gt;
+  &lt;symbol id=&quot;check-circle-fill&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot;&gt;
+    &lt;path d=&quot;M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z&quot;&gt;&lt;/path&gt;
+  &lt;/symbol&gt;
+  &lt;symbol id=&quot;info-fill&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot;&gt;
+    &lt;path d=&quot;M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z&quot;&gt;&lt;/path&gt;
+  &lt;/symbol&gt;
+  &lt;symbol id=&quot;exclamation-triangle-fill&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot;&gt;
+    &lt;path d=&quot;M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z&quot;&gt;&lt;/path&gt;
+  &lt;/symbol&gt;
+&lt;/svg&gt;
+&lt;div class=&quot;alert alert-primary d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+  &lt;svg class=&quot;bi me-2&quot; width=&quot;24&quot; height=&quot;24&quot; role=&quot;img&quot; aria-label=&quot;Info:&quot;&gt;
+    &lt;use href=&quot;#info-fill&quot;&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+  &lt;div&gt;
+    An example alert with an icon
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-success d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+  &lt;svg class=&quot;bi me-2&quot; width=&quot;24&quot; height=&quot;24&quot; role=&quot;img&quot; aria-label=&quot;Success:&quot;&gt;
+    &lt;use href=&quot;#check-circle-fill&quot;&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+  &lt;div&gt;
+    An example success alert with an icon
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+  &lt;svg class=&quot;bi me-2&quot; width=&quot;24&quot; height=&quot;24&quot; role=&quot;img&quot; aria-label=&quot;Warning:&quot;&gt;
+    &lt;use href=&quot;#exclamation-triangle-fill&quot;&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+  &lt;div&gt;
+    An example warning alert with an icon
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+  &lt;svg class=&quot;bi me-2&quot; width=&quot;24&quot; height=&quot;24&quot; role=&quot;img&quot; aria-label=&quot;Danger:&quot;&gt;
+    &lt;use href=&quot;#exclamation-triangle-fill&quot;&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+  &lt;div&gt;
+    An example danger alert with an icon
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                  <h5 class="mt-4">Dismissing</h5>
+                  <div class="component-preview">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                      <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;alert alert-warning alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;&lt;strong&gt;Holy guacamole!&lt;/strong&gt; You should check in on some of those fields below.
+  &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-none d-lg-block col-auto mb-5 my-8">
+              <div class="sticky-sidebar ps-4">
+                <ul class="components-nav list-unstyled" id="components-nav">
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/accordion.html">Accordion</a></li>
+                  <li><a class="link-primary fw-bold font-sans-serif text-capitalize" href="../components/alerts.html">Alerts</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/backgrounds.html">Backgrounds</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/badges.html">Badges</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/borders.html">Borders</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/buttons.html">Buttons</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/cards.html">Cards</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/carousel.html">Carousel</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/colors.html">Colors</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/dropdowns.html">Dropdowns</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/filter.html">Filter</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/fontawesome.html">Fontawesome</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/forms.html">Forms</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/googlemap.html">Google Map</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/grid.html">Grid</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/iconsmind.html">Iconsmind</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/lightbox.html">Lightbox</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/masonary.html">Masonary</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal-video.html">Modal video</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal.html">Modal</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navbar.html">Navbar</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/parallax.html">Parallax</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/scrollspy.html">Scrollspy</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/sizing.html">Sizing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/smtpjs.html">Smtpjs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/spacing.html">Spacing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tables.html">Tables</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tooltips.html">Tooltips</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typed-text.html">Typed text</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typography.html">Typography</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/zanimation.html">Zanimation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <footer class="bg-100 text-1100 py-3 fs--1 fw-semi-bold position-absolute bottom-0 w-100">
+        <div class="container-wide">
+          <div class="row justify-content-between">
+            <div class="col-12 col-md-auto mb-1 mb-md-0 font-base">&copy; 2022 Slick &trade; Inc.</div>
+            <div class="col-12 col-md-auto">
+              <p class="text-900 mb-0">Made with<span class="fas fa-heart mx-2"></span>by <a class="link-900" href="https://themewagon.com/" target="_blank"> Themewagon</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!--===============================================-->
+    <!--    Footer-->
+    <!--===============================================-->
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../vendors/popper/popper.min.js"></script>
+    <script src="../vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../vendors/anchorjs/anchor.min.js"></script>
+    <script src="../vendors/is/is.min.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/fontawesome/all.min.js"></script>
+    <script src="../vendors/lodash/lodash.min.js"></script>
+    <script src="../vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../vendors/gsap/gsap.js"></script>
+    <script src="../vendors/gsap/customEase.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

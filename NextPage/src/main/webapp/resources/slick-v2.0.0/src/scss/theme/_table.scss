@@ -1,0 +1,9 @@
+.table {
+	> thead {
+    background-color: $gray-200;
+		border-top: 1px solid $gray-300 !important;
+  }
+	> :not(:first-child) {
+    border-top: 0;
+  }
+}

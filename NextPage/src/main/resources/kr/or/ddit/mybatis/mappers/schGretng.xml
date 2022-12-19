@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 학교매니저 기능관리 학교장 인사말 -->
+
+<mapper namespace="kr.or.ddit.school.manager.menu.hello.dao.MenuHelloDAO">
+
+
+	<!-- 학교장인사말등록 -->
+	<insert id="insertHello" parameterType="SchGretngVO">
+
+		INSERT INTO SCH_GRETNG (
+		    SCH_ID,
+		    CNTNT,
+		    FILE_NAME
+
+		) VALUES (
+		    #{schId, jdbcType=VARCHAR},
+			#{cntnt, jdbcType=VARCHAR},
+			#{fileName, jdbcType=VARCHAR}
+		)
+	</insert>
+
+
+<!-- 학교장인사말 조회 -->
+	<select id="selectHello" parameterType="String" resultType="SchGretngVO">
+		SELECT
+		    SCH_ID,
+		    CNTNT,
+		    FILE_NAME,
+		    SAVE_NAME,
+		    SAVE_PATH
+		FROM
+		    SCH_GRETNG
+		WHERE SCH_ID=#{schId, jdbcType=VARCHAR}
+	</select>
+
+<!-- 학교장인사말 수정 -->
+
+	<update id="updateHello" parameterType="SchGretngVO">
+	   UPDATE SCH_GRETNG
+		    SET
+		        CNTNT = #{cntnt, jdbcType=VARCHAR},
+		        FILE_NAME = #{fileName, jdbcType=VARCHAR}
+		WHERE
+		    SCH_ID = #{schId, jdbcType=VARCHAR}
+
+	</update>
+	    
+
+</mapper>
+

@@ -1,0 +1,46 @@
+extends Layout
+
+append variables
+	- var title = 'Slick';
+	- var CWD = './';
+	- var isBuilder = true
+
+block styles
+	link(rel='preconnect' href='https://fonts.googleapis.com')
+	link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+	link(href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap' rel='stylesheet')
+	link(href=`${CWD}vendors/iconsmind/iconsmind.css` rel='stylesheet')
+	link(href=`${CWD}vendors/loaders.css/loaders.min.css` rel='stylesheet')
+	link(href=`${CWD}vendors/remodal/remodal.css` rel='stylesheet')
+	link(href=`${CWD}vendors/remodal/remodal-default-theme.css` rel='stylesheet')
+	link(href=`${CWD}vendors/iconsmind/iconsmind.css` rel='stylesheet')
+	link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+	link(href=`${CWD}vendors/hamburgers/hamburgers.min.css`, rel='stylesheet')
+	link(href='assets/css/theme.css' rel='stylesheet')
+	link(href='assets/css/user.css' rel='stylesheet')
+
+block beforeMainContent
+	
+
+
+block scripts
+	script(src=`${CWD}vendors/popper/popper.min.js`)
+	script(src=`${CWD}vendors/bootstrap/bootstrap.min.js`)
+	script(src=`${CWD}vendors/anchorjs/anchor.min.js`)
+	script(src=`${CWD}vendors/is/is.min.js`)
+	script(src=`${CWD}vendors/prism/prism.js`)
+	script(src=`${CWD}vendors/overlayscrollbars/OverlayScrollbars.min.js`)
+	script(src=`${CWD}vendors/imagesloaded/imagesloaded.pkgd.min.js`)
+	script(src=`${CWD}vendors/fontawesome/all.min.js`)
+	script(src=`${CWD}vendors/lodash/lodash.min.js`)
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+	script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+	script(src=`${CWD}vendors/glightbox/glightbox.min.js`)
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+	script(src=`${CWD}vendors/imagesloaded/imagesloaded.pkgd.min.js`)
+	script(src=`${CWD}vendors/gsap/gsap.js`)
+	script(src=`${CWD}vendors/gsap/customEase.js`)
+	script(src='assets/js/theme.js')

@@ -1,0 +1,57 @@
+mixin GalleryOneLightbox(config)
+	a(href=`${CWD}assets/img/gallery/1/${config.img}.jpg` data-gallery="gallery-1").d-block.w-100
+		img(src=`${CWD}assets/img/gallery/1/${config.img}.jpg`, alt="" ).img-fluid.rounded-3
+
+mixin Gallery-1
+	+Section('container-fluid').py-3
+		.row.g-3.gy-2#gallery-1(data-sl-isotope!={
+				layoutMode: 'packery',   
+			})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 1, 
+				}) 
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 4, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 7, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 10, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 2, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 5, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 11, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 8, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 3, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 12, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 6, 
+				})
+			.col-6.col-md-4.col-lg-3.isotope-item.pe-2
+				+GalleryOneLightbox({
+					img: 9, 
+				})

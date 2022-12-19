@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.history.dao.GenLogDAO">
+
+
+<!-- 검색, 페이징처리 -->
+<sql id="searchFrag">
+	<trim prefix="AND(" suffix=")">
+		1 = 1
+		<if test="simpleCondition neq null">
+			<if
+				test="simpleCondition.searchType neq null and simpleCondition.searchType neq '' ">
+				AND GR.RECRD_TYPE = #{simpleCondition.searchType}
+			</if>
+			<if
+				test="simpleCondition.searchWord neq null and simpleCondition.searchWord neq '' ">
+				AND INSTR(SB.MEM_NM, #{simpleCondition.searchWord}) > 0
+			</if>
+			<if
+				test="simpleCondition.searchStartDate neq null and simpleCondition.searchStartDate neq ''">
+				AND GR.RECRD_DATE BETWEEN #{simpleCondition.searchStartDate} AND
+				#{simpleCondition.searchEndDate}
+			</if>
+		</if>
+	</trim>
+</sql>
+
+<insert id="insertLog" parameterType="GenRCRDVO">
+	INSERT INTO GEN_RCRD (
+	    RECRD_ID,
+	    RECRD_TYPE,
+	    RECRD_DATE,
+	    RECRD_CNDTN,
+	    CNDTN_MDFR,
+	    MANU_NM
+		) VALUES (
+			GEN_LOG_SEQ.NEXTVAL
+			, #{recrdType, jdbcType=VARCHAR}
+			, SYSDATE
+			, #{recrdCndtn, jdbcType=VARCHAR}
+			, #{cndtnMdfr, jdbcType=VARCHAR}
+			, #{manuNm, jdbcType=VARCHAR}
+
+		)
+</insert>
+
+ <select id="selectTotalRecord" parameterType="PagingVO" resultType="int">
+    SELECT COUNT(*)
+	FROM
+	    GEN_RCRD GR, SCH_MEMBER SB
+    WHERE SB.SCH_ID=#{schId, jdbcType=VARCHAR}
+    AND	GR.CNDTN_MDFR = SB.MEM_ID
+     <include refid="searchFrag" />
+  </select>
+
+<select id="selectAllLog" parameterType="PagingVO" resultType="GenRCRDVO">
+	WITH SORTEDBOARD AS (
+		SELECT
+		    GR.RECRD_ID,
+		    GR.RECRD_TYPE,
+		    TO_CHAR(GR.RECRD_DATE, 'YYYY-MM-DD HH24:MI:SS') RECRD_DATE,
+		    GR.RECRD_CNDTN,
+		    GR.CNDTN_MDFR,
+		    GR.MANU_NM,
+	        SB.MEM_NM
+		FROM
+		    GEN_RCRD GR, SCH_MEMBER SB
+	    WHERE SB.SCH_ID=#{schId, jdbcType=VARCHAR}
+	    AND GR.CNDTN_MDFR = SB.MEM_ID
+	  <include refid="searchFrag" />
+		ORDER BY GR.RECRD_DATE DESC
+	), RNUMBOARD AS (
+		    SELECT ROWNUM RNUM, SORTEDBOARD.*
+		    FROM SORTEDBOARD
+		)
+		SELECT *
+		FROM RNUMBOARD
+	<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+	]]>
+</select>
+
+
+</mapper>

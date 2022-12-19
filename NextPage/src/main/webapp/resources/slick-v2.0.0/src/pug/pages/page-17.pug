@@ -1,0 +1,27 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-10
+include ../mixins/blocks/header/Header-17
+include ../mixins/blocks/features/Features-1
+include ../mixins/blocks/cta/Cta-19
+include ../mixins/blocks/pricing/Pricing-3
+include ../mixins/blocks/forms/Forms-8
+include ../mixins/blocks/footer/Footer-11
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+
+	+Navigation-10('Slick','white', true).navbar-dark.position-fixed.w-100.z-index-2
+	+Header-17
+	+Features-1
+	+Cta-19
+	+Pricing-3 
+	+Forms-8
+	+Footer-11(style='background-color: #0a0407 !important;')
+

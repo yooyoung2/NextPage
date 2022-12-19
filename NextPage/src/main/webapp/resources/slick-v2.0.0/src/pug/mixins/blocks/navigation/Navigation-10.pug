@@ -1,0 +1,18 @@
+mixin Navigation-10(brand, color, isNavbarONScroll)
+	nav.navbar.navbar-expand-lg.py-2&attributes(attributes)(data-navbar-dark-on-scroll!=isNavbarONScroll)
+		.container
+			a.navbar-brand(href=`${CWD}index.html`)
+				!=brand
+			button.navbar-toggler.hamburger.hamburger--emphatic(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+				span.hamburger-box
+					span.hamburger-inner
+			.collapse.navbar-collapse#navbarSupportedContent
+				ul.navbar-nav.ms-auto
+					li.nav-item
+						a.nav-link(href='#!') Tour
+					li.nav-item
+						a.nav-link(href='#!') About
+					li.nav-item
+						a(href='#' class=`btn-outline-${color}`).btn.btn-sm.fw-bold.rounded-pill
+							span.fab.fa-apple.me-2
+							| Buy App

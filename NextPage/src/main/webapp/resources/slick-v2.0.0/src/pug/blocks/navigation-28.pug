@@ -1,0 +1,14 @@
+extends ../layouts/LayoutBlock
+include ../mixins/common/HamburgerMenu
+include ../mixins/blocks/navigation/Navigation-14
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+	+Navigation-14('Slick',false,'border-300').navbar-light.bg-light

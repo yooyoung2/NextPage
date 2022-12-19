@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.nextpage.template.dao.nextpageTemplateDAO">
+	<sql id="searchFlag">
+		<where>
+			<if	test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				INSTR(TMPLT_NM,'${simpleCondition.searchWord}')>0
+			</if>
+		</where>
+	</sql>
+	
+
+
+	<select id="selectTotalRecord" parameterType="PagingVO" resultType="int">
+	     SELECT COUNT(*)
+		 FROM GEN_TEMPLATE
+		 WHERE TMPLT_PAY_OK = 'COST'
+	</select>
+	
+	
+	<select id="selectCostTemplateList" parameterType="PagingVO" resultType="genTemplateVO">
+		WITH SORTPAY AS (
+		    SELECT TMPLT_ID, TMPLT_NM, TMPLT_BKGRD, 
+		           TMPLT_INFO, TMPLT_THMNL, TMPLT_PAY_OK
+			FROM GEN_TEMPLATE
+			WHERE TMPLT_PAY_OK = 'COST'
+			<include refid="searchFlag" />
+		),RNUMPAY AS(
+			SELECT SORTPAY.*,ROWNUM RNUM
+			FROM SORTPAY
+			ORDER BY TMPLT_ID
+		)
+		SELECT *
+		FROM RNUMPAY
+		<![CDATA[
+			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+		]]>
+	</select>
+	
+		<select id="selectFreeTemplateList" parameterType="PagingVO" resultType="genTemplateVO">
+		WITH SORTPAY AS (
+		    SELECT TMPLT_ID, TMPLT_NM, TMPLT_BKGRD, 
+		           TMPLT_INFO, TMPLT_THMNL, TMPLT_PAY_OK
+			FROM GEN_TEMPLATE
+			WHERE TMPLT_PAY_OK = 'FREE'
+		),RNUMPAY AS(
+			SELECT SORTPAY.*,ROWNUM RNUM
+			FROM SORTPAY
+			ORDER BY TMPLT_ID
+		)
+		SELECT *
+		FROM RNUMPAY
+		<![CDATA[
+			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+		]]>
+	</select>
+	
+	
+	<insert id="cartInsert" parameterType="CartVO">
+	INSERT INTO CART(CART_ID,SCH_ID,PROD_ID)
+	VALUES(CART_SQE.NEXTVAL,#{schId,jdbcType=VARCHAR},#{prodId,jdbcType=VARCHAR})
+	</insert>
+	
+	
+</mapper>

@@ -1,0 +1,23 @@
+.hamburger-inner,.hamburger-inner:after,.hamburger-inner:before {
+	background-color: $white !important;
+	width: 37px !important;
+	height: 1px !important;
+}
+.hamburger-inner:before {
+	top: -7px;
+}
+.hamburger--emphatic .hamburger-inner:after {
+	top: 7px;
+}
+.hamburger{
+	padding: 0 !important;
+	margin-right: 5px;
+}
+
+.navbar-light .hamburger-inner, .navbar-light .hamburger-inner:after, .navbar-light .hamburger-inner:before {
+	background-color: $black !important;
+}
+
+.hamburger-box {
+	height: 28px;
+}

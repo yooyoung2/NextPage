@@ -1,0 +1,30 @@
+extends ../layouts/LayoutTheme
+include ../mixins/common/HamburgerMenu
+include ../mixins/blocks/navigation/Navigation-14
+include ../mixins/blocks/forms/Forms-6
+include ../mixins/blocks/content/Content-10
+include ../mixins/blocks/features/Features-15
+include ../mixins/blocks/pricing/Pricing-2
+include ../mixins/blocks/team/Team-3
+include ../mixins/blocks/content/Content-3
+include ../mixins/blocks/footer/Footer-11
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Navigation-14('Slick', true, {searchBoxClass:'border-200'}).navbar-dark.position-fixed.w-100.z-index-1.shadow-sm
+	+Forms-6
+	+Content-10
+	+Features-15
+	+Pricing-2
+	+Team-3
+	+Content-3
+	+Footer-11
+

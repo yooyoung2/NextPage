@@ -1,0 +1,34 @@
+mixin Forms-7
+	+Section.py-0#forms-7
+		.row.flex-center.min-vh-100.py-8
+			.col-md-8.col-lg-6.pe-lg-5.pe-xl-8.order-1.order-lg-0
+				h1.fw-light Make an 
+					span.fw-bold impact
+				p.lead Encourage leads and users to take action with targeted email, push, and in-app messages triggered by time or behavior
+				
+				form.row.g-3.mt-4
+					.col-12
+						input.form-control.bg-white(type="email" placeholder="Your Email")
+					.col-6.pe-2
+						input.form-control.bg-white(type="password" placeholder="Create Password")
+					.col-6.ps-2
+						input.form-control.bg-white(type="password" placeholder="Retype Password")
+
+					p.fs--1 By signing up, you agree to 
+						a(href="#") Terms of Service.
+					.mt-1
+						.row.align-items-center
+							.col-auto
+								button.btn.btn-primary.mt-4(type='submit') Sign Up
+
+							.col.d-flex.mt-4
+								.me-4.align-self-center.text-500 or using
+								a(href='#').me-3
+									span.fab.fa-facebook.text-400.fs-2
+								a(href='#').me-3
+									span.fab.fa-twitter.text-400.fs-2
+								a(href='#').me-3
+									span.fab.fa-google-plus-g.text-400.fs-2
+
+			.col-md-8.col-lg-6.text-lg-end
+				img(src=`${CWD}assets/img/work-chat.png` alt="").img-fluid

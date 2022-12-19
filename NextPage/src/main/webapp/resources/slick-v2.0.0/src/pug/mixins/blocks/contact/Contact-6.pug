@@ -1,0 +1,29 @@
+mixin Contact-6
+	+Section#contact-6
+		.row
+			.col-lg-6
+				h2 Hello from Slick
+				p.lead.mt-3.pe-md-11.pe-lg-0 Slick has half of its core people working with the community - to learn, engage and give back.
+		.row.mt-5
+			.col-lg-6
+				form.row.g-3(data-form)
+					input.form-control(type="hidden" name="to" value="username@domain.extension")
+					.col-12
+						input.form-control(type="text" name="name" placeholder="Your Name" required)
+					.col-12
+						input.form-control(type="text" name="subject" placeholder="Subject" required)
+					.col-12
+						input.form-control(type="email" name="from" placeholder="Your Email" required)
+					.col-12
+						textarea.form-control(rows='11' name="message" placeholder="Drop us a line")
+					.col-12.text-end.d-grid
+						input.btn.btn-primary(type="submit" name="submit" value="Send!")
+					.feedback
+
+			.col.mt-5.mt-lg-0
+				.googlemap.rounded-3( data-gmap data-latlng='37.4408194,-122.0204993', data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png` data-zoom='12' data-theme='Default' style="min-height: 489px")
+					.marker-content.py-3
+						h4.mb-2 Alviso
+						p Alviso is a neighborhood in San Jose,
+							br
+							| Santa Clara County, California.

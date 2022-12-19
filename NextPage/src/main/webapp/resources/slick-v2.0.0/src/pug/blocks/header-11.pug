@@ -1,0 +1,9 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/header/Header-11
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append mainContent
+	+Header-11

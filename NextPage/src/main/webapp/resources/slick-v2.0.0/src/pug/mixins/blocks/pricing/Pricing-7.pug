@@ -1,0 +1,42 @@
+mixin Pricing-7
+	+Section#pricing-7
+		.row
+			.col-lg-8
+				h2.mt-0.mb-5.text-center Modular pricing table
+		.row.justify-content-between
+			.col-lg-8
+				.table-responsive
+					table.table.border-x-0
+						thead
+							tr.fs--1.ls.text-uppercase.text-700
+								th.font-sans-serif Email credit
+								th.text-center.font-sans-serif price per email
+								th.font-sans-serif.text-end Prepay ammount
+
+						tbody
+							tr
+								td 10.000
+								td.text-center 0.02
+								td.text-end &dollar;200	
+							tr
+								td 20.000
+								td.text-center 0.01
+								td.text-end &dollar;250
+							tr
+								td 50.000
+								td.text-center 0.01
+								td.text-end &dollar;500
+							tr
+								td 75.000
+								td.text-center 0.01
+								td.text-end &dollar;250
+							tr
+								td 200.000
+								td.text-center 5/thousand
+								td.text-end &dollar;500
+
+			.col-lg-4.col-xl-3
+				.p-4.rounded-3(style="background-color: #FEFAEF")
+					h5.text-700 Start today
+					p.fw-light.text-700 Learn more about the pages, layouts, elements and more.
+					a(href=`${CWD}showcase-pages.html`).btn.btn-danger.btn-sm.mt-3 Explore

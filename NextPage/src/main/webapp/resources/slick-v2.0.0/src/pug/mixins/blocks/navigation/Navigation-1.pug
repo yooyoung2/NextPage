@@ -1,0 +1,26 @@
+mixin Navigation-1(isNavbarONScroll)
+	nav.navbar.navbar-expand-lg.py-2.nav-container&attributes(attributes)(data-navbar-dark-on-scroll!=isNavbarONScroll)
+		.container
+			a.navbar-brand.position-lg-absolute.absolute-centered-lg(href=`${CWD}index.html`) Slick
+			button.navbar-toggler.hamburger.hamburger--emphatic(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+				span.hamburger-box
+					span.hamburger-inner
+			.collapse.navbar-collapse#navbarSupportedContent
+				ul.navbar-nav.mb-2.mb-lg-0.text-center.text-lg-start.ms-n3
+					li.nav-item
+						a.nav-link.px-4(aria-current='page' href='#!') Contact
+					li.nav-item
+						a.nav-link.px-4(href='#!') Content
+					li.nav-item
+						a.nav-link.px-4(href='#!') CTA
+					li.nav-item
+						a.nav-link.px-4(href='#!') Feature
+				ul.navbar-nav.ms-auto.text-center
+					li.nav-item
+						a.nav-link.px-4(href='#!') Header
+					li.nav-item
+						a.nav-link.px-4(href='#!') Pricing
+					li.nav-item
+						a.nav-link.px-4(href='#!') Navigation
+					li.nav-item
+						a.nav-link.px-4(href='#!') Team

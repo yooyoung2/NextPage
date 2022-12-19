@@ -1,0 +1,17 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/gallery/Gallery-3
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Gallery-3
+

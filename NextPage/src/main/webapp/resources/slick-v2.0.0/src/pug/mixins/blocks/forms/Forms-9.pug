@@ -1,0 +1,23 @@
+mixin Forms-9
+	+Section({image: `${CWD}assets/img/52.jpg`, className: "overlay overlay-0"}).text-center.py-md-10#forms-9
+		.row.justify-content-center
+			.col-xl-7.col-lg-9.col-md-11
+				h2.mb-3.text-white Join Slick, 
+					br.d-sm-none
+					| Get Inside Scoops.
+				p.text-400.mb-5 Get notified about the latest web design news and weekly promotional offers
+					br.d-none.d-xl-block
+					| by signing up with Slick newsletter today. No signup fee, cancel subscription anytime.
+
+			.col-12
+				form
+					.row.justify-content-center
+						.col-lg-6.col-md-9
+							.input-group.mb-3
+								input.form-control(type="email" placeholder="Your email address", aria-label="Recipient's username")
+								.input-group-append
+									button.btn.btn-danger(type="submit" value="Sign Up") Sign up
+				
+				p.fs--1.text-500.mb-0.mt-4 By signing up, you agree to the 
+					a(href="#").text-500
+						u Terms of Services

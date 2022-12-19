@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.member.manage.dao.MemberManageDAO">
+
+<!--
+	작성자 : 최현우
+	컨텐츠 관련 sql 모음 
+-->
+ 	<insert id = "insertContent" parameterType="SchMemberVO">
+ 		INSERT INTO GEN_CNTNT
+		(
+    		CNTNTS_ID,
+    		SCH_ID,
+    		CNTNTS_TITLE,
+    		CNTNTS_CNTNT
+		)
+		VALUES
+		(
+    		GEN_CNTNT_SEQ.NEXTVAL,
+    		#{schId},
+    		#{cntntsTitle},
+    		#{cntntsCntnt}
+		)
+ 	</insert>
+	
+	<!-- 페이징 -->
+	<select id = "getList" resultType = "SchMemberVO">
+		<![CDATA[
+			SELECT *
+			FROM ( SELECT ROWNUM RN,
+					A.*
+				FROM( SELECT *
+						FROM  SCH_MEMBER
+						WHERE SCH_ID = #{schId}
+						ORDER BY MEM_ID DESC ) A )
+			WHERE RN > ( #{pageNum} - 1 ) * #{amount} AND RN <= #{pageNum} * #{amount} 
+			
+		]]>
+	</select>
+	 
+	<!-- 튜플 전체 개수  -->
+	<select id = "getTotal" parameterType="String" resultType = "int">
+		SELECT COUNT(*) AS total FROM SCH_MEMBER WHERE SCH_ID = #{schId}
+	</select>
+	
+
+ 	<!-- 컨텐츠 하나 가져오기 -->
+ 	<select id = "getSchMember" parameterType="String" resultType = "SchMemberVO">
+ 		SELECT * FROM SCH_MEMBER WHERE MEM_ID = #{memId}
+ 	</select>
+ 	
+ 	<update id = "updateSchMember" parameterType="SchMemberVO">
+ 		UPDATE	GEN_CNTNT SET
+    			CNTNTS_TITLE = #{cntntsTitle},
+    			CNTNTS_CNTNT = #{cntntsCntnt}
+		WHERE   CNTNTS_ID = #{cntntsId}
+ 	</update>
+ 	
+ 	<delete id = "delSchMember" parameterType="string">
+ 		DELETE FROM GEN_CNTNT WHERE CNTNTS_ID = #{cntntsId}
+ 	</delete>
+
+</mapper>

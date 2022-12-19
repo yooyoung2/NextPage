@@ -1,0 +1,13 @@
+mixin Cta-4
+	+Section({image: `${CWD}assets/img/26.jpg`, className: "overlay overlay-1"}).text-center.py-5#cta-4
+		.row.justify-content-center
+			.col-xl-8.py-6
+				h1.fs-4.fs-md-6.fw-light.font-base.lh-3.text-100 Try the 
+					br.d-sm-none
+					span.fw-bold powerful 
+					| builder
+				p.lead.fw-light.mt-3.text-300.mt-4 The powerful page builder lets you create beautiful 
+					br.d-none.d-sm-block
+					| layouts with just clicks.
+
+				a(href=purchase_link target='_blank').btn.btn-danger.rounded-pill.mt-5 Purchase for &dollar;#{numbers.price}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.homepage.manage.dao.HomePageManageDAO">
+	
+	<select id="selectGenSiteList" parameterType="string" resultType="GenSiteVO">
+		SELECT GS.PRJCT_ID, SCH_ID, GS.TMPLT_ID, GT.TMPLT_NM, GS.HOME_SELECT, P.LAYOUT_ID, GT.TMPLT_THMNL
+		FROM PRJCT P , GEN_SITE GS, GEN_TEMPLATE GT
+		WHERE P.SCH_ID = #{schId}
+		AND P.PRJCT_ID = GS.PRJCT_ID
+		AND GS.TMPLT_ID = GT.TMPLT_ID(+)
+		ORDER BY P.PRJCT_ID
+	</select>
+	
+	<update id="updateGenSite" parameterType="GenSiteVO" >
+		UPDATE GEN_SITE
+		SET TMPLT_ID = #{tmpltId}
+		    , LAYOUT_ID= #{layoutId}
+		WHERE PRJCT_ID = #{prjctId}
+	</update>
+	
+	<update id="clearGenSite" parameterType="string" >
+		UPDATE GEN_SITE
+		SET TMPLT_ID = NULL
+		    , LAYOUT_ID= NULL 
+		WHERE PRJCT_ID = #{prjctId}
+	</update>
+	
+	<update id="deleteHomeSelect" parameterType="string">
+		UPDATE GEN_SITE 
+		SET HOME_SELECT = 'NO'
+		WHERE PRJCT_ID IN (SELECT GS.PRJCT_ID
+		                        FROM PRJCT P, GEN_SITE GS
+		                        WHERE SCH_ID = #{schId}
+		                        AND P.PRJCT_ID = GS.PRJCT_ID
+		)
+	</update>
+	
+	<update id="updateHomeSelect" parameterType="string">
+		UPDATE GEN_SITE
+		SET HOME_SELECT = 'YES'
+		WHERE PRJCT_ID = #{prjctId}
+	</update>
+	
+	<select id="selectLayout" parameterType="string" resultType="LayoutVO">
+		SELECT LAYOUT_ID, LAYOUT_FILE, LAYOUT_SC
+		FROM LAYOUT 
+		WHERE LAYOUT_ID = (
+		        SELECT LAYOUT_ID 
+		        FROM PRJCT 
+		        WHERE PRJCT_ID = #{prjctId}
+		        )
+	</select>
+	
+	<select id="selectSlotOptList" parameterType="string" resultType="SlotOptVO">
+		SELECT SLOT_ID, SLOT_NM, SLOT_SIZE, 
+		       SLOT_FILE 
+		FROM SLOT_OPT 
+		WHERE SLOT_NM IN(SELECT SLOT_NM 
+		                 FROM SLOT_OPT
+		                 MINUS 
+		                 SELECT DIV_VALUE 
+		                 FROM SLOT 
+		                 WHERE PRJCT_ID=#{prjctId}
+		)
+	</select>
+	
+	<select id="selectDivInSlotOptList" parameterType="string" resultType="SlotOptVO">
+		SELECT SLOT_ID, SLOT_NM, SLOT_SIZE, 
+			   SLOT_FILE, S.DIV_NUM
+		FROM SLOT_OPT SO, SLOT S
+		WHERE S.DIV_VALUE=SO.SLOT_NM
+		AND S.PRJCT_ID=#{prjctId}
+	</select>
+	
+	<delete id="deleteSlot" parameterType="string">
+		DELETE FROM SLOT
+        WHERE PRJCT_ID=#{prjctId}
+	</delete>
+	
+	<insert id="InsertSlot" parameterType="SlotVO">
+		INSERT INTO SLOT (
+		    PRJCT_ID, DIV_NUM, DIV_VALUE
+		) VALUES (
+		   #{prjctId,jdbcType=VARCHAR},
+		   #{divNum,jdbcType=VARCHAR},
+		   #{divValue,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="countSlotNum" parameterType="string" resultType="int">
+		SELECT COUNT(*) CNT 
+		FROM SLOT 
+		WHERE PRJCT_ID =#{prjctId}
+		
+	</select>
+	 
+	<update id="updatePrjct" parameterType="PrjctVO">
+		UPDATE PRJCT
+		SET 
+			LAYOUT_ID= #{layoutId}
+		WHERE PRJCT_ID = #{prjctId}
+	</update>
+	
+	<select id="selectGenTmpThmnl" parameterType="string" resultType="genTemplateVO">
+		SELECT TMPLT_THMNL, TMPLT_MAIN, TMPLT_BANNER,
+				TMPLT_FOOT
+		FROM GEN_TEMPLATE 
+		WHERE TMPLT_ID = (
+		    SELECT TMPLT_ID 
+		    FROM GEN_SITE 
+		    WHERE PRJCT_ID=#{prjctId}
+		)
+	</select>
+</mapper>
+
+
+
+

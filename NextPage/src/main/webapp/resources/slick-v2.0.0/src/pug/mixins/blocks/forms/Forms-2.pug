@@ -1,0 +1,61 @@
+mixin Forms-2
+	+Section#forms-2
+		.row.justify-content-center.py-4
+			.col-lg-7
+				h3.mb-4.font-base.fw-light.text-center How would you like to pay?
+				form
+					.border.border-200.rounded-3.overflow-hidden.border-2
+						.bg-100.py-4.px-3.px-lg-5
+							.zinput.zradio
+								input#r1(name='r1', type='radio')
+								label.w-100.mb-0(for='r1')
+									span.fs-1.ps-2.me-3.text-1100 PayPal
+									img(src=`${CWD}assets/img/icons/icon-paypal-full.png` height=24 alt='')
+
+							.ms-5
+								p.text-500.me-md-8.mb-0 Pay with PayPal, Apple Pay, PayPal Credit and much more
+						.py-4.px-3.px-lg-5
+							.zinput.zradio
+								input#r2(name='r1', type='radio' checked)
+								label.w-100.mb-0(for='r2')
+									span.row
+										span.col-lg
+											span.fs-1.ps-2.text-1100 Credit Card
+										span.col-lg.text-lg-end
+											img.ms-2.mt-2.mt-lg-0(src=`${CWD}assets/img/icons/icon-payment-methods.png` height=24 alt='')
+							.row
+								.col-12
+									.ms-5
+										p.text-500.me-md-8.mb-4 Safe money transfer using your bank accounts. Visa, maestro, discover, american express.
+								.col-12
+									.ms-5
+									.row.align-items-center
+									.col.mb-3
+										label.ls.text-uppercase.text-700.fw-bold.mb-0 Card Number
+										input.form-control(type="text" placeholder="")
+
+									.row.align-items-center
+										.col-6.mb-3
+											label.ls.text-uppercase.text-700.fw-bold.mb-0 Exp Date
+											input.form-control(type="text" placeholder="MM/YY")
+										.col-6.mb-3
+											label.ls.text-uppercase.text-700.fw-bold.mb-0 CVV
+												a(href="#").d-inline-block
+													span.fa.fa-question-circle.ms-2.text-800
+											input.form-control(type="text" placeholder="")
+
+									.row.align-items-center
+										.col-12.mb-3
+											label.ls.text-uppercase.text-700.fw-bold.mb-0 Name on card
+											input.form-control(type="text" placeholder="")
+
+					.mt-4
+						.row.g-4.align-items-center
+							.col.mb-3.mb-lg-0.order-lg-2.d-grid
+								button.btn.btn-primary(type="submit")
+									span.fa.fa-lock.me-2
+									| Pay $299
+							.col-lg.text-lg-end.order-lg-1
+								small.text-500.d-inline-block By clicking check out button you agree with our 
+									a(href="#") terms &amp; conditions
+									|  and money back grantee. Thank you for trusting us.

@@ -1,0 +1,31 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-9
+include ../mixins/blocks/header/Header-2
+include ../mixins/blocks/features/Features-21
+include ../mixins/blocks/features/Features-9
+include ../mixins/blocks/pricing/Pricing-6
+include ../mixins/blocks/cta/Cta-7
+include ../mixins/blocks/forms/Forms-11
+include ../mixins/blocks/contact/Contact-6
+include ../mixins/blocks/footer/Footer-11
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+
+append mainContent
+	+Header-2
+	+Navigation-9('Slick').navbar-light.bg-white.sticky-top.shadow-sm
+	+Features-21
+	+Features-9
+	+Pricing-6
+	+Cta-7
+	+Contact-6
+	+Footer-11
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 학교매니저 기능관리 교가 -->
+
+<mapper namespace="kr.or.ddit.school.manager.song.dao.SchoolSongDAO">
+
+
+	<!-- 교가등록 -->
+	<insert id="insertSong" parameterType="SchoolSongVO">
+
+	INSERT INTO SCHOOL_SONG (
+	    SCH_ID,
+	   
+	    IMG_NM,
+	    MUSIC_NM
+	) VALUES (
+		#{schId, jdbcType=VARCHAR},
+		#{imgNm, jdbcType=VARCHAR},
+		#{musicNm, jdbcType=VARCHAR}
+	)
+	</insert>
+
+
+<!-- 학교장인사말 조회 -->
+	<select id="selectSong" parameterType="String" resultType="SchoolSongVO">
+		SELECT
+			SCH_ID,
+		    IMG_NM,
+		    MUSIC_NM
+		FROM
+		    SCHOOL_SONG
+		WHERE SCH_ID=#{schId, jdbcType=VARCHAR}
+	</select>
+
+<!-- 학교장인사말 수정 -->
+
+	<update id="updateSong" parameterType="SchoolSongVO">
+	   UPDATE SCHOOL_SONG
+		    SET
+			    IMG_NM       =	#{imgNm, jdbcType=VARCHAR},
+			    MUSIC_NM     =	#{musicNm, jdbcType=VARCHAR}
+		WHERE
+		    SCH_ID = #{schId, jdbcType=VARCHAR}
+
+	</update>
+
+</mapper>
+

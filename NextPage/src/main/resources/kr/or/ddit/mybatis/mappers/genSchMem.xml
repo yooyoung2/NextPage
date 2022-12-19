@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 11.17 강은비 : 제너레이팅 홈페이지 로그인,로그아웃, 회원가입을 위해 만듦-->
+
+
+<mapper namespace="kr.or.ddit.generation.school.schoolMember.dao.SchoolMemberDAO">
+
+
+<!-- ======================================================== -->
+<!-- 						KEB								  -->
+<!-- ======================================================== -->
+
+<!-- 입력한 학생이 있는가 없는가 -->
+<select id="isThereMychild" parameterType="SchMemberVO" resultType="int">
+SELECT COUNT(*)
+FROM SCH_MEMBER SM, STUD ST
+WHERE SM.MEM_ID = ST.STUD_ID
+AND SM.SCH_ID=#{schId}
+AND ST.STUD_ID=#{studId}
+AND SM.MEM_NM=#{studNm}
+</select>
+
+
+<!-- 회원정보 수정(마이페이지-비밀번호수정) -->
+<update id="updateGenMemPassword" parameterType="SchMemberVO" >
+	UPDATE
+		SCH_MEMBER
+	SET
+		MEM_PW = #{memPw, jdbcType=VARCHAR}
+	WHERE
+		SCH_ID=#{schId, jdbcType=VARCHAR}
+	AND
+		MEM_ID=#{memId, jdbcType=VARCHAR}
+</update>
+
+<!-- 회원정보 수정(마이페이지-정보수정) -->
+<update id="updateGenMemInfo" parameterType="SchMemberVO" >
+	UPDATE
+		SCH_MEMBER
+	SET
+		MEM_EMAIL = #{memEmail, jdbcType=VARCHAR}
+	,	TEL_NUM = #{telNum, jdbcType=VARCHAR}
+	WHERE
+		SCH_ID=#{schId, jdbcType=VARCHAR}
+	AND
+		MEM_ID=#{memId, jdbcType=VARCHAR}
+
+</update>
+
+<!-- 중복검사 -->
+<select id="checkMem" parameterType="SchMemberVO" resultType="int">
+	SELECT COUNT(*)
+	FROM SCH_MEMBER
+	WHERE MEM_ID=#{memId}
+</select>
+
+
+<!-- 교내 유저들 정보 끌고오기 -->
+<select id="selectSchMember" parameterType="SchMemberVO" resultType="SchMemberVO">
+	SELECT 
+	    MEM_ID
+	    , SCH_ID
+	    , MEM_PW
+	    , MEM_NM
+	    , MEM_EMAIL
+	    , TEL_NUM
+	FROM SCH_MEMBER
+	WHERE MEM_ID=#{memId}
+	AND SCH_ID = #{schId}
+</select>
+
+<!-- 학생인가? -->
+<select id="checkStudent" parameterType="SchMemberVO" resultType="int">
+SELECT
+	COUNT(*)
+FROM
+	STUD S, SCH_MEMBER SM
+WHERE
+	S.STUD_ID = SM.MEM_ID
+AND
+	S.STUD_ID = #{memId}
+AND
+	SM.SCH_ID = #{schId}
+</select>
+
+<!-- 교직원인가? -->
+<select id="checkTeacher" parameterType="SchMemberVO" resultType="int">
+SELECT
+	COUNT(*)
+FROM
+	EDUPSN E, SCH_MEMBER SM
+WHERE
+	E.EDUPSN_ID = SM.MEM_ID
+AND
+	E.EDUPSN_ID = #{memId} 
+AND
+	SM.SCH_ID = #{schId}
+</select>
+
+
+<!-- 학부모인가? -->
+<select id="checkParents" parameterType="SchMemberVO" resultType="int">
+SELECT
+	COUNT(*)
+FROM
+	SCH_PRNT P, SCH_MEMBER SM, PRNT_STUD PS
+WHERE
+	P.PRNT_ID = SM.MEM_ID
+AND
+	P.PRNT_ID = PS.PRNT_ID 
+AND
+	P.PRNT_ID = #{memId}
+AND
+    PS.APPROVAL_OK = 'YES'
+AND
+	SM.SCH_ID = #{schId}
+</select>
+
+
+<!-- 일반 회원가입 -->
+<insert id="insertMember" parameterType="SchMemberVO">
+INSERT INTO SCH_MEMBER (
+	SCH_ID
+	, MEM_ID
+	, MEM_PW
+	, MEM_NM
+	, MEM_EMAIL
+	, TEL_NUM
+	)
+VALUES(
+	#{schId,jdbcType=VARCHAR}
+	,#{memId,jdbcType=VARCHAR}
+	,#{memPw,jdbcType=VARCHAR}
+	,#{memNm,jdbcType=VARCHAR}
+	,#{memEmail,jdbcType=VARCHAR}
+	,#{telNum,jdbcType=VARCHAR}
+	)
+</insert>
+
+<!-- 학부모 등록 -->
+<insert id="insertParents" parameterType="SchMemberVO">
+INSERT INTO SCH_PRNT(
+	PRNT_ID
+	)
+VALUES(
+	#{memId,jdbcType=VARCHAR}
+	)
+</insert>
+
+<!-- 자녀, 학부모 매치 등록 -->
+<insert id="insertParentsAndStudent" parameterType="SchMemberVO">
+INSERT INTO PRNT_STUD(
+	PRNT_ID
+	, STUD_ID
+	)
+VALUES(
+	#{memId,jdbcType=VARCHAR}
+	, #{studId,jdbcType=VARCHAR}
+	)
+</insert>
+
+<!-- 이미 신청한 학생 학부모인지 -->
+<select id="checkPrntAuth" parameterType="SchMemberVO" resultType="StudAndPrntVO">
+SELECT *
+FROM PRNT_STUD
+WHERE PRNT_ID = #{memId}
+AND STUD_ID = #{studId}
+</select>
+
+
+<!-- 부모 슬하 학생 목록 -->
+<select id="selectMychildList" parameterType="SchMemberVO" resultType="SchMemberVO">
+SELECT PS.PRNT_ID,SM.MEM_NM,PS.STUD_ID, PS.APPROVAL_OK
+FROM SCH_MEMBER SM,PRNT_STUD PS
+WHERE SM.MEM_ID = PS.STUD_ID
+AND PS.PRNT_ID = #{memId}
+AND SM.SCH_ID = #{schId}
+</select>
+
+<!-- 학생 마이페이지에서 등록된 부모님 아이디 확인 -->
+<select id="selectMyPrnt" parameterType="SchMemberVO" resultType="SchMemberVO">
+SELECT PS.PRNT_ID,SM.MEM_NM, PS.APPROVAL_OK
+FROM SCH_MEMBER SM,PRNT_STUD PS
+WHERE SM.MEM_ID = PS.PRNT_ID
+AND PS.STUD_ID = #{memId}
+AND SM.SCH_ID = #{schId}
+</select>
+
+
+<!-- 교직원) 학부모 신청 들어온 목록 확인 -->
+<select id="selectAuthApproval" parameterType="SchMemberVO" resultType="SchMemberVO">
+SELECT PS.PRNT_ID,SM.MEM_NM,PS.STUD_ID, PS.APPROVAL_OK
+FROM SCH_MEMBER SM,PRNT_STUD PS
+WHERE SM.MEM_ID = PS.STUD_ID
+AND PS.APPROVAL_OK='NO'
+AND SM.SCH_ID = #{schId}
+</select>
+
+
+<update id="approvalAuth" parameterType="StudAndPrntVO" >
+UPDATE PRNT_STUD
+SET APPROVAL_OK='YES'
+WHERE PRNT_ID = #{prntId}
+AND STUD_ID=#{studId}
+</update>
+
+<delete id="returnEnroll" parameterType="StudAndPrntVO">
+DELETE
+FROM PRNT_STUD
+WHERE PRNT_ID = #{prntId}
+AND STUD_ID=#{studId}
+</delete>
+<!-- ======================================================== -->
+<!-- 						KEB.END							  -->
+<!-- ======================================================== -->
+
+
+
+</mapper>

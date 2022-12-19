@@ -1,0 +1,34 @@
+mixin Contact-2
+	+Section#contact-2
+		.row.justify-content-center
+			.col-lg-5.me-lg-6.mb-6.mb-lg-0
+				h3 Drop Us a Line
+				p We are always looking for a next great project.
+				
+				form.row(data-form).mt-5
+					.col-12.mb-3
+						input.form-control(type="email" name="email" placeholder="Your Email" required)
+					.col-12.mb-3
+						textarea.form-control(rows="9" name="message" placeholder="Drop us a line" required)
+					.col-12
+						button.btn.btn-dark.mt-3(type="submit" name="submit")
+							span.fas.fa-paper-plane(data-fa-transform="grow-6")
+							span.ms-3 submit
+					.feedback
+			.col-lg-6
+				h3 Find Us on Map
+				p Via Salaria, 243, 254654 Rome
+
+				.googlemap.shadow-sm.rounded-1.my-5(data-gmap data-latlng='41.8309698,-87.9951729' data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker-dark.png` data-zoom='15' data-theme='SubtleGray', style="min-height: 16.4375rem" )
+					.marker-content.py-3
+						h5 Tooltip title
+						p
+							| A nice description about your place
+							br
+							| Customize it as you want.
+				.d-flex
+					span.icon-Mail.text-primary.fs-1.d-inline-block.me-2
+					a(href="mailto:info@themewagon.com").fs--1.text-primary.d-inline-block.me-4 info@themewagon.com
+					span.icon-Phone-2.text-primary.fs-1.d-inline-block.me-2
+					a(href="tel:112-334-48-55").fs--1.text-primary.d-inline-block +112-334-48-55
+

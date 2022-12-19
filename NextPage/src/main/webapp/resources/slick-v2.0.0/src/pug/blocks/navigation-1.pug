@@ -1,0 +1,13 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/navigation/Navigation-1
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+	
+append scripts
+
+append mainContent
+	+Navigation-1.navbar-dark.bg-dark

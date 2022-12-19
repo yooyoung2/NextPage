@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+<style>
+#shopping_cart{
+position:absolute;
+right:190px;
+top:-20px;
+width:220px;
+height:360px;
+padding:0px;
+border:1px dotted red;
+}
+</style>
+<script>
+function allowDrop(e)
+{e.preventDefault();}
+
+function handleDragStart(e){
+e.dataTransfer.effectAllowed='move';
+e.dataTransfer.setData("Text",e.target.id);
+}
+
+
+function handleDrop(e){
+e.preventDefault();
+var src=e.dataTransfer.getData("Text");
+
+e.target.appendChild(document.getElementById(src));
+var user=confirm("장바구니에 담으시겠습니까?");
+}
+</script>
+
+</head>
+
+
+
+<body>
+
+<div id="shopping_cart"
+ondrop="handleDrop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="img1" src="audio.png" draggable="true" class="b"
+ondragstart="handleDragStart(event)" width="300" height="400">
+
+<img id="img2" src="tv.png" draggable="true" class="b"
+ondragstart="handleDragStart(event)" width="300" height="400">
+
+<div id="buck">
+장바구니</div>
+
+</body>
+</html>

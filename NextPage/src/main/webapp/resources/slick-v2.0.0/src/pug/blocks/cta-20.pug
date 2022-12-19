@@ -1,0 +1,14 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/cta/Cta-20
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+	
+append mainContent
+	+Cta-20

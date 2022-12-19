@@ -1,0 +1,22 @@
+mixin Footer-1
+	+Section.text-center.py-6#footer-1
+		.row.align-items-center
+			.col-md.order-md-2
+				a(href=`${CWD}index.html`)
+					img(src=`${CWD}assets/img/slick-logo-black.svg` alt="" width=50)
+				h5.text-1100.fw-bold.mt-3
+					| Slick 
+					span.fw-normal Inc.
+			.col-md.text-md-start.text-uppercase.fw-semi-bold.fs--1.mt-4.mt-md-0
+				a(href="#").link-800.me-3 About
+				a(href="#").link-800.me-3 Policy
+				a(href="#").link-800 Terms
+
+			.col-md.text-md-end.text-uppercase.fw-semi-bold.fs--1.mt-3.mt-md-0.order-md-3
+				a(href="#").link-800.me-3 Contacts
+				a(href="#").link-800.me-2
+					span.fab.fa-twitter
+				a(href="#").link-800.me-2
+					span.fab.fa-facebook-f
+				a(href="#").link-800
+					span.fab.fa-google-plus-g

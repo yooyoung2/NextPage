@@ -1,0 +1,27 @@
+mixin Testimonials-1
+	mixin item(description, img, place)
+		div
+			p.text-900.mb-0.lead.pe-lg-7=description
+			.d-flex.my-4
+				img.me-3(src=`${CWD}assets/img/portraits/square/${img}` alt="profile" style='width: 40px').rounded-pill
+				.flex-1.mt-2
+					p.mb-0=place
+
+	+Section#testimonials-1
+		.row.justify-content-center
+			.col-lg-10
+				.slick-line.mb-4(data-zanim-xs!={from:{'width': '0'}, to:{'width': '100%'}, duration: 1, delay: 0.2} data-zanim-trigger='scroll' style="height: 2px; opacity: 0.4; background: linear-gradient(to right, #ea4774 0%, #7f4ba9 100%);")
+				.d-flex.align-items-start
+					img.d-flex.me-3.me-md-6(style="width: 57px;" src=`${CWD}assets/img/icons/icon-quote.svg` alt='quote')
+					.flex-1.pe-sm-2(style='overflow-x: hidden')
+					
+						#carouselTesitimonialOne.carousel.slide.h-100.carousel-slider(data-bs-ride='carousel')
+							.carousel-inner.h-100
+								.carousel-item.active.h-100
+									+item("The most important part of Slick is the simplicity; it's amazingly simple and intuitive. If you think of a class name that should be appropriate to control a  CSS property, it's right there for you. And you can control it from the HTML code. This is really impressive.", '02.jpg', 'Noah Kingon, UX Knight')
+								.carousel-item.h-100
+									+item("The template is what it is, you can have a look at the previews to realize how strong it can become with a little work. The real plus comes with the after sales service! They helped me until my template was plugged and ready to use in the way I wanted.", '03.jpg', 'Olivia, ThemeWagon')
+							button.carousel-control-next(type='button' data-bs-target='#carouselTesitimonialOne' data-bs-slide='next')
+								span.carousel-control-next-icon(aria-hidden='true')
+								span.visually-hidden Next	
+				.slick-line.mt-4(data-zanim-xs!={from:{'width': '0'}, to:{'width': '100%'}, duration: 1, delay: 0.6} data-zanim-trigger='scroll' style="height: 2px; opacity: 0.4; background: linear-gradient(to right, #7f4ba9 0%, #00b8f8 100%);")

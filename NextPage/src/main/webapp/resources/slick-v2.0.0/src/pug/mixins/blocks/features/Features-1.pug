@@ -1,0 +1,28 @@
+mixin Features-1
+	+Section("container-fluid").py-0#features-1
+		.row
+			.col.py-6.position-relative
+				+Background({image: `${CWD}assets/img/42.jpg`, className: " "})
+			.col-xl-10.bg-white.py-6.px-md-6.py-xl-10.px-xl-8
+				.row
+					.col-lg-9
+						h2.mb-3
+							| Stay ahead of the 
+							br
+							| trend with brilliant design
+						p.lead.text-500 With Apple like animation, brilliant interaction and excellent design, you can make a outstanding website that stands out in the crowd. 
+
+				.row.justify-content-center.justify-content-xl-start.mt-6
+					.col-sm-6.col-xl-5.pe-4.d-flex.align-items-start
+						img(src=`${CWD}assets/img/icons/lightbulb_idea.svg` alt="" width=70).me-3
+						.flex-1
+							h6 Completely Responsive
+							p Bootstrap 5 is powerful and robust framework that makes slick responsive.
+							a(href=purchase_link target='_blank').btn-link.mt-3.fs-0.font-sans-serif.text-transform-none Try Slick Now &xrarr;
+
+					.col-sm-6.col-xl-5.mt-4.mt-sm-0.pe-4.d-flex.align-items-start
+						img(src=`${CWD}assets/img/icons/sunglasses.svg` alt="" width=60).me-3
+						.flex-1
+							h6 Future proof technology
+							p Slick uses all the latest technologies so that you have a future proof tool in your hand.
+							a(href=purchase_link target='_blank').btn-link.mt-3.fs-0.font-sans-serif.text-transform-none Download Slick &xrarr;

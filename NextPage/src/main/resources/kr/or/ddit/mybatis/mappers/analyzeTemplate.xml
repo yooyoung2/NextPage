@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.operator.analyze.template.dao.AnalyzeTemplateDAO">
+	
+	<!--
+		작성자 :  최현우
+		운영자/인덱스/탬플릿분석 
+		
+		( 이상 무 )
+	 -->
+	<select id = "sellectAmount" resultType="AnalyzeTemplateVO">
+		SELECT  DISTINCT TMPLT_NM,
+        		COUNT(*) AS AMOUNT    
+		FROM GEN_TEMPLATE
+		GROUP BY TMPLT_NM
+	</select>
+	
+</mapper>

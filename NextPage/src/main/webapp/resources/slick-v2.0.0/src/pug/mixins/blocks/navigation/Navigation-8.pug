@@ -1,0 +1,30 @@
+mixin Navigation-8(brand, isNavbarONScroll)
+	nav.navbar.navbar-expand-lg.py-2&attributes(attributes)(data-navbar-dark-on-scroll!=isNavbarONScroll)
+		.container
+			a.navbar-brand(href=`${CWD}index.html`)
+				!=brand
+			button.navbar-toggler.hamburger.hamburger--emphatic(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+				span.hamburger-box
+					span.hamburger-inner
+
+			.collapse.navbar-collapse#navbarNav
+				ul.navbar-nav
+					li.nav-item
+						a.nav-link(aria-current='page' href='#!') Home
+					li.nav-item
+						a.nav-link(href='#!') Feature
+					li.nav-item
+						a.nav-link(href='#!') Blog
+					li.nav-item
+						a.nav-link(href='#!') API
+					li.nav-item
+						a.nav-link(href='#!') Help	
+
+				ul.navbar-nav.ms-auto.fs-0.pt-0
+					li.d-flex.ms-lg-3
+						a.nav-link(href='#').px-2
+							span.fab.fa-twitter
+						a.nav-link(href='#').px-2
+							span.fab.fa-facebook-f
+						a.nav-link(href='#').px-2
+							span.fab.fa-google-plus-g

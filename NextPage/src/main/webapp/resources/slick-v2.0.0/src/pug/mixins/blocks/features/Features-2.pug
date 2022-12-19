@@ -1,0 +1,22 @@
+mixin Features-2
+	+Section#features-2
+		.row
+			.col-lg-8
+				h2.mb-3 For creatives, makers &amp; doers
+				p.lead Whether you are a business owner, professional or freelancer, Slick offers the easiest way to create websites - instantaneously and swiftly. It is designed cleverly for mesmeric and exceptional UX.
+
+		.row.mt-5
+			.col.col-md-5.col-lg-4.text-center.mx-3.mb-4.mb-lg-0.py-5.d-flex.flex-center.position-relative
+				+Background({image: `${CWD}assets/img/07.jpg`, className: "rounded-3 h-100 z-index--1"})
+				a(data-bigpicture='{"ytSrc":"Cw58R9FWeCY"}').cursor-pointer
+					img(src=`${CWD}assets/img/icons/icon-play.svg` alt="play" width=60)
+
+			.col-md-6.col-lg-5.ps-lg-4
+				h5 Watch the demo
+				p.pe-xl-5 Slick is the design tool from the future that combines both design and technology in its core, 
+					br.d-none.d-xl-block 
+					| a giant step in web world.
+
+				a(href=purchase_link target='_blank').btn.btn-dark.rounded-pill.mt-3
+					span.fab.fa-apple.me-3(data-fa-transform="grow-6")
+					| Purchase Slick

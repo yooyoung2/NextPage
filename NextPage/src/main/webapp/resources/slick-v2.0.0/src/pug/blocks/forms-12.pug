@@ -1,0 +1,14 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/forms/Forms-12
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+	
+append mainContent
+	+Forms-12

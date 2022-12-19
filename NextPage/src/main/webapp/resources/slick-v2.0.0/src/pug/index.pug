@@ -1,0 +1,47 @@
+extends layouts/LayoutTheme
+include mixins/common/Wave
+include mixins/common/Masonary
+include mixins/common/ShowcaseContent
+
+prepend scripts
+  script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+  script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+
+append variables
+  - var hideNavbar = true;
+  - var hideFooter = true;
+
+append mainContent
+  +Section({image: `${CWD}assets/img/header_showcase.jpg`, className: 'overlay', attrs: {style: 'background-position: top'}}, 'container-fluid p-0').pt-7.pt-md-9.pb-0.text-center
+    .row.flex-center.mx-auto.showcase-banner
+      .col.px-sm-4
+        h1.text-white.fs-4.fs-sm-5.fs-lg-7.fw-light.mb-4 Start with 
+          strong.fw-bold  Excellence
+        p.lead.text-300.opacity-75  What you create is who you are. Slick is designed for the people who have the love for excellence, believe in excellence and love to create impressive things that stand out. Here is more than #{numbers.layouts} ready to use elegant UI blocks to start with.  
+    +Wave
+    
+  block sortable 
+    mixin ShowcaseBlockCard(blockName, counter)
+      a(href=`${CWD}blocks/${blockName}-${counter}.html` target='_blank' class=`${blockName}`).col-6.col-lg-4.isotope-item
+        img(src=`${CWD}assets/img/screenshots/blocks/${blockName}-${counter}.jpg` alt=`${blockName}`).img-fluid.mb-3.rounded.shadow-lg
+      
+    .container.container-wide-xl.showcase-content
+      .row.justify-content-center.align-items-center.mx-auto(class=`${!filter && 'mb-0'}` style='max-width: 52rem;')
+        .col.px-sm-4.mt-6.mb-5.pt-2
+          ul.nav.font-sans-serif.justify-content-center.px-1.showcase-nav(data-filter-nav)&attributes(attributes)
+            li.nav-item.mb-3
+              a.isotope-nav(href="#!" data-filter='*') ALL
+            each blockName in TARGET_SORT_ARRAY
+              li.nav-item.mb-3
+                a.isotope-nav.text-uppercase(href="#!" data-filter=`.${blockName}` class=`${blockName === 'header' ? 'active' : ''}`)=blockName
+          
+    .container.container-wide-xl
+      .row.gx-3.mx-0(data-sl-isotope!={
+        layoutMode: 'packery',
+        filter:'.header'
+        })
+        each blockName in TARGET_SORT_ARRAY
+          - var counter = 1
+          while counter <= blocks[blockName]
+            +ShowcaseBlockCard(blockName, counter++)
+  +ShowcaseCTA('black')    

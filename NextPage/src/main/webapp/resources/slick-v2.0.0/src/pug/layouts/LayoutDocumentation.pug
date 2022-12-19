@@ -1,0 +1,41 @@
+extends LayoutTheme
+include ../mixins/navbar/NavbarDocs
+include ../mixins/documentation/Mixins
+include ../mixins/documentation/Plugins
+include ../mixins/common/Card
+
+append variables
+
+prepend styles
+	link(href=`${CWD}vendors/prism/prism.css`, rel='stylesheet')
+
+prepend scripts
+	script(src=`${CWD}vendors/prism/prism.js`)
+
+append beforeMainContent
+	if(!hideNavbar)
+		+Navbar.bg-dark
+
+append mainContent
+	+Section('container-wide').pt-8.pb-6.bg-200
+		.row
+			.col-lg-8
+				h1.fw-medium.font-sans-serif.fs-3.fs-sm-4 #{pageTitle || 'Documentation'}
+
+	+Section('container-wide')#doc.p-0
+		.row
+			.col-lg-9.py-8
+				block documentation
+			.d-none.d-lg-block.col-auto.mb-5.my-8
+				.sticky-sidebar.ps-4
+					+NavbarDocs
+
+	footer.bg-100.text-1100.py-3.fs--1.fw-semi-bold.position-absolute.bottom-0.w-100
+		.container-wide
+			.row.justify-content-between
+				.col-12.col-md-auto.mb-1.mb-md-0.font-base &copy; 2022  #{name} &trade; Inc.
+				.col-12.col-md-auto
+					p.text-900.mb-0 Made with
+						span.fas.fa-heart.mx-2
+						| by
+						a(href="https://themewagon.com/" target="_blank").link-900  Themewagon

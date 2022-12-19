@@ -1,0 +1,30 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-9
+include ../mixins/blocks/header/Header-8
+include ../mixins/blocks/features/Features-6
+include ../mixins/blocks/features/Features-10
+include ../mixins/blocks/cta/Cta-2
+include ../mixins/blocks/team/Team-1
+include ../mixins/blocks/pricing/Pricing-5
+include ../mixins/blocks/forms/Forms-11
+include ../mixins/blocks/footer/Footer-13
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Navigation-9('Slick', true).navbar-dark.position-fixed.z-index-2.w-100
+	+Header-8
+	+Features-6
+	+Features-10
+	+Cta-2 
+	+Team-1
+	+Pricing-5
+	+Footer-13
+

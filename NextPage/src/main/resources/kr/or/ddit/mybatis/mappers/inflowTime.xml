@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.operator.inflow.time.dao.InflowTimeDAO">
+
+	<!--
+		작성자 : 최현우
+		기능 : 운영자/통계분석/유입시간대 분석
+		
+		( 이상 무 )
+		 
+	 -->
+	 
+	 
+	 
+	<!-- 시간대,방문자 수 반환 --> 
+	<select id = "getData" resultType="InflowTimeVO">
+	
+		SELECT  TO_CHAR(VISIT_TIME,'HH24') AS time, 
+        		COUNT(TO_CHAR(VISIT_TIME,'HH24')) AS visitors
+		FROM    VISITOR
+		GROUP BY TO_CHAR(VISIT_TIME,'HH24')
+		ORDER BY TO_CHAR(VISIT_TIME,'HH24')
+	
+	</select>
+	 
+</mapper>

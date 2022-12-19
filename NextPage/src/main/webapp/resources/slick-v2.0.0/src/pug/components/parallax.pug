@@ -1,0 +1,14 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Parallax
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Parallax';
+
+block component
+	+ComponentLink({
+		text:'For more details see, ',
+		linkText: 'Parallax Documentation',
+		link: `https://dixonandmoe.com/rellax/`
+	})
+	+Parallax

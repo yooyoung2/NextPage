@@ -1,0 +1,24 @@
+extends ../layouts/LayoutComponent
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Modal';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Modal on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/modal/`
+	})
+	+ComponentCard
+		button.btn.btn-dark(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal') Launch demo modal
+		.modal.fade#exampleModal(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+			.modal-dialog.modal-lg.modal-dialog-centered
+				.modal-content.rounded-0
+					.modal-header.border-0
+						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+					.modal-body.text-center.p-5
+						h4 Modal done right
+						p.font-sans-serif.fw-light No matter the task, the new slick is up to it — and even more. See for your self — the pre-made pages, inspired by world's finest websites, are all made with slick. And this is only a tip of the iceberg of what you can do with slick.
+						button.btn.btn-primary.btn-sm(type='button' data-bs-dismiss='modal') AWESOME
+						button.btn.btn-outline-danger.btn-sm(type='button' data-bs-dismiss='modal') cancel

@@ -1,0 +1,21 @@
+mixin Header-15
+	.bg-100
+		+Section#header-15&attributes(attributes)= attrs
+			.row.align-items-center
+				.col-lg-7
+					.row.justify-content-center
+						.col-lg-10.text-center.mb-4.mb-lg-0.position-relative.py-10
+							+Background({image: `${CWD}assets/img/12.jpg`, className: "rounded-3"})
+							a(href="#!" data-bigpicture='{"ytSrc":"Cw58R9FWeCY"}').position-relative
+								img(src=`${CWD}assets/img/icons/icon-play.svg` alt="play" width=60).img-fluid
+				.col-lg-5.mt-4.mt-lg-0
+					h3 Create awesome digital experiences that last.
+					p.pe-lg-6.mb-6 Slick has timeless codes in the background that you can use for next couple of years, undoubtedly.
+
+					form.me-lg-7
+						.mb-3
+							input.form-control.border-2(type="email" placeholder="Your Email")
+						.mb-3
+							input.form-control.border-2(type="password" placeholder="Password")
+						.d-grid
+							input.btn.btn-success.mt-2(type="submit" name="submit" value="Create an Account")

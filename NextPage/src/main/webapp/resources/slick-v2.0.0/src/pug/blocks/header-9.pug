@@ -1,0 +1,12 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/header/Header-9
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Header-9

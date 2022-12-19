@@ -1,0 +1,32 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-3
+include ../mixins/blocks/header/Header-16
+include ../mixins/blocks/features/Features-9
+include ../mixins/blocks/team/Team-4
+include ../mixins/blocks/cta/Cta-14
+include ../mixins/blocks/header/Header-15
+include ../mixins/blocks/footer/Footer-6
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+
+append mainContent
+
+	+Navigation-3({dropDownClass:'dropdown-menu-light bg-light'}).bg-light.navbar-light.sticky-top.w-100.z-index-2
+	hr.bg-300.opacity-100.my-0
+	+Header-16
+	hr.bg-300.opacity-100.my-0
+	+Cta-14
+	+Features-9
+	+Team-4
+	+Header-15
+	+Footer-6
+

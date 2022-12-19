@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.generation.website.board.dao.GeneratingBoardDAO">
+
+<!-- 	게시글 제목 조회 : 페이징 + 검색(제목-title) -->
+<!-- 페이징처리 -이유영 -->
+  	<sql id="searchFrag">
+		<trim prefix="AND(" suffix=")">
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+						INSTR(POST_TITLE,#{simpleCondition.searchWord}) > 0
+			</if>
+		</trim>
+	</sql>
+
+   <select id="selectTotalRecord" parameterType="PagingVO" resultType="int">
+      SELECT COUNT(*)
+	  FROM GEN_POST
+	  WHERE BRD_NUM=#{brdNum}
+      <include refid="searchFrag" />
+   </select> 
+    
+<!-- 제너레이팅-게시물목록-이유영 -->
+<select id="schoolGenPostList" parameterType="PagingVO" resultType="GenPostVO">
+
+ 		WITH SORTEDBOARD AS (
+   			SELECT
+			    GP.POST_NUM
+			    , GP.POST_TITLE
+			    , GP.POST_PRGRS_PRSNT_CNDTN
+			    , GP.POST_NOTIS_WHETHER
+			    , GP.POST_SCRT_WHETHER
+			    , SM.MEM_NM
+    		    , TO_CHAR(GP.POST_WRITE_DATE, 'YYYY-MM-DD') POST_WRITE_DATE
+			    , (SELECT MIN(FILE_ID) FROM POST_ATCH WHERE POST_NUM=GP.POST_NUM) FILE_ID
+			FROM  GEN_POST GP, SCH_MEMBER SM
+			WHERE GP.BRD_NUM =#{brdNum} 
+			AND GP.POST_WRT_ID= SM.MEM_ID
+			<include refid="searchFrag" />
+			ORDER BY POST_NOTIS_WHETHER DESC , POST_WRITE_DATE DESC
+		), RNUMBOARD AS (
+			SELECT ROWNUM RNUM, SORTEDBOARD.*
+			FROM SORTEDBOARD
+		)
+		SELECT *
+		FROM RNUMBOARD
+			<![CDATA[
+			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+		]]> 
+</select>
+
+<!-- 제너레이팅-일반게시물 추가-이유영  -->
+<insert id="insertGenPost" parameterType="GenPostVO">
+		INSERT INTO GEN_POST (
+		    	POST_NUM
+			,	BRD_NUM
+			,	POST_WRT_ID
+			,	POST_TITLE
+			,	POST_CNTNT
+			,	POST_PRGRS_PRSNT_CNDTN
+			,	POST_WRITE_DATE
+			,	POST_NOTIS_WHETHER
+			,	POST_SCRT_WHETHER
+		) VALUES (
+				GENPOST_SEQ.NEXTVAL
+			,	#{brdNum,jdbcType=NUMERIC}
+			,	#{postWrtId,jdbcType=VARCHAR}
+			,	#{postTitle,jdbcType=VARCHAR}
+			,	#{postCntnt,jdbcType=CLOB}
+			,	#{postPrgrsPrsntCndtn, jdbcType=VARCHAR}
+			,	SYSDATE
+			,	#{postNotisWhether,jdbcType=VARCHAR}
+			,	#{postScrtWhether,jdbcType=VARCHAR}
+		)
+		
+
+</insert> 
+
+
+				
+				
+<insert id="insertGenPostFile" parameterType="SchMemberFileListVO">
+		
+		<selectKey resultType="int" keyProperty="startNo" order="BEFORE">
+			SELECT NVL(MAX(FILE_ID), 0)+1
+			FROM POST_ATCH
+		</selectKey>
+		
+		INSERT ALL
+		
+		<foreach collection="attatchList" item="attatch" index="idx">
+		
+			INTO POST_ATCH 
+			(
+				FILE_ID,
+				POST_NUM,
+				FILE_NAME,
+				SAVE_NAME,
+				SAVE_PATH
+			) 
+			VALUES 
+			(
+				#{startNo}+#{idx}
+				, GENPOST_SEQ.CURRVAL
+				, #{attatch.fileName,jdbcType=VARCHAR}
+				, #{attatch.saveName,jdbcType=VARCHAR}
+				, #{attatch.savePath,jdbcType=VARCHAR}
+			)
+		
+		</foreach>
+		
+		SELECT * FROM DUAL
+	</insert>
+
+
+
+<select id="selectGenPost" parameterType="int" resultType="GenPostVO" >
+	SELECT 
+	* FROM GEN_POST A ,SCH_MEMBER SM
+	WHERE A.POST_NUM=#{postNum}
+	AND A.POST_WRT_ID= SM.MEM_ID
+</select>
+
+<update id="updateGenPost" parameterType="GenPostVO" >
+	UPDATE GEN_POST
+	SET
+			POST_TITLE = #{postTitle,jdbcType=VARCHAR}
+		,	POST_CNTNT = #{postCntnt,jdbcType=CLOB}
+		,	POST_NOTIS_WHETHER = #{postNotisWhether,jdbcType=VARCHAR}
+		,	POST_SCRT_WHETHER = #{postScrtWhether,jdbcType=VARCHAR}
+	WHERE POST_NUM = #{postNum}
+</update>
+
+<delete id="deleteGenPost" parameterType="GenPostVO">
+	DELETE FROM GEN_POST
+	WHERE POST_NUM = #{postNum}
+</delete>
+
+<select id="getAttatchNum" parameterType="int" resultType="int" >
+	SELECT ATTACH_NUM FROM GEN_BOARD WHERE BRD_NUM=#{num}
+</select>
+
+<select id="getAttatchFile" parameterType="int" resultType="GenPostVO" >
+	SELECT * FROM POST_ATCH WHERE POST_NUM=#{postNum}
+</select>
+
+<select id="getAttatchFileDetail" parameterType="String" resultType="GenPostVO" >
+	SELECT * FROM POST_ATCH WHERE SAVE_NAME=#{saveName}
+</select>
+
+
+<delete id="deleteGenPostFile" parameterType="int">
+	DELETE FROM POST_ATCH
+	WHERE POST_NUM = #{postNum}
+</delete>
+
+
+<select id="getAttatchFileDetailNum" parameterType="int" resultType="GenPostVO" >
+	SELECT * FROM POST_ATCH WHERE FILE_ID=#{FileId}
+</select>
+
+
+
+</mapper>

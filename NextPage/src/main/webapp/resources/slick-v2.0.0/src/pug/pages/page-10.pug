@@ -1,0 +1,23 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-12
+include ../mixins/blocks/header/Header-10
+include ../mixins/blocks/content/Content-17
+include ../mixins/blocks/features/Features-12
+include ../mixins/blocks/cta/Cta-1
+include ../mixins/blocks/footer/Footer-6
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+	+Navigation-12('Slick','light',true).navbar-dark.position-fixed.w-100.z-index-2
+	+Header-10
+	+Content-17
+	+Features-12
+	+Cta-1
+	+Footer-6.bg-100

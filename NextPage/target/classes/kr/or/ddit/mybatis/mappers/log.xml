@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.operator.history.log.dao.LogDAO">
+
+	<!-- 검색, 페이징처리 -->
+	<sql id="searchFrag">
+		<trim prefix="AND(" suffix=")">
+			1 = 1
+			<if test="simpleCondition neq null">
+				<if
+					test="simpleCondition.searchType neq null and simpleCondition.searchType neq '' ">
+					AND B.LOG_TYPE_ID = #{simpleCondition.searchType}
+				</if>
+				<if
+					test="simpleCondition.searchWord neq null and simpleCondition.searchWord neq '' ">
+					AND INSTR(B.LOG_HPN_ID, #{simpleCondition.searchWord}) > 0
+				</if>
+				<if
+					test="simpleCondition.searchStartDate neq null and simpleCondition.searchStartDate neq ''">
+					AND B.LOG_HPN_TIME BETWEEN #{simpleCondition.searchStartDate} AND
+					#{simpleCondition.searchEndDate}
+				</if>
+			</if>
+		</trim>
+	</sql>
+
+  <select id="selectTotalRecord" parameterType="PagingVO" resultType="int">
+     SELECT COUNT(*)
+		FROM SCHOOL A, NP_LOG B
+	WHERE A.SCH_ID= B.LOG_HPN_ID
+      <include refid="searchFrag" />
+   </select>
+
+
+
+	<insert id="insertLog" parameterType="LogVO">
+		INSERT INTO NP_LOG (
+		LOG_ID,
+		LOG_TYPE_ID,
+		LOG_HPN_ID,
+		LOG_HPN_TIME,
+		LOG_CNTNT
+
+		) VALUES (
+		LOG_SEQ.NEXTVAL
+		, #{logTypeId,jdbcType=NUMERIC}
+		, #{logHpnId,jdbcType=VARCHAR}
+		, SYSDATE
+		, #{logCntnt,jdbcType=VARCHAR}
+
+		)
+	</insert>
+
+
+<select id="selectAllLog" parameterType="PagingVO"  resultType="LogVO">
+
+	WITH SORTEDBOARD AS (
+
+	SELECT
+		A.SCH_ID
+		,A.SCH_NM
+		,B.LOG_ID
+		,B.LOG_TYPE_ID
+		,B.LOG_HPN_ID
+		,TO_CHAR(B.LOG_HPN_TIME, 'YYYY-MM-DD HH24:MI:SS') LOG_HPN_TIME
+		,B.LOG_CNTNT
+	FROM SCHOOL A, NP_LOG B
+	WHERE A.SCH_ID= B.LOG_HPN_ID
+		<include refid="searchFrag" />
+	ORDER BY
+	B.LOG_HPN_TIME DESC
+	), RNUMBOARD AS (
+	    SELECT ROWNUM RNUM, SORTEDBOARD.*
+	    FROM SORTEDBOARD
+	)
+	SELECT *
+	FROM RNUMBOARD
+		<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+	]]>
+	</select>
+
+	<select id="selectLog"  resultType="LogVO" parameterType="Integer">
+		SELECT
+		LOG_ID,
+		LOG_TYPE_ID,
+		LOG_HPN_ID,
+		LOG_HPN_TIME,
+		LOG_CNTNT
+		FROM
+		NP_LOG
+		WHERE LOG_TYPE_ID = #{logTypeId,jdbcType=NUMERIC}
+		ORDER BY LOG_HPN_TIME DESC
+	</select>
+</mapper>

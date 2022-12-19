@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.student.classes.dao.StudentClassFileDownDAO">
+	<select id="selectAttatch" parameterType="int" resultType="SchMemberFileVO">
+		SELECT ATT_FILENAME, ATT_SAVENAME
+			,ATT_FILESIZE, ATT_MIME
+		FROM POI_PATH
+		WHERE ATT_NO= #{attNo}
+	</select>
+	
+	<select id="selectBoard" parameterType="int" resultType="SchMemberFileVO">
+			SELECT  ATT_NO, ATT_FILENAME, ATT_FILESIZE
+		    , ATT_FANCYSIZE
+		    , ATT_SAVENAME
+		FROM POI_PATH
+		WHERE ATT_NO = #{attNo}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

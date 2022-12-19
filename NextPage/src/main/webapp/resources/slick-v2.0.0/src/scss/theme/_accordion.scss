@@ -1,0 +1,37 @@
+/* -------------------------------------------------------------------------- */
+/*                                  Accordion                                 */
+/* -------------------------------------------------------------------------- */
+
+.accordion-button {
+  padding: map-get($spacers, 3);
+	font-weight: 600;
+	font-family: $font-family-sans-serif;
+  font-size: 12.8px;
+  &:not(.collapsed) {
+    &::before {
+      background-image: escape-svg($accordion-button-active-icon);
+      transform: $accordion-icon-transform;
+    }
+  }
+
+  // Accordion icon
+  &::after {
+    display: none;
+  }
+  &::before {
+    flex-shrink: 0;
+    width: $accordion-icon-width;
+    height: $accordion-icon-width;
+    content: "";
+    background-image: escape-svg($accordion-button-icon);
+    background-repeat: no-repeat;
+    background-size: $accordion-icon-width;
+    @include transition($accordion-icon-transition);
+    margin-right: .75rem;
+  }
+  // Remove accordion header box shadow
+  &:not(.collapsed) {
+    box-shadow: none; 
+  }
+
+}

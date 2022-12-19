@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Slick | Create Beautiful Websites. Effortlessly.</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="../vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../vendors/prism/prism.css" rel="stylesheet">
+    <link href="../vendors/hamburgers/hamburgers.min.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet" />
+    <link href="../assets/css/user.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../vendors/iconsmind/iconsmind.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </head>
+
+
+  <body>
+    <div class="preloader" id="preloader" data-preloader>
+      <div class="preloader-wrapper big active" data-preloader>
+        <div class="spinner-layer spinner-white-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-slick navbar-expand-lg navbar-dark fixed-top py-2 bg-dark sticky-top">
+      <div class="container container-wide-xl"><a class="navbar-brand ls-2 p-0 me-4" href="../index.html"><img src="../assets/img/slick-logo.svg" alt="SLiCK" width="50" /></a>
+        <button class="navbar-toggler hamburger hamburger--emphatic" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="../showcase-pages.html">Pages</a></li>
+            <li class="nav-item"><a class="nav-link" href="../all-blocks.html">All Blocks</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink" href="#!" data-bs-toggle="dropdown" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Components<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <div class="dropdown-menu fade dropdown-components shadow-lg" aria-labelledby="navbarDropdownMenuLink">
+                <div class="row justify-content-between">
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/accordion.html">Accordion</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/alerts.html">Alerts</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/backgrounds.html">Backgrounds</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/badges.html">Badges</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/borders.html">Borders</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/buttons.html">Buttons</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/cards.html">Cards</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/carousel.html">Carousel</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/colors.html">Colors</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/dropdowns.html">Dropdowns</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/filter.html">Filter</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/fontawesome.html">Fontawesome</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/forms.html">Forms</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/googlemap.html">Google Map</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/grid.html">Grid</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/iconsmind.html">Iconsmind</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/lightbox.html">Lightbox</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/masonary.html">Masonary</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal-video.html">Modal video</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal.html">Modal</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navbar.html">Navbar</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/parallax.html">Parallax</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/scrollspy.html">Scrollspy</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/sizing.html">Sizing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/smtpjs.html">Smtpjs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/spacing.html">Spacing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tables.html">Tables</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tooltips.html">Tooltips</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typed-text.html">Typed text</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typography.html">Typography</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/zanimation.html">Zanimation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink2" href="#!" data-bs-toggle="dropdown-on-hover" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Docs<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <ul class="dropdown-menu rounded fade border-0 bg-white shadow-lg" aria-labelledby="navbarDropdownMenuLink2">
+                <li><a class="dropdown-item link-700" href="../docs/getting-started.html">Getting Started</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/file-structure.html">File Structure</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/customization.html">Customization</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/gulp.html">Gulp</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/generator.html">Generator</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/plugins.html">Plugins</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/changelog.html">Changelog </a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="../sitemap.html">Sitemap</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://prium.github.io/slick/v2.0.0/generator.html" target="_blank">Generator</a></li>
+            <li class="nav-item"><a class="btn btn-outline-light rounded-pill btn-sm border-2 ms-lg-2" href="https://themewagon.com/themes/slick/" target="_blank">Purchase </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-8 pb-6 bg-200">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="fw-medium font-sans-serif fs-3 fs-sm-4">Buttons</h1>
+            </div>
+            <div class="col-lg-6">
+              <p class="text-800 fs-1 font-sans-serif">These modular elements can be readily used and customized in every layout across pages.</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-0 pb-5">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-9 pt-8">
+              <p class="fs-1 font-sans-serif">For detail documentation. <a href="https://getbootstrap.com/docs/5.1/components/buttons/" target="_blank">View Buttons on Bootstrap <span class="d-inline-block ms-1">&xrarr;</span></a></p>
+              <div class="mb-6">
+                <h4>Buttons Colors</h4>
+                <p><strong>Slick</strong> uses <code>.btn</code> class for default button style. Customize the color of a button using <code>.btn-*</code> and <code>.btn-outline-*</code>. You can use the following classes.</p>
+                <div class="my-5"></div>
+                <h5>Solid Buttons</h5>
+                <div class="component-preview">
+                  <button class="btn btn-primary me-1 mb-1" type="button">primary</button>
+
+                  <button class="btn btn-secondary me-1 mb-1" type="button">secondary</button>
+
+                  <button class="btn btn-success me-1 mb-1" type="button">success</button>
+
+                  <button class="btn btn-info me-1 mb-1" type="button">info</button>
+
+                  <button class="btn btn-warning me-1 mb-1" type="button">warning</button>
+
+                  <button class="btn btn-danger me-1 mb-1" type="button">danger</button>
+
+                  <button class="btn btn-light me-1 mb-1" type="button">light</button>
+
+                  <button class="btn btn-dark me-1 mb-1" type="button">dark</button>
+
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;button class=&quot;btn btn-primary me-1 mb-1&quot; type=&quot;button&quot;&gt;primary&lt;/button&gt;
+&lt;button class=&quot;btn btn-secondary me-1 mb-1&quot; type=&quot;button&quot;&gt;secondary&lt;/button&gt;
+&lt;button class=&quot;btn btn-success me-1 mb-1&quot; type=&quot;button&quot;&gt;success&lt;/button&gt;
+&lt;button class=&quot;btn btn-info me-1 mb-1&quot; type=&quot;button&quot;&gt;info&lt;/button&gt;
+&lt;button class=&quot;btn btn-warning me-1 mb-1&quot; type=&quot;button&quot;&gt;warning&lt;/button&gt;
+&lt;button class=&quot;btn btn-danger me-1 mb-1&quot; type=&quot;button&quot;&gt;danger&lt;/button&gt;
+&lt;button class=&quot;btn btn-light me-1 mb-1&quot; type=&quot;button&quot;&gt;light&lt;/button&gt;
+&lt;button class=&quot;btn btn-dark me-1 mb-1&quot; type=&quot;button&quot;&gt;dark&lt;/button&gt;</code></pre>
+                </div>
+                <h5 class="mt-4">Outline Buttons</h5>
+                <div class="component-preview">
+                  <button class="btn-outline-primary btn me-1 mb-1" type="button">primary</button>
+
+                  <button class="btn-outline-secondary btn me-1 mb-1" type="button">secondary</button>
+
+                  <button class="btn-outline-success btn me-1 mb-1" type="button">success</button>
+
+                  <button class="btn-outline-info btn me-1 mb-1" type="button">info</button>
+
+                  <button class="btn-outline-warning btn me-1 mb-1" type="button">warning</button>
+
+                  <button class="btn-outline-danger btn me-1 mb-1" type="button">danger</button>
+
+                  <button class="btn-outline-light btn me-1 mb-1" type="button">light</button>
+
+                  <button class="btn-outline-dark btn me-1 mb-1" type="button">dark</button>
+
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;button class=&quot;btn-outline-primary btn me-1 mb-1&quot; type=&quot;button&quot;&gt;primary&lt;/button&gt;
+&lt;button class=&quot;btn-outline-secondary btn me-1 mb-1&quot; type=&quot;button&quot;&gt;secondary&lt;/button&gt;
+&lt;button class=&quot;btn-outline-success btn me-1 mb-1&quot; type=&quot;button&quot;&gt;success&lt;/button&gt;
+&lt;button class=&quot;btn-outline-info btn me-1 mb-1&quot; type=&quot;button&quot;&gt;info&lt;/button&gt;
+&lt;button class=&quot;btn-outline-warning btn me-1 mb-1&quot; type=&quot;button&quot;&gt;warning&lt;/button&gt;
+&lt;button class=&quot;btn-outline-danger btn me-1 mb-1&quot; type=&quot;button&quot;&gt;danger&lt;/button&gt;
+&lt;button class=&quot;btn-outline-light btn me-1 mb-1&quot; type=&quot;button&quot;&gt;light&lt;/button&gt;
+&lt;button class=&quot;btn-outline-dark btn me-1 mb-1&quot; type=&quot;button&quot;&gt;dark&lt;/button&gt;</code></pre>
+                </div>
+                <h5 class="mt-4">Hover Effects</h5>
+                <div class="component-preview">
+                  <button class="hvr-sweep-right btn-outline-dark  btn me-1 mb-1" type="button">Sweep right</button>
+
+                  <button class="hvr-sweep-left btn-outline-primary  btn me-1 mb-1" type="button">Sweep left</button>
+
+                  <button class="hvr-sweep-top btn-outline-warning  btn me-1 mb-1" type="button">Sweep top</button>
+
+                  <button class="hvr-sweep-bottom btn-outline-success  btn me-1 mb-1" type="button">Sweep bottom</button>
+
+                  <button class="hvr-sweep-collapseX btn-outline-danger  btn me-1 mb-1" type="button">Sweep collapseX</button>
+
+                  <button class="hvr-sweep-collapseY btn-outline-info  btn me-1 mb-1" type="button">Sweep collapseY</button>
+
+                  <hr class="my-3" />
+
+                  <button class="hvr-sweep-right btn-outline-dark btn rounded-pill me-1 mb-1" type="button">Sweep right</button>
+
+                  <button class="hvr-sweep-left btn-outline-primary btn rounded-pill me-1 mb-1" type="button">Sweep left</button>
+
+                  <button class="hvr-sweep-top btn-outline-warning btn rounded-pill me-1 mb-1" type="button">Sweep top</button>
+
+                  <button class="hvr-sweep-bottom btn-outline-success btn rounded-pill me-1 mb-1" type="button">Sweep bottom</button>
+
+                  <button class="hvr-sweep-collapseX btn-outline-danger btn rounded-pill me-1 mb-1" type="button">Sweep collapseX</button>
+
+                  <button class="hvr-sweep-collapseY btn-outline-info btn rounded-pill me-1 mb-1" type="button">Sweep collapseY</button>
+
+                  <hr class="my-3" />
+
+                  <button class="hvr-sweep-right btn-dark btn rounded-pill me-1 mb-1" type="button">Sweep right</button>
+
+                  <button class="hvr-sweep-left btn-primary btn rounded-pill me-1 mb-1" type="button">Sweep left</button>
+
+                  <button class="hvr-sweep-top btn-warning btn rounded-pill me-1 mb-1" type="button">Sweep top</button>
+
+                  <button class="hvr-sweep-bottom btn-success btn rounded-pill me-1 mb-1" type="button">Sweep bottom</button>
+
+                  <button class="hvr-sweep-collapseX btn-danger btn rounded-pill me-1 mb-1" type="button">Sweep collapseX</button>
+
+                  <button class="hvr-sweep-collapseY btn-info btn rounded-pill me-1 mb-1" type="button">Sweep collapseY</button>
+
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;button class=&quot;hvr-sweep-right btn-outline-dark  btn me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep right&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-left btn-outline-primary  btn me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep left&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-top btn-outline-warning  btn me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep top&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-bottom btn-outline-success  btn me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep bottom&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-collapseX btn-outline-danger  btn me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep collapseX&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-collapseY btn-outline-info  btn me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep collapseY&lt;/button&gt;
+&lt;hr class=&quot;my-3&quot; /&gt;
+&lt;button class=&quot;hvr-sweep-right btn-outline-dark btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep right&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-left btn-outline-primary btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep left&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-top btn-outline-warning btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep top&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-bottom btn-outline-success btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep bottom&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-collapseX btn-outline-danger btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep collapseX&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-collapseY btn-outline-info btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep collapseY&lt;/button&gt;
+&lt;hr class=&quot;my-3&quot; /&gt;
+&lt;button class=&quot;hvr-sweep-right btn-dark btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep right&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-left btn-primary btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep left&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-top btn-warning btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep top&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-bottom btn-success btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep bottom&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-collapseX btn-danger btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep collapseX&lt;/button&gt;
+&lt;button class=&quot;hvr-sweep-collapseY btn-info btn rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Sweep collapseY&lt;/button&gt;</code></pre>
+                </div>
+                <h5 class="mt-4">Button sizes</h5>
+                <div class="component-preview">
+                  <div class="btn btn-dark btn-sm">Small</div>
+                  <div class="btn btn-dark">Regular</div>
+                  <div class="btn btn-dark btn-lg">Large</div>
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;btn btn-dark btn-sm&quot;&gt;Small&lt;/div&gt;
+&lt;div class=&quot;btn btn-dark&quot;&gt;Regular&lt;/div&gt;
+&lt;div class=&quot;btn btn-dark btn-lg&quot;&gt;Large&lt;/div&gt;</code></pre>
+                </div>
+                <h5 class="mt-4">Icon Buttons</h5>
+                <div class="component-preview">
+                  <button class="btn btn-dark btn-sm me-1 mb-1" type="button">
+                    <span class="fas fa-plus me-1" data-fa-transform="shrink-3"></span>Small
+
+                  </button>
+
+                  <button class="btn btn-dark me-1 mb-1" type="button">
+                    <span class="fas fa-plus me-1" data-fa-transform="shrink-3"></span>Regular
+
+                  </button>
+
+                  <button class="btn btn-dark btn-lg me-1 mb-1" type="button">
+                    <span class="fas fa-plus me-1" data-fa-transform="shrink-3"></span>Large
+
+                  </button>
+
+                  <hr />
+
+                  <button class="btn btn-primary me-1 mb-1" type="button">
+                    <span class="fas fa-plus me-1" data-fa-transform="shrink-3"></span>Regular
+
+                  </button>
+
+                  <button class="btn btn-outline-primary me-1 mb-1" type="button">
+                    <span class="fas fa-plus me-1" data-fa-transform="shrink-3"></span>Outline
+
+                  </button>
+                  <hr />
+
+                  <button class="btn btn-primary me-1 mb-1" type="button">
+                    Delete<span class="fas fa-trash ms-1" data-fa-transform="shrink-3"></span>
+
+                  </button>
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;button class=&quot;btn btn-dark btn-sm me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus me-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Small
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-dark me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus me-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Regular
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-dark btn-lg me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus me-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Large
+&lt;/button&gt;
+&lt;hr /&gt;
+&lt;button class=&quot;btn btn-primary me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus me-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Regular
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-primary me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus me-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Outline
+&lt;/button&gt;
+&lt;hr /&gt;
+&lt;button class=&quot;btn btn-primary me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  Delete&lt;span class=&quot;fas fa-trash ms-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+                <h5 class="mt-4">Button Capsule</h5>
+                <div class="component-preview">
+                  <button class="btn btn-dark rounded-pill me-1 mb-1" type="button">Example</button>
+
+                  <button class="btn btn-dark rounded-pill me-1 mb-1" type="button">
+                    <span class="fas fa-align-left me-1" data-fa-transform="shrink-3"></span>Icon Left
+                  </button>
+
+                  <button class="btn btn-dark rounded-pill me-1 mb-1" type="button">
+                    Icon Right<span class="fas fa-align-right ms-1" data-fa-transform="shrink-3"></span>
+
+                  </button>
+                  <button class="ms-1 btn btn-outline-primary rounded-pill me-1 mb-1" type="button">Outline</button>
+
+                  <hr />
+
+                  <button class="btn btn-sm btn-dark rounded-pill me-1 mb-1" type="button">Capsule Small</button>
+
+                  <button class="btn btn-dark rounded-pill me-1 mb-1" type="button">Capsule Regular</button>
+
+                  <button class="btn btn-lg btn-dark rounded-pill me-1 mb-1" type="button">Capsule Large </button>
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;button class=&quot;btn btn-dark rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Example&lt;/button&gt;
+&lt;button class=&quot;btn btn-dark rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-align-left me-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Icon Left
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-dark rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;
+  Icon Right&lt;span class=&quot;fas fa-align-right ms-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;button class=&quot;ms-1 btn btn-outline-primary rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Outline&lt;/button&gt;
+&lt;hr /&gt;
+&lt;button class=&quot;btn btn-sm btn-dark rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Capsule Small&lt;/button&gt;
+&lt;button class=&quot;btn btn-dark rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Capsule Regular&lt;/button&gt;
+&lt;button class=&quot;btn btn-lg btn-dark rounded-pill me-1 mb-1&quot; type=&quot;button&quot;&gt;Capsule Large &lt;/button&gt;</code></pre>
+                </div>
+                <h4 class="mt-6 mb-1">Button Group</h4>
+                <p>Group a series of buttons together on a single line with the button group, and super-power them with JavaScript. </p>
+                <h5 class="mt-4 mb-1">Basic Example</h5>
+                <p>Wrap a series of buttons with<code>.btn</code> in<code>.btn-group</code>. Add on optional JavaScript radio and checkbox style behaviour with</p>
+                <div class="component-preview">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <button class="btn btn-dark" type="button">Left</button>
+
+                    <button class="btn btn-dark" type="button">Middle</button>
+
+                    <button class="btn btn-dark" type="button">Right</button>
+
+                  </div>
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Basic example&quot;&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <h5 class="mt-4 mb-1">Button Toolbar</h5>
+                <p>Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.</p>
+                <div class="component-preview">
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group me-2 mb-1" role="group" aria-label="First group">
+
+                      <button class="btn btn-dark" type="button">1</button>
+
+                      <button class="btn btn-dark" type="button">2</button>
+
+                      <button class="btn btn-dark" type="button">3</button>
+
+                      <button class="btn btn-dark" type="button">4</button>
+
+                    </div>
+                    <div class="btn-group me-2 mb-1" role="group" aria-label="Second group">
+
+                      <button class="btn btn-dark" type="button">5</button>
+
+                      <button class="btn btn-dark" type="button">6</button>
+
+                      <button class="btn btn-dark" type="button">7</button>
+
+                    </div>
+                    <div class="btn-group mb-1" role="group" aria-label="Third group">
+
+                      <button class="btn btn-dark" type="button">8</button>
+
+                    </div>
+                  </div>
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;btn-toolbar&quot; role=&quot;toolbar&quot; aria-label=&quot;Toolbar with button groups&quot;&gt;
+  &lt;div class=&quot;btn-group me-2 mb-1&quot; role=&quot;group&quot; aria-label=&quot;First group&quot;&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;1&lt;/button&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;2&lt;/button&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;3&lt;/button&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;4&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;btn-group me-2 mb-1&quot; role=&quot;group&quot; aria-label=&quot;Second group&quot;&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;5&lt;/button&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;6&lt;/button&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;7&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;btn-group mb-1&quot; role=&quot;group&quot; aria-label=&quot;Third group&quot;&gt;
+    &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;8&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <h5 class="mt-4 mb-1">Sizing</h5>
+                <p>Insteam of aplying button sizing classes to every button in a group, just add<code>.btn-gorup-*</code>to each<code>.btn-group</code>, including each one when nesting multiple groups.</p>
+                <div class="component-preview">
+                  <div class="btn-group btn-group-lg" role="group" aria-label="...">
+
+                    <button class="btn btn-dark" type="button">Left</button>
+
+                    <button class="btn btn-dark" type="button">Middle</button>
+
+                    <button class="btn btn-dark d-none d-md-inline-block" type="button">Right</button>
+
+                  </div>
+                  <div class="btn-group mt-2" role="group" aria-label="...">
+
+                    <button class="btn btn-dark" type="button">Left</button>
+
+                    <button class="btn btn-dark" type="button">Middle</button>
+
+                    <button class="btn btn-dark" type="button">Right</button>
+
+                  </div>
+                  <div class="btn-group btn-group-sm mt-2" role="group" aria-label="...">
+
+                    <button class="btn btn-dark" type="button">Left</button>
+
+                    <button class="btn btn-dark" type="button">Middle</button>
+
+                    <button class="btn btn-dark" type="button">Right</button>
+
+                  </div>
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;btn-group btn-group-lg&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark d-none d-md-inline-block&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;btn-group mt-2&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;btn-group btn-group-sm mt-2&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <h5 class="mt-4 mb-1">Vertical variation</h5>
+                <p>Make a set of buttons appear vertically tacked rather than horizontally. Split button dropdowns ae not supported here.</p>
+                <div class="component-preview">
+                  <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+                    <button class="btn btn-dark" type="button">Button</button>
+
+                    <button class="btn btn-dark" type="button">Button</button>
+
+                    <button class="btn btn-dark" type="button">Button</button>
+
+                    <button class="btn btn-dark" type="button">Button</button>
+
+                    <button class="btn btn-dark" type="button">Button</button>
+
+                    <button class="btn btn-dark" type="button">Button</button>
+
+                  </div>
+                  <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;btn-group-vertical&quot; role=&quot;group&quot; aria-label=&quot;Vertical button group&quot;&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="d-none d-lg-block col-auto mb-5 my-8">
+              <div class="sticky-sidebar ps-4">
+                <ul class="components-nav list-unstyled" id="components-nav">
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/accordion.html">Accordion</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/alerts.html">Alerts</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/backgrounds.html">Backgrounds</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/badges.html">Badges</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/borders.html">Borders</a></li>
+                  <li><a class="link-primary fw-bold font-sans-serif text-capitalize" href="../components/buttons.html">Buttons</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/cards.html">Cards</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/carousel.html">Carousel</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/colors.html">Colors</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/dropdowns.html">Dropdowns</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/filter.html">Filter</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/fontawesome.html">Fontawesome</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/forms.html">Forms</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/googlemap.html">Google Map</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/grid.html">Grid</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/iconsmind.html">Iconsmind</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/lightbox.html">Lightbox</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/masonary.html">Masonary</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal-video.html">Modal video</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal.html">Modal</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navbar.html">Navbar</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/parallax.html">Parallax</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/scrollspy.html">Scrollspy</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/sizing.html">Sizing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/smtpjs.html">Smtpjs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/spacing.html">Spacing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tables.html">Tables</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tooltips.html">Tooltips</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typed-text.html">Typed text</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typography.html">Typography</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/zanimation.html">Zanimation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <footer class="bg-100 text-1100 py-3 fs--1 fw-semi-bold position-absolute bottom-0 w-100">
+        <div class="container-wide">
+          <div class="row justify-content-between">
+            <div class="col-12 col-md-auto mb-1 mb-md-0 font-base">&copy; 2022 Slick &trade; Inc.</div>
+            <div class="col-12 col-md-auto">
+              <p class="text-900 mb-0">Made with<span class="fas fa-heart mx-2"></span>by <a class="link-900" href="https://themewagon.com/" target="_blank"> Themewagon</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!--===============================================-->
+    <!--    Footer-->
+    <!--===============================================-->
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../vendors/popper/popper.min.js"></script>
+    <script src="../vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../vendors/anchorjs/anchor.min.js"></script>
+    <script src="../vendors/is/is.min.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/fontawesome/all.min.js"></script>
+    <script src="../vendors/lodash/lodash.min.js"></script>
+    <script src="../vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../vendors/gsap/gsap.js"></script>
+    <script src="../vendors/gsap/customEase.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

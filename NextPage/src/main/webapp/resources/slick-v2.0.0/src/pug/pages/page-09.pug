@@ -1,0 +1,26 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-9
+include ../mixins/blocks/header/Header-9
+include ../mixins/blocks/content/Content-5
+include ../mixins/blocks/content/Content-18
+include ../mixins/blocks/content/Content-21
+include ../mixins/blocks/cta/Cta-4
+include ../mixins/blocks/footer/Footer-8
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+	+Navigation-9('Slick Framework',true).navbar-dark.position-fixed.w-100.z-index-2
+	+Header-9
+	+Content-5
+	+Content-18
+	+Content-21
+	+Cta-4
+	+Footer-8(style='background-color: #0e1213 !important')
+

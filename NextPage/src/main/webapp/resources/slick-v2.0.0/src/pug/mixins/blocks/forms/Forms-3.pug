@@ -1,0 +1,63 @@
+mixin Forms-3
+	+Section#forms-3
+		.row.justify-content-center.py-4
+			.col-md-10.col-lg-8
+				h3.mb-4.font-base.fw-light.text-center Add Payment Method
+				form
+					.py-4.px-3.px-lg-5.rounded-3.border-2.border.border-200
+						.zinput.zradio
+							input#r2(name='r1', type='radio' checked)
+							label.container.w-100.mb-0(for='r2')
+								span.row
+									span.col-lg
+										span.fs-1.ps-2.text-1100 Credit Card
+									span.col-lg.text-lg-end
+										img.ms-2.mt-2.mt-lg-0(src=`${CWD}assets/img/icons/icon-payment-methods.png` height=24 alt='')
+						.row
+							.col-12
+								.ms-5
+									p.text-500.me-md-8.mb-4 Safe money transfer using your bank accounts. Visa, maestro, discover, american express.
+							.col-12
+								//- .ms-5
+								.row.align-items-center
+									.col
+										label.ls.text-uppercase.text-700.fw-bold.mb-0 Card Number
+										input.form-control(type="text" placeholder="")
+									.col
+										label.ls.text-uppercase.text-700.fw-bold.mb-0 Card number
+										input.form-control(type="text" placeholder="eg: John Doe")
+
+								.row.align-items-center
+									.col-6
+										label.ls.text-uppercase.text-700.fw-bold.mb-0 Name on card
+										input.form-control(type="text" placeholder="")
+									.col-3
+										label.ls.text-uppercase.text-700.fw-bold.mb-0 Exp Date
+										input.form-control(type="text" placeholder="MM/YY")
+									.col-3
+										.form-group
+											label.ls.text-uppercase.text-700.fw-bold.mb-0 CVV
+												a(href="#").d-inline-block
+													span.fa.fa-question-circle.ms-2.text-400
+											input.form-control(type="text" placeholder="")
+
+					.py-4.px-3.px-lg-5.mt-4.rounded-3.border-2.border.border-200
+						.zinput.zradio
+							input#r1(name='r1', type='radio')
+							label.w-100.mb-0(for='r1')
+								span.fs-1.ps-2.me-3 PayPal
+								img(src=`${CWD}assets/img/icons/icon-paypal-full.png` height=24 alt='')
+
+						.ms-5
+							p.text-500.me-md-8.mb-0 Pay with PayPal, Apple Pay, PayPal Credit and much more
+											
+					.form-group.mt-4
+						.row.align-items-center
+							.col-xl-5.mb-3.mb-xl-0.order-xl-2.d-grid
+								button.btn.btn-primary(type="submit")
+									span.fa.fa-lock.me-2
+									| Save Payment Method
+							.col-xl.text-xl-end.order-xl-1
+								small.text-500.d-inline-block By clicking check out button you agree with our 
+									a(href="#") terms
+									|  and money back guarantee. Thank you for trusting our service.

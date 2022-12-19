@@ -1,0 +1,13 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/navigation/Navigation-9
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+	+Navigation-9('Slick').navbar-light.bg-light

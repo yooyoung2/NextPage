@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 학교매니저 기능관리 연혁-->
+
+<mapper namespace="kr.or.ddit.school.manager.schhistory.dao.SchoolHistoryDAO">
+
+	<select id="selectHistList" resultType="SchoolHistoryVO" parameterType="string">
+		
+			SELECT  SCH_ID,
+					HIST_CNTNT,
+					HIST_DATE
+					FROM GEN_HISTORY 
+					WHERE SCH_ID=#{schId} 
+					ORDER BY HIST_DATE
+		
+	</select>
+	
+	
+	<insert id="insertHist" parameterType="SchoolHistoryVO">
+		INSERT INTO GEN_HISTORY(SCH_ID, HIST_CNTNT, HIST_DATE) VALUES(#{schId},#{histCntnt},#{histDate})			 
+	</insert>
+	
+	<delete id="deleteHist" parameterType="string">
+		DELETE FROM GEN_HISTORY WHERE SCH_ID=#{schId}
+	</delete>
+	
+	<select id="selectSchHistoryList" parameterType="string" resultType="SchoolHistoryVO">
+		SELECT SCH_ID, HIST_CNTNT, HIST_DATE
+			FROM GEN_HISTORY
+			WHERE SCH_ID = #{schId}
+			ORDER BY HIST_DATE ASC
+	</select>
+
+	
+	
+</mapper>
+

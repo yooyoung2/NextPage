@@ -1,0 +1,15 @@
+mixin Forms-14
+	+Section.text-center#forms-14
+		.row.justify-content-center
+			.col-lg-9
+				.bg-100.border.border-300.py-6.px-4.px-sm-6.rounded-3
+					h2.mb-4 Join the Slick Newsletter
+					form.row.justify-content-center(data-form)
+						.col-lg-8.col-md-10
+							.input-group.mb-3
+								label.visually-hidden(for='Email') Email
+								input.form-control.bg-white#Email(type='email' placeholder='Enter your email' aria-label='Email'  name='email')
+								span.input-group-append
+									button.btn.btn-success.px-3(type="submit")
+										span.fa.fa-paper-plane.fs-1
+						.feedback.px-md-6.px-lg-8

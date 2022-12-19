@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 넥스트페이지 문의답변 -->
+
+<mapper namespace="kr.or.ddit.school.manager.my.question.cmmt.dao.CmntDAO">
+
+
+<!-- 	<select id="selectTotalRecord" parameterType="PagingVO" -->
+<!-- 		resultType="int"> -->
+<!-- 		SELECT COUNT(*) -->
+<!-- 		FROM FAQ -->
+<!-- 	</select> -->
+
+	<!-- 답변 조회 -->
+<!-- 	<select id="selectCmmtList" parameterType="PagingVO" -->
+<!-- 		resultType="OtoCmntVO"> -->
+<!-- 		WITH SORTEDBOARD AS ( -->
+<!-- 		SELECT -->
+<!-- 		    CMMNT_ID, -->
+<!-- 		    OTO_BRD_NUM, -->
+<!-- 		    CMNT_ID, -->
+<!-- 		    CMMNT_CNTNT, -->
+<!-- 		    CMMNT_DATE -->
+<!-- 		FROM -->
+<!-- 		    OTO_CMNT -->
+<!-- 		ORDER BY CMMNT_DATE -->
+
+<!-- 		), RNUMBOARD AS ( -->
+<!-- 		SELECT ROWNUM RNUM, SORTEDBOARD. -->
+<!-- 		* -->
+<!-- 		FROM SORTEDBOARD -->
+<!-- 		) -->
+<!-- 		SELECT * -->
+<!-- 		FROM RNUMBOARD -->
+<!-- 			<![CDATA[ -->
+<!--  			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow} -->
+<!--  		]]> -->
+<!-- 	</select> -->
+
+
+	<!-- 답변등록 -->
+	<insert id="insertCmnt" parameterType="OtoCmntVO">
+		<selectKey resultType="int" keyProperty="cmmntId"
+			order="BEFORE">
+			SELECT CMNT_SEQ.NEXTVAL
+			FROM DUAL
+		</selectKey>
+		INSERT INTO OTO_CMNT (
+		    CMMNT_ID,
+		    OTO_BRD_NUM,
+		    CMNT_ID,
+		    CMMNT_CNTNT,
+		    CMMNT_DATE
+		) VALUES (
+		    #{cmmntId, jdbcType=NUMERIC},
+			#{otoBrdNum, jdbcType=NUMERIC},
+			#{cmntId, jdbcType=VARCHAR},
+			#{cmmntCntnt, jdbcType=VARCHAR},
+			SYSDATE
+		)
+	</insert>
+
+
+<!-- 답변조회 -->
+	<select id="selectCmntList" parameterType="int" resultType="OtoCmntVO">
+	SELECT
+	    B.CMMNT_ID,
+	    B.OTO_BRD_NUM,
+	    B.CMNT_ID,
+	    B.CMMNT_CNTNT,
+	    TO_CHAR(B.CMMNT_DATE, 'YYYY-MM-DD HH24:MI:SS') CMMNT_DATE
+	FROM
+	    OTO_CMNT B LEFT JOIN OTO A
+	ON
+   		 A.OTO_BRD_NUM =B.OTO_BRD_NUM
+    WHERE A.OTO_BRD_NUM  = #{otoBrdNum, jdbcType=NUMERIC}
+	ORDER BY B.CMMNT_DATE
+	</select>
+
+<!-- 답변상세조회 -->
+	<select id="selectCmnt" parameterType="int" resultType="OtoCmntVO">
+	SELECT
+	    CMMNT_ID,
+	    OTO_BRD_NUM,
+	    CMNT_ID,
+	    CMMNT_CNTNT,
+	    TO_CHAR(CMMNT_DATE, 'YYYY-MM-DD HH24:MI:SS') CMMNT_DATE
+	FROM
+	    OTO_CMNT
+	WHERE CMMNT_ID=#{cmmntId, jdbcType=NUMERIC}
+	</select>
+
+<!-- 답변 수정 -->
+
+	<update id="updateCmnt" parameterType="OtoCmntVO">
+	UPDATE OTO_CMNT
+	    SET
+	        CMMNT_CNTNT = #{cmmntCntnt, jdbcType=VARCHAR},
+	        CMMNT_DATE = SYSDATE
+	WHERE
+	    CMMNT_ID = #{cmmntId, jdbcType=NUMERIC}
+
+	</update>
+
+
+
+<!-- 답변 삭제? -->
+	<delete id="deleteCmnt" parameterType="int">
+	DELETE FROM OTO_CMNT
+	WHERE
+   	 CMMNT_ID =#{cmmntId, jdbcType=NUMERIC}
+	</delete>
+
+
+</mapper>
+

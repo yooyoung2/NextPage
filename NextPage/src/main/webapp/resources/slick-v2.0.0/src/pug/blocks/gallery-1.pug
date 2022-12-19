@@ -1,0 +1,17 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/gallery/Gallery-1
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+	link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+
+append scripts
+	script(src=`${CWD}vendors/glightbox/glightbox.min.js`)
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+
+append mainContent
+	+Gallery-1

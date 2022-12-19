@@ -1,0 +1,53 @@
+/*-----------------------------------------------
+|   Dropdowns
+-----------------------------------------------*/
+.dropdown-menu{
+  font-size: $dropdown-font-size;
+}
+.dropdown-menu-dark {
+  color: $gray-100;
+  background-color: $dropdown-dark-bg;
+  .dropdown-item{
+    &:active
+    &:hover,
+    &:focus {
+      color: $dropdown-dark-link-hover-color;
+      @include gradient-bg($dropdown-dark-link-hover-bg);
+    }
+  }
+}
+
+.dropdown-caret-none{
+  &:after,
+  &:before {
+    display: none !important;
+  }
+}
+.dropdown-components{
+  border: 0;
+  padding: 3rem 4rem 4rem;
+  background-color: $gray-200 !important;
+  background: url(./../img/shapes/corner-2.png) no-repeat bottom left;
+  @include media-breakpoint-up(lg){
+    min-width: 29rem;
+  }  
+}
+
+.dropdown-nav-components{
+  padding: 0 map-get($spacers, 4);
+  @include media-breakpoint-up(lg){
+    width: 100%;
+  }
+}
+
+.fade.show{
+  animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

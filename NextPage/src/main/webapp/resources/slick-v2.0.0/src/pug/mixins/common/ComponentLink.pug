@@ -1,0 +1,4 @@
+mixin ComponentLink(config={})
+  p.fs-1.font-sans-serif&attributes(attributes)=config.text 
+    a(href=`${config.link}` target="_blank")=config.linkText
+      span.d-inline-block.ms-1 &xrarr;

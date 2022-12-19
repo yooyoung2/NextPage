@@ -1,0 +1,28 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-6
+include ../mixins/blocks/header/Header-5
+include ../mixins/blocks/content/Content-4
+include ../mixins/blocks/gallery/gallery-3
+include ../mixins/blocks/partners/Partners-1
+include ../mixins/blocks/cta/Cta-11
+include ../mixins/blocks/footer/Footer-13
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+
+append mainContent
+	+Navigation-6('Slick').navbar-light
+	+Header-5
+	+Content-4
+	+Gallery-3
+	+Partners-1.pt-0
+	+Cta-11
+	+Footer-13

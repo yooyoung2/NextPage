@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.generation.website.board.dao.GeneratingBoardReplyDAO">
+	
+	<select id="generatingBoardReplyList" parameterType="int" resultType="GenCmntVO">
+		SELECT *
+		FROM GEN_CMNT A LEFT OUTER JOIN SCH_MEMBER B
+    	ON A.CMNT_ID = B.MEM_ID
+		WHERE POST_NUM = #{postNum}
+	</select>
+	
+	<insert id="insertReply" parameterType="GenCmntVO">
+	<selectKey resultType="int" keyProperty="cmmntId" order="BEFORE">
+		SELECT GENCMNT_SEQ.nextval
+		FROM DUAL
+	</selectKey>
+		INSERT INTO GEN_CMNT(
+			CMMNT_ID
+			,	POST_NUM
+			,	CMNT_ID
+			,	CMMNT_CNTNT
+			,	CMMNT_DATE
+		)VALUES(
+			#{cmmntId}
+			,	#{postNum}
+			,	#{cmntId}
+			,	#{cmmntCntnt}
+			,	SYSDATE
+		)
+	</insert>
+	
+	<delete id="deleteReply" parameterType="GenCmntVO">
+		DELETE FROM GEN_CMNT
+		WHERE CMMNT_ID = #{cmmntId}
+	</delete>
+</mapper>

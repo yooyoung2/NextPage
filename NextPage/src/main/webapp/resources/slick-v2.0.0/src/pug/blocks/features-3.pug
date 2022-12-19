@@ -1,0 +1,14 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/features/Features-3
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Features-3

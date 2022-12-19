@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Slick | Create Beautiful Websites. Effortlessly.</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="../vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../vendors/prism/prism.css" rel="stylesheet">
+    <link href="../vendors/hamburgers/hamburgers.min.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet" />
+    <link href="../assets/css/user.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../vendors/iconsmind/iconsmind.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </head>
+
+
+  <body>
+    <div class="preloader" id="preloader" data-preloader>
+      <div class="preloader-wrapper big active" data-preloader>
+        <div class="spinner-layer spinner-white-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-slick navbar-expand-lg navbar-dark fixed-top py-2 bg-dark sticky-top">
+      <div class="container container-wide-xl"><a class="navbar-brand ls-2 p-0 me-4" href="../index.html"><img src="../assets/img/slick-logo.svg" alt="SLiCK" width="50" /></a>
+        <button class="navbar-toggler hamburger hamburger--emphatic" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="../showcase-pages.html">Pages</a></li>
+            <li class="nav-item"><a class="nav-link" href="../all-blocks.html">All Blocks</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink" href="#!" data-bs-toggle="dropdown" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Components<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <div class="dropdown-menu fade dropdown-components shadow-lg" aria-labelledby="navbarDropdownMenuLink">
+                <div class="row justify-content-between">
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/accordion.html">Accordion</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/alerts.html">Alerts</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/backgrounds.html">Backgrounds</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/badges.html">Badges</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/borders.html">Borders</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/buttons.html">Buttons</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/cards.html">Cards</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/carousel.html">Carousel</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/colors.html">Colors</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/dropdowns.html">Dropdowns</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/filter.html">Filter</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/fontawesome.html">Fontawesome</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/forms.html">Forms</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/googlemap.html">Google Map</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/grid.html">Grid</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/iconsmind.html">Iconsmind</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/lightbox.html">Lightbox</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/masonary.html">Masonary</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal-video.html">Modal video</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal.html">Modal</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navbar.html">Navbar</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/parallax.html">Parallax</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/scrollspy.html">Scrollspy</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/sizing.html">Sizing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/smtpjs.html">Smtpjs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/spacing.html">Spacing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tables.html">Tables</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tooltips.html">Tooltips</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typed-text.html">Typed text</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typography.html">Typography</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/zanimation.html">Zanimation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink2" href="#!" data-bs-toggle="dropdown-on-hover" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Docs<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <ul class="dropdown-menu rounded fade border-0 bg-white shadow-lg" aria-labelledby="navbarDropdownMenuLink2">
+                <li><a class="dropdown-item link-700" href="../docs/getting-started.html">Getting Started</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/file-structure.html">File Structure</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/customization.html">Customization</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/gulp.html">Gulp</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/generator.html">Generator</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/plugins.html">Plugins</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/changelog.html">Changelog </a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="../sitemap.html">Sitemap</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://prium.github.io/slick/v2.0.0/generator.html" target="_blank">Generator</a></li>
+            <li class="nav-item"><a class="btn btn-outline-light rounded-pill btn-sm border-2 ms-lg-2" href="https://themewagon.com/themes/slick/" target="_blank">Purchase </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-8 pb-6 bg-200">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="fw-medium font-sans-serif fs-3 fs-sm-4">List Group</h1>
+            </div>
+            <div class="col-lg-6">
+              <p class="text-800 fs-1 font-sans-serif">These modular elements can be readily used and customized in every layout across pages.</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-0 pb-5">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-9 pt-8">
+              <p class="fs-1 font-sans-serif">For detail documentation. <a href="https://getbootstrap.com/docs/5.1/components/list-group/" target="_blank">View List Group on Bootstrap<span class="d-inline-block ms-1">&xrarr;</span></a></p>
+              <div class="row g-0">
+                <div class="col-xl-6 pe-xl-3">
+                  <h5>Basic Example </h5>
+                  <div class="component-preview">
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                      <li class="list-group-item">Morbi leo risus</li>
+                      <li class="list-group-item">Porta ac consectetur ac</li>
+                      <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Cras justo odio&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Morbi leo risus&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Porta ac consectetur ac&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Vestibulum at eros&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-xl-6 pe-xl-3">
+                  <h5>ACtive Item</h5>
+                  <div class="component-preview">
+                    <ul class="list-group">
+                      <li class="list-group-item active" aria-current="true">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                      <li class="list-group-item">Morbi leo risus</li>
+                      <li class="list-group-item">Porta ac consectetur ac</li>
+                      <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item active&quot; aria-current=&quot;true&quot;&gt;Cras justo odio&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Morbi leo risus&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Porta ac consectetur ac&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Vestibulum at eros&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-xl-6 pe-xl-3">
+                  <h5 class="mt-4">List Group Flush </h5>
+                  <div class="component-preview">
+                    <ul class="list-group list-group-flus">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                      <li class="list-group-item">Morbi leo risus</li>
+                      <li class="list-group-item">Porta ac consectetur ac</li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul class=&quot;list-group list-group-flus&quot;&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Cras justo odio&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Morbi leo risus&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Porta ac consectetur ac&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-xl-6 pe-xl-3">
+                  <h5 class="mt-4">List Group Flush </h5>
+                  <div class="component-preview">
+                    <ul class="list-group">
+                      <li class="list-group-item d-flex justify-content-between align-items-center">Cras justo odio<span class="badge bg-primary rounded-pill">14</span></li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">Dapibus ac facilisis in<span class="badge bg-primary rounded-pill">2</span></li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">Morbi leo risus<span class="badge bg-primary rounded-pill">1</span></li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">Dapibus ac facilisis in<span class="badge bg-primary rounded-pill">9	</span></li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;Cras justo odio&lt;span class=&quot;badge bg-primary rounded-pill&quot;&gt;14&lt;/span&gt;&lt;/li&gt;
+  &lt;li class=&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;Dapibus ac facilisis in&lt;span class=&quot;badge bg-primary rounded-pill&quot;&gt;2&lt;/span&gt;&lt;/li&gt;
+  &lt;li class=&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;Morbi leo risus&lt;span class=&quot;badge bg-primary rounded-pill&quot;&gt;1&lt;/span&gt;&lt;/li&gt;
+  &lt;li class=&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;Dapibus ac facilisis in&lt;span class=&quot;badge bg-primary rounded-pill&quot;&gt;9	&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-xl-6 pe-xl-3">
+                  <h5 class="mt-4">Contextual Classes</h5>
+                  <div class="component-preview">
+                    <ul class="list-group">
+                      <li class="list-group-item">A simple default list group item</li>
+                      <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                      <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                      <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                      <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+                      <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                      <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                      <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                      <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;A simple default list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-primary&quot;&gt;A simple primary list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-secondary&quot;&gt;A simple secondary list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-success&quot;&gt;A simple success list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-danger&quot;&gt;A simple danger list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-warning&quot;&gt;A simple warning list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-info&quot;&gt;A simple info list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-light&quot;&gt;A simple light list group item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-dark&quot;&gt;A simple dark list group item&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-xl-6 pe-xl-3">
+                  <h5 class="mt-4">Custom Content</h5>
+                  <div class="component-preview">
+                    <div class="list-group"><a class="list-group-item list-group-item-action active" href="#" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1 text-white">List group item heading</h5><small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Some placeholder content in a paragraph.</p><small>And some small print.</small>
+                      </a><a class="list-group-item list-group-item-action" href="#">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">List group item heading</h5><small class="text-muted">3 days ago</small>
+                        </div>
+                        <p class="mb-1">Some placeholder content in a paragraph.</p><small class="text-muted">And some muted small print.</small>
+                      </a><a class="list-group-item list-group-item-action" href="#">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">List group item heading</h5><small class="text-muted">3 days ago</small>
+                        </div>
+                        <p class="mb-1">Some placeholder content in a paragraph.</p><small class="text-muted">And some muted small print. </small>
+                      </a></div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;list-group&quot;&gt;&lt;a class=&quot;list-group-item list-group-item-action active&quot; href=&quot;#&quot; aria-current=&quot;true&quot;&gt;
+    &lt;div class=&quot;d-flex w-100 justify-content-between&quot;&gt;
+      &lt;h5 class=&quot;mb-1 text-white&quot;&gt;List group item heading&lt;/h5&gt;&lt;small&gt;3 days ago&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;mb-1&quot;&gt;Some placeholder content in a paragraph.&lt;/p&gt;&lt;small&gt;And some small print.&lt;/small&gt;
+  &lt;/a&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;#&quot;&gt;
+    &lt;div class=&quot;d-flex w-100 justify-content-between&quot;&gt;
+      &lt;h5 class=&quot;mb-1&quot;&gt;List group item heading&lt;/h5&gt;&lt;small class=&quot;text-muted&quot;&gt;3 days ago&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;mb-1&quot;&gt;Some placeholder content in a paragraph.&lt;/p&gt;&lt;small class=&quot;text-muted&quot;&gt;And some muted small print.&lt;/small&gt;
+  &lt;/a&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;#&quot;&gt;
+    &lt;div class=&quot;d-flex w-100 justify-content-between&quot;&gt;
+      &lt;h5 class=&quot;mb-1&quot;&gt;List group item heading&lt;/h5&gt;&lt;small class=&quot;text-muted&quot;&gt;3 days ago&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;mb-1&quot;&gt;Some placeholder content in a paragraph.&lt;/p&gt;&lt;small class=&quot;text-muted&quot;&gt;And some muted small print. &lt;/small&gt;
+  &lt;/a&gt;&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-none d-lg-block col-auto mb-5 my-8">
+              <div class="sticky-sidebar ps-4">
+                <ul class="components-nav list-unstyled" id="components-nav">
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/accordion.html">Accordion</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/alerts.html">Alerts</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/backgrounds.html">Backgrounds</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/badges.html">Badges</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/borders.html">Borders</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/buttons.html">Buttons</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/cards.html">Cards</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/carousel.html">Carousel</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/colors.html">Colors</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/dropdowns.html">Dropdowns</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/filter.html">Filter</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/fontawesome.html">Fontawesome</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/forms.html">Forms</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/googlemap.html">Google Map</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/grid.html">Grid</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/iconsmind.html">Iconsmind</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/lightbox.html">Lightbox</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/masonary.html">Masonary</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal-video.html">Modal video</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal.html">Modal</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navbar.html">Navbar</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/parallax.html">Parallax</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/scrollspy.html">Scrollspy</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/sizing.html">Sizing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/smtpjs.html">Smtpjs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/spacing.html">Spacing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tables.html">Tables</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tooltips.html">Tooltips</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typed-text.html">Typed text</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typography.html">Typography</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/zanimation.html">Zanimation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <footer class="bg-100 text-1100 py-3 fs--1 fw-semi-bold position-absolute bottom-0 w-100">
+        <div class="container-wide">
+          <div class="row justify-content-between">
+            <div class="col-12 col-md-auto mb-1 mb-md-0 font-base">&copy; 2022 Slick &trade; Inc.</div>
+            <div class="col-12 col-md-auto">
+              <p class="text-900 mb-0">Made with<span class="fas fa-heart mx-2"></span>by <a class="link-900" href="https://themewagon.com/" target="_blank"> Themewagon</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!--===============================================-->
+    <!--    Footer-->
+    <!--===============================================-->
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../vendors/popper/popper.min.js"></script>
+    <script src="../vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../vendors/anchorjs/anchor.min.js"></script>
+    <script src="../vendors/is/is.min.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/fontawesome/all.min.js"></script>
+    <script src="../vendors/lodash/lodash.min.js"></script>
+    <script src="../vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../vendors/gsap/gsap.js"></script>
+    <script src="../vendors/gsap/customEase.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

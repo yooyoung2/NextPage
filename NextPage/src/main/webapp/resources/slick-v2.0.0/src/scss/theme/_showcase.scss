@@ -1,0 +1,46 @@
+/*-----------------------------------------------
+|   Showcase
+-----------------------------------------------*/
+.showcase-nav{
+	.isotope-nav{
+		border: 1px solid rgba(255, 255, 255, 0.35);
+		font-size: 12.8px;
+		font-weight: $font-weight-bold;
+		color: rgba(255,255,255,.8);
+		border-radius: $border-radius;
+		transition: all .2s ease-in-out;
+		display: inline-block;
+		margin-right: 1rem;
+		padding: 0.225rem 0.8rem;
+		
+		&.active{
+			font-weight: $font-weight-bold;
+			background-color: #f8f9fa;
+			color: $black !important;
+		}
+		
+		&:hover{
+			color: var(--#{$variable-prefix}black);
+			background-color: #f8f9fa;
+			text-decoration: none;
+			font-weight: $font-weight-bold;
+		}
+	}
+}
+ 
+.showcase-content {
+	margin-top: -28rem;
+	&.showcase-pages{ margin-top: -24rem; }
+}
+.showcase-banner{
+	padding-bottom: 27rem;
+	max-width: 52rem;
+}
+.filter-item {
+	transition-timing-function: linear !important;
+	transition-property: transform !important;
+}
+
+/*-----------------------------------------------
+|   Showcase Menu
+-----------------------------------------------*/

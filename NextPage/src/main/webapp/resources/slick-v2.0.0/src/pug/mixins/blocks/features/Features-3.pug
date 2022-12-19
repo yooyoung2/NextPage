@@ -1,0 +1,35 @@
+mixin Features-3
+	+Section#features-3
+		.row.align-items-center
+			.col-lg-6.mb-5.mb-lg-0
+				h2 Build with Bootstrap
+				p.pe-lg-7.pe-md-11.mt-4 Get a sneak peek at the design process of Bootstrap framework. It will take you through how we approach solving the coding &amp; designing problems. Learn how you can take that back to your own team. 
+
+				a(href=purchase_link target='_blank').mt-4 Get Slick now
+					span.fas.fa-angle-right.ms-2
+
+			.col.text-center.py-8.mx-3.position-relative
+				+Background({image: `${CWD}assets/img/43.jpg`, className: "rounded-3 z-index--1"})
+				a(data-bigpicture='{"ytSrc":"c8aFcHFu8QM"}').cursor-pointer
+					img(src=`${CWD}assets/img/icons/icon-play.svg` alt="play" width=60)
+			.col-12.mt-7.d-none.d-lg-block
+				hr.text-300.my-0
+
+		.row.mt-6.text-center.text-sm-start
+			.col-sm-6.col-lg-4
+				.px-5.ps-sm-0
+					span.icon-Gear.text-danger.fs-5
+					h5.fw-normal.mt-4.mb-3 Control through HTML
+					p Change padding, margin, color, fonts and everything magically.
+
+			.col-sm-6.col-lg-4.mt-5.mt-sm-0
+				.px-5.ps-sm-0
+					span.icon-Full-View.text-danger.fs-5
+					h5.fw-normal.mt-4.mb-3 Media query helpers
+					p Every element can be adjusted to fit right with individual screen sizes. 
+
+			.col-sm-6.col-lg-4.mt-5.mt-lg-0
+				.px-5.ps-sm-0
+					span.icon-Flash.text-danger.fs-5
+					h5.fw-normal.mt-4.mb-3 Redesigned popular plugins
+					p We redesigned popular plugins like swiper, glightbox  and typed text.

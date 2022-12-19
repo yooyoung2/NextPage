@@ -1,0 +1,15 @@
+mixin BackgroundColors 
+	h4 Default Badges
+	+ComponentCard
+		each value in colors
+			span.badge(class=`bg-${value}${value === 'light' ? ' text-dark' : ''}${value === 'dark' ? ' dark__bg-dark' : '' }`)
+				+cleanText(value)
+			= '\n'
+
+mixin PillBadge
+	h4.mt-4 Pill Badges
+	+ComponentCard
+		each value in colors
+			span.badge.rounded-pill(class=`bg-${value}${value === 'light' ? ' text-dark' : ''}${value === 'dark' ? ' dark__bg-dark' : '' }`)
+				+cleanText(value)
+			= '\n'

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 넥스트페이지 공지사항 -->
+
+<mapper namespace="kr.or.ddit.nextpage.member.center.dao.NextPageMemberCenterDAO">
+
+
+	<select id="selectTotalRecord" parameterType="PagingVO"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM NOTICE_BOARD
+	</select>
+
+	<!-- 공지사항 게시물 조회 -->
+	<select id="selectNotiBoardList" parameterType="PagingVO"
+		resultType="NoticeBoardVO">
+		WITH SORTEDBOARD AS (
+		SELECT
+		A.NOTIS_NUM,
+		A.ADMIN_ID,
+		A.NOTIS_TITLE,
+		A.NOTIS_CNTNT,
+		TO_CHAR(A.NOTIS_WRTE_DATE, 'YYYY-MM-DD') NOTIS_WRTE_DATE,
+		B.MEM_AUTH
+		FROM
+		NOTICE_BOARD A LEFT JOIN NP_MEMBER B
+		ON A.ADMIN_ID=NP_MEM_ID
+		ORDER BY NOTIS_NUM DESC
+
+		), RNUMBOARD AS (
+		SELECT ROWNUM RNUM, SORTEDBOARD.
+		*
+		FROM SORTEDBOARD
+		)
+		SELECT *
+		FROM RNUMBOARD
+			<![CDATA[
+ 			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+ 		]]>
+	</select>
+
+
+	<!-- 공지사항 게시물 추가 -->
+	<insert id="insertNotiBoard" parameterType="NoticeBoardVO">
+		<selectKey resultType="int" keyProperty="notisNum"
+			order="BEFORE">
+			SELECT NOTIBRD_SEQ.NEXTVAL
+			FROM DUAL
+		</selectKey>
+		INSERT INTO NOTICE_BOARD (
+		NOTIS_NUM,
+		ADMIN_ID,
+		NOTIS_TITLE,
+		NOTIS_CNTNT,
+		NOTIS_WRTE_DATE
+		)
+		VALUES
+		(
+		#{notisNum, jdbcType=NUMERIC},
+		#{adminId, jdbcType=VARCHAR},
+		#{notisTitle, jdbcType=VARCHAR},
+		#{notisCntnt,
+		jdbcType=VARCHAR},
+		SYSDATE
+		)
+	</insert>
+
+	<update id="insertNotiBoardFile" parameterType="NoticeBoardVO">
+<!-- 		<selectKey resultType="int" keyProperty="notisNum" -->
+<!-- 			order="BEFORE"> -->
+<!-- 			SELECT NOTIBRD_SEQ.NEXTVAL -->
+<!-- 			FROM DUAL -->
+<!-- 		</selectKey> -->
+
+		UPDATE  NOTICE_BOARD
+		SET     FILE_NAME=#{attatchList[0].fileName},
+        		SAVE_NAME=#{attatchList[0].saveName},
+        		SAVE_PATH='/NOTICE_BOARD/'
+		WHERE   NOTIS_NUM=#{notisNum}
+	</update>
+
+
+<!-- 공지사항 상세페이지조회 -->
+	<select id="selectNotiBoard" parameterType="int" resultType="NoticeBoardVO">
+		SELECT
+			A.NOTIS_NUM,
+			A.ADMIN_ID,
+			A.NOTIS_TITLE,
+			A.NOTIS_CNTNT,
+			A.NOTIS_WRTE_DATE,
+			A.FILE_NAME,
+			A.SAVE_NAME,
+			A.SAVE_PATH,
+			B.MEM_AUTH
+		FROM
+			NOTICE_BOARD A LEFT JOIN NP_MEMBER B
+			ON A.ADMIN_ID=NP_MEM_ID
+			WHERE A.NOTIS_NUM = #{notisNum}
+	</select>
+
+<!-- 	공지사항 수정 -->
+	<update id="updateNotiBoard" parameterType="NoticeBoardVO">
+	UPDATE NOTICE_BOARD
+	SET
+      NOTIS_TITLE     =#{notisTitle, jdbcType=VARCHAR}
+     ,NOTIS_CNTNT     =#{notisCntnt, jdbcType=VARCHAR}
+	WHERE NOTIS_NUM   =#{notisNum, jdbcType=VARCHAR}
+	</update>
+
+
+
+<!-- 	공지사항 삭제 -->
+	<delete id="deleteNotiBoard" parameterType="NoticeBoardVO">
+	DELETE FROM NOTICE_BOARD
+	WHERE
+    NOTIS_NUM = #{notisNum, jdbcType=VARCHAR}
+	</delete>
+
+
+</mapper>
+

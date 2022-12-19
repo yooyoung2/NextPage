@@ -1,0 +1,17 @@
+mixin Testimonials-4
+	mixin item(comment, img, commenter, org)
+		.d-flex.flex-column
+			.mt-5.fs-2=comment
+			img(src=`${CWD}assets/img/portraits/square/${img}` alt="profile" style='width: 60px;').rounded-circle.mt-5.mx-auto
+			p.mb-0.mt-3.text-900=commenter
+			h6.text-600.fw-normal.lh-2=org
+	+Section#testimonials-4
+		.row.justify-content-center.text-center
+			.col-xl-6.col-lg-8.col-md-10
+				img(src=`${CWD}assets/img/icons/icon-quote.svg` alt='quote' width=40)
+				#carouselTesitimonialOne.carousel.slide.h-100.carousel-slider(data-bs-ride='carousel')
+					.carousel-inner
+						.carousel-item.active
+							+item("I am thrilled with the possibilities that Slick brought to my web design agency. Creating is easier with Slick.",'03.jpg', 'Jesse Kirk','ThemeWagon')
+						.carousel-item
+							+item("I like the layouts very much - completely unique, with a lot of variations. And it's animations made me Wow! Highly recommend it!",'02.jpg', 'Noah Kingon','UX Knight')

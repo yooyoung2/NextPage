@@ -1,0 +1,34 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-13
+include ../mixins/blocks/header/Header-13
+include ../mixins/blocks/content/Content-20
+include ../mixins/blocks/content/Content-13
+include ../mixins/blocks/forms/Forms-2
+include ../mixins/blocks/content/Content-26
+include ../mixins/blocks/testimonials/Testimonials-4
+include ../mixins/blocks/forms/Forms-9
+include ../mixins/blocks/team/Team-3
+include ../mixins/blocks/content/Content-4
+include ../mixins/blocks/footer/Footer-7
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Navigation-13('Slick').navbar-dark.bg-dark
+	+Header-13
+	+Content-20.bg-100
+	+Content-13
+	+Forms-2
+	+Content-26
+	+Testimonials-4
+	+Forms-9
+	+Content-4
+	+Footer-7
+

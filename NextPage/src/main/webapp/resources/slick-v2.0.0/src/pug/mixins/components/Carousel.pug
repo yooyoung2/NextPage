@@ -1,0 +1,80 @@
+mixin BasicExample 
+	h5.mt-4.fw-lighter Basic Example
+	+ComponentCard
+		#carouselIndicators.carousel.slide.h-100.carousel-slider(data-bs-ride='carousel')
+			.carousel-inner
+				.carousel-item.active
+					.row
+						.col-6
+							img.d-block.w-100(src=`${CWD}assets/img/gallery/2/01.jpg`, alt='First slide')
+						.col-6
+							img.d-block.w-100(src=`${CWD}assets/img/gallery/2/02.jpg`, alt='Second slide')
+				.carousel-item
+					.row
+						.col-6
+							img.d-block.w-100(src=`${CWD}assets/img/gallery/2/03.jpg`, alt='First slide')
+						.col-6
+							img.d-block.w-100(src=`${CWD}assets/img/gallery/2/04.jpg`, alt='Second slide')
+				.carousel-item
+					.row
+						.col-6
+							img.d-block.w-100(src=`${CWD}assets/img/gallery/2/05.jpg`, alt='First slide')
+						.col-6
+							img.d-block.w-100(src=`${CWD}assets/img/gallery/2/06.jpg`, alt='Second slide')
+			button.carousel-control-prev.ms-5(type='button' data-bs-target='#carouselIndicators' data-bs-slide='prev')
+				span.carousel-control-prev-icon(aria-hidden='true')
+				span.visually-hidden Previous
+			button.carousel-control-next.me-4(type='button' data-bs-target='#carouselIndicators' data-bs-slide='next')
+				span.carousel-control-next-icon(aria-hidden='true')
+				span.visually-hidden Next	
+			.row.mt-6
+				.col.position-relative
+					.carousel-indicators
+						button.active(type='button' data-bs-target='#carouselIndicators' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1' style="background:#007AFF")
+						button(type='button' data-bs-target='#carouselIndicators' data-bs-slide-to='1' aria-label='Slide 2' style="background:#007AFF")
+						button(type='button' data-bs-target='#carouselIndicators' data-bs-slide-to='2' aria-label='Slide 3' style="background:#007AFF")
+
+mixin WithCaptions 
+	h5.mt-4.fw-lighter With Captions
+	+ComponentCard
+		#carouselExampleIndicators.carousel.slide(data-bs-ride='carousel')
+			.carousel-indicators
+				button.active(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+				button(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2')
+			.carousel-inner
+				.carousel-item.active
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/3/07.jpg`, alt='First slide')
+					.carousel-caption.d-none.d-md-block
+						h5.text-white First Slide Heading
+						p Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/3/08.jpg`, alt='Second slide')
+					.carousel-caption.d-none.d-md-block
+						.carousel-caption.d-none.d-md-block
+							h5.text-white First Slide Heading
+							p Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				
+mixin Crossfade
+	h5.mt-4.fw-extra-light Crossfade Example
+	+ComponentCard
+		#carouselExampleFade.carousel.slide.carousel-fade(data-bs-ride='carousel')
+			.carousel-inner
+				.carousel-item.active
+					img.d-block.w-100(src=`${CWD}assets/img/60.jpg`, alt='First slide')
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/58.jpg`, alt='Second slide')
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/61.jpg`, alt='Third slide')
+			= '\n'		
+			button.carousel-control-prev(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='prev')
+				= '\n'
+				span.carousel-control-prev-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Previous
+				= '\n'
+			button.carousel-control-next(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='next')
+				= '\n'
+				span.carousel-control-next-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Next
+				= '\n'

@@ -1,0 +1,28 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-5
+include ../mixins/blocks/header/Header-3
+include ../mixins/blocks/gallery/gallery-2
+include ../mixins/blocks/features/Features-14
+include ../mixins/blocks/features/Features-18
+include ../mixins/blocks/features/Features-13
+include ../mixins/blocks/footer/Footer-12
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+	link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+append scripts
+	script(src=`${CWD}vendors/glightbox/glightbox.min.js`)
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+	+Navigation-5({searchBoxClass:'border-200'}).navbar-light.bg-light.sticky-top
+	+Header-3
+	+Gallery-2
+	+Features-14
+	+Features-18
+	+Features-13
+	+Footer-12
+

@@ -1,0 +1,39 @@
+mixin Forms-6
+	+Section({image: `${CWD}assets/img/57.jpg`, className: "overlay overlay-0"}).py-0#forms-6
+		.row.min-vh-100.align-items-center.justify-content-md-center.justify-content-lg-start.py-6
+				.col-md-10.col-lg-6
+					h1.fw-light.text-white.lh-2 Discover what’s 
+						br
+						| possible when there is 
+						br.d-none.d-sm-block
+						span.fw-semi-bold #{numbers.layouts} layouts 
+						| ready
+						br
+						| at your fingertip
+					p.lead.text-400.mt-5.pe-md-9 Have the power to build professional websites faster than ever before.
+				.col-md-10.col-lg-6.col-xl-5.px-lg-5
+					.bg-white.rounded-3.p-5
+						form.row.g-3
+							.col-12
+								input.form-control(type="text" placeholder="Your name")
+							.col-12
+								input.form-control(type="email" placeholder="Email")
+							.col-12
+								input.form-control(type="password" placeholder="Password")
+							.col-12.d-grid
+								button.btn.btn-danger(type="submit" name="submit")
+									| Create an account
+							.w-100.position-relative.text-center.mt-4
+								hr.bg-500
+								.position-absolute.top-0.bg-white.px-3.fs--1(style="transform: translateY(-50%) translateX(-50%); left: 50%;").text-500 or sign-in with
+							.mb-0
+								.row.g-0
+									.col-sm-6.pe-sm-1.d-grid
+										a(href="#").btn.btn-icon-pop.btn-outline-twitter.btn-sm.mt-2
+											span.fab.fa-twitter.me-2
+											| Twitter
+
+									.col-sm-6.ps-sm-1.d-grid
+										a(href="#").btn.btn-icon-pop.btn-outline-facebook.btn-sm.mt-2
+											span.fab.fa-facebook-f.me-2
+											| facebook

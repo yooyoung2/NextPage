@@ -1,0 +1,6 @@
+mixin NavbarComponent
+  ul#components-nav.components-nav.list-unstyled
+    each value, index in sitemap[0].pages
+      li
+        a(href=`${CWD}${value.path}.html` class=pathName === value.path ? 'link-primary fw-bold' : 'link-700').font-sans-serif.text-capitalize
+          =value.name

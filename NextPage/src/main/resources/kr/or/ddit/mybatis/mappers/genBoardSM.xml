@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이유영 -->
+<mapper namespace="kr.or.ddit.school.manager.board.manage.dao.BoardManageDAO">
+
+<!-- 	<sql id="searchFragTest">
+		<where>
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				AND INSTR(BRD_TITLE, #{simpleCondition.searchWord}) > 0
+			</if>
+
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchType)">
+				AND BRD_TYPE_ID = #{simpleCondition.searchType}
+			</if>
+		</where>
+	</sql>
+ -->
+<!-- 페이징처리  -->
+	<sql id="searchFrag">
+		<trim prefix="AND(" suffix=")">
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				<choose>
+					<when test="simpleCondition.searchType eq 1">
+						INSTR(BRD_TITLE, #{simpleCondition.searchWord}) > 0
+						AND BRD_TYPE_ID = #{simpleCondition.searchType}
+					</when>
+					<when test="simpleCondition.searchType eq 2">
+						INSTR(BRD_TITLE, #{simpleCondition.searchWord}) > 0
+						AND BRD_TYPE_ID = #{simpleCondition.searchType}
+					</when>
+					<when test="simpleCondition.searchType eq 3">
+						INSTR(BRD_TITLE, #{simpleCondition.searchWord}) > 0
+						AND BRD_TYPE_ID = #{simpleCondition.searchType}
+					</when>
+					<otherwise>
+						INSTR(BRD_TITLE, #{simpleCondition.searchWord}) > 0
+						OR INSTR(BRD_TITLE, #{simpleCondition.searchWord}) > 0
+						OR INSTR(BRD_TITLE, #{simpleCondition.searchWord}) > 0
+					</otherwise>
+				</choose>
+			</if>
+		</trim>
+	</sql>
+
+  <select id="selectTotalRecord" parameterType="PagingVO" resultType="int">
+      SELECT COUNT(*)
+      FROM GEN_BOARD GB, SCHOOL S
+			WHERE GB.SCH_ID = S.SCH_ID
+			AND S.SCH_ID= #{schId}
+      <include refid="searchFrag" />
+   </select>
+
+<!-- 학교관리자-학교게시판목록 -->
+	<select id="selectGenBoardList" parameterType="PagingVO" resultType="GenBoardVO">
+		WITH SORTEDBOARD AS (
+			SELECT
+	   		S.SCH_NM
+	   		,GB.BRD_NUM
+	   		,GB.BRD_TITLE
+	   		,GB.BRD_TYPE_ID
+			FROM GEN_BOARD GB, SCHOOL S
+			WHERE GB.SCH_ID = S.SCH_ID
+			AND S.SCH_ID= #{schId}
+			<include refid="searchFrag" />
+			ORDER BY GB.BRD_NUM
+			), RNUMBOARD AS (
+		    SELECT ROWNUM RNUM, SORTEDBOARD.*
+		    FROM SORTEDBOARD
+		)
+		SELECT *
+		FROM RNUMBOARD
+			<![CDATA[
+			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+		]]>
+	</select>
+
+
+<!-- 학교관리자-학교게시판 추가 -->
+<insert id="insertGenBoard" parameterType="GenBoardVO">
+	<!-- <selectKey resultType="int" keyProperty="brdNum" order="BEFORE">
+			SELECT GENBOARD_SEQ.nextval
+			FROM DUAL
+	</selectKey> -->
+	INSERT INTO GEN_BOARD
+	(
+		BRD_NUM
+		,SCH_ID
+		,BRD_TYPE_ID
+		,BRD_TITLE
+		,ANMT_WHTHR
+		,CMMNT_WHTHR
+		,ATTACH_NUM
+		,NOTIS_WHTHR
+		,PAGE_POST_NUM
+		,SCRT_WRITE_WHTHR
+		,PRGRS_CNDTN
+		,NOTIS_BTN_WHTHR
+	)
+	VALUES
+	(
+		GENBOARD_SEQ.NEXTVAL
+		<!-- #{brdNum,jdbcType=NUMERIC} -->
+		,#{schId,jdbcType=VARCHAR}
+		,#{brdTypeId,jdbcType=VARCHAR}
+		,#{brdTitle,jdbcType=VARCHAR}
+		,#{anmtWhthr,jdbcType=VARCHAR}
+		,#{cmmntWhthr,jdbcType=VARCHAR}
+		,#{attachNum,jdbcType=VARCHAR}
+		,#{notisWhthr,jdbcType=VARCHAR}
+		,#{pagePostNum,jdbcType=VARCHAR}
+		,#{scrtWriteWhthr,jdbcType=VARCHAR}
+		,#{prgrsCndtn,jdbcType=VARCHAR}
+		,#{notisBtnWhthr,jdbcType=VARCHAR}
+
+	)
+
+ 	<selectKey resultType="int" keyProperty="brdNum" order="AFTER">
+			<!-- SELECT BRD_NUM
+			FROM GEN_BOARD -->
+			SELECT GENBOARD_SEQ.CURRVAL
+			FROM DUAL
+	</selectKey>
+</insert>
+
+
+<!-- 학교관리자-학교게시판설정 수정  -->
+
+<select id="selectGenBoard" parameterType="int" resultType="GenBoardVO">
+SELECT
+    BRD_TYPE_ID
+    ,BRD_TITLE
+    ,ANMT_WHTHR
+    ,CMMNT_WHTHR
+    ,ATTACH_NUM
+    ,NOTIS_WHTHR
+    ,PAGE_POST_NUM
+    ,SCRT_WRITE_WHTHR
+    ,PRGRS_CNDTN
+    ,NOTIS_BTN_WHTHR
+    ,SCH_ID
+    ,BRD_NUM
+FROM
+    GEN_BOARD
+WHERE BRD_NUM = #{brdNum}
+</select>
+
+<update id="updateGenBoard" parameterType="GenBoardVO">
+UPDATE GEN_BOARD
+SET
+ 	BRD_TYPE_ID = #{brdTypeId}
+    ,BRD_TITLE = #{brdTitle}
+    ,ANMT_WHTHR = #{anmtWhthr}
+    ,CMMNT_WHTHR = #{cmmntWhthr}
+    ,ATTACH_NUM = #{attachNum}
+    ,NOTIS_WHTHR = #{notisWhthr}
+    ,PAGE_POST_NUM = #{pagePostNum}
+    ,SCRT_WRITE_WHTHR = #{scrtWriteWhthr}
+    ,PRGRS_CNDTN = #{prgrsCndtn}
+    ,NOTIS_BTN_WHTHR = #{notisBtnWhthr}
+WHERE BRD_NUM = #{brdNum}
+</update>
+
+
+<!-- 학교관리자-학교게시판 삭제 -->
+<delete id="deleteGenBoard" parameterType="int">
+		DELETE FROM GEN_BOARD
+		WHERE BRD_NUM = #{brdNum}
+</delete>
+
+<select id="selectGenBoardOptionList" parameterType="String" resultType="GenBoardVO">
+	SELECT BRD_NUM, BRD_TITLE
+	FROM GEN_BOARD
+	WHERE SCH_ID=#{schId}
+	ORDER BY BRD_NUM
+</select>
+	
+	<select id="selectUseBoardList" parameterType="GenBoardVO" resultType="GenBoardVO">
+		SELECT BRD_NUM, GB.SCH_ID, BRD_TYPE_ID,
+		       BRD_TITLE, ANMT_WHTHR, CMMNT_WHTHR,
+		       ATTACH_NUM, NOTIS_WHTHR, PAGE_POST_NUM,
+		       SCRT_WRITE_WHTHR, PRGRS_CNDTN, NOTIS_BTN_WHTHR
+		FROM GEN_BOARD GB, GEN_MENU GM
+		WHERE GB.SCH_ID = #{schId}
+		AND GB.BRD_TYPE_ID = #{brdTypeId}
+		AND GM.MENU_TYPE = 'board'
+		AND MENU_USE_OK = 'YES'
+		AND REGEXP_SUBSTR(GM.MENU_LINK,'[^=]+', 1, 2) = GB.BRD_NUM
+	</select>
+
+</mapper>
+<!-- 이유영 -->

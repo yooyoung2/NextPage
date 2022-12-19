@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.homepage.manage.dao.HomePageManageDAO">
+	
+	<select id="selectCostTemplateList" resultType="genTemplateVO">
+		SELECT TMPLT_ID, TMPLT_NM, TMPLT_BKGRD, 
+			   TMPLT_INFO, TMPLT_THMNL, TMPLT_PAY_OK
+		FROM GEN_TEMPLATE
+		WHERE TMPLT_PAY_OK = 'COST'
+		ORDER BY TMPLT_ID
+	</select>
+	
+	<select id="selectCostTemplateLists" parameterType="string" resultType="genTemplateVO">
+		SELECT 
+		    TMPLT_ID, TMPLT_NM, TMPLT_BKGRD,
+		    TMPLT_INFO, TMPLT_THMNL, TMPLT_PAY_OK 
+		FROM GEN_TEMPLATE 
+		WHERE TMPLT_ID IN
+		                 (SELECT PROD_ID
+		                  FROM CART 
+		                  WHERE SCH_ID= #{schId}
+		                  AND PROD_ID LIKE 'TMPLT%')
+		ORDER BY TMPLT_ID ASC
+	</select>
+	
+	
+	<select id="selectFreeTemplateList" resultType="genTemplateVO">
+		SELECT TMPLT_ID, TMPLT_NM, TMPLT_BKGRD, 
+			   TMPLT_INFO, TMPLT_THMNL, TMPLT_PAY_OK
+		FROM GEN_TEMPLATE
+		WHERE TMPLT_PAY_OK = 'FREE'
+		ORDER BY TMPLT_ID
+	</select>
+	
+	<select id="selectTemplate" parameterType="string" resultType="genTemplateVO">
+		SELECT
+		    TMPLT_ID, TMPLT_NM, TMPLT_BKGRD,
+		    TMPLT_INFO, TMPLT_THMNL, TMPLT_PAY_OK,
+		    TMPLT_HEAD, TMPLT_LEFT, TMPLT_FOOTER,
+		    TMPLT_PRE, TMPLT_POST
+		FROM
+		    GEN_TEMPLATE
+		WHERE TMPLT_ID = #{tmpltId}
+	</select>
+	
+</mapper>

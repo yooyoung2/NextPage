@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 학교매니저 기능관리 학교상징  -->
+
+<mapper namespace="kr.or.ddit.school.manager.symbol.dao.SchoolSymbolDAO">
+
+
+<!-- 학교상징등록 -->
+	<insert id="insertSymbol" parameterType="SchSymbVO">
+
+		INSERT INTO SCH_SYMB (
+		    SCH_ID,
+		    SCHMTT,
+		    SCH_TREE,
+		    TREE_FILE_NAME,
+		    
+		    SCH_FLOWER,
+		    FLOWER_FILE_NAME,
+		    
+		    SCH_BIRD,
+		    BIRD_FILE_NAME,
+		    
+		    SCH_SYMBOL,
+		    SYMBOL_FILE_NAME,
+		    
+		    SAVE_PATH,
+		    TREE_INFO,
+		    FLOWER_INFO,
+		    BIRD_INFO,
+		    SYMBOL_INFO
+		) VALUES (
+			#{schId, jdbcType=VARCHAR},
+			#{schmtt, jdbcType=VARCHAR},
+			#{schTree, jdbcType=VARCHAR},
+			#{treeFileName, jdbcType=VARCHAR},
+			
+			#{schFlower, jdbcType=VARCHAR},
+			#{flowerFileName, jdbcType=VARCHAR},
+			
+			#{schBird, jdbcType=VARCHAR},
+			#{birdFileName, jdbcType=VARCHAR},
+			
+			#{schSymbol, jdbcType=VARCHAR},
+			#{symbolFileName, jdbcType=VARCHAR},
+			
+			#{savePath, jdbcType=VARCHAR},
+			#{treeInfo, jdbcType=VARCHAR},
+			#{flowerInfo, jdbcType=VARCHAR},
+			#{birdInfo, jdbcType=VARCHAR},
+			#{symbolInfo, jdbcType=VARCHAR}
+	)
+	</insert>
+
+
+<!-- 학교상징 조회 -->
+	<select id="selectSymbol" parameterType="String" resultType="SchSymbVO">
+		SELECT
+			SCH_ID,
+		    SCHMTT,
+		    SCH_TREE,
+		    TREE_FILE_NAME,
+		    
+		    SCH_FLOWER,
+		    FLOWER_FILE_NAME,
+		    
+		    SCH_BIRD,
+		    BIRD_FILE_NAME,
+		    
+		    SCH_SYMBOL,
+		    SYMBOL_FILE_NAME,
+		    
+		    SAVE_PATH,
+		    TREE_INFO,
+		    FLOWER_INFO,
+		    BIRD_INFO,
+		    SYMBOL_INFO
+		FROM
+			SCH_SYMB
+		WHERE SCH_ID=#{schId, jdbcType=VARCHAR}
+	</select>
+
+<!-- 학교상징 수정 -->
+
+	<update id="updateSymbol" parameterType="SchSymbVO">
+	   UPDATE SCH_SYMB
+		    SET
+			    SCHMTT           = #{schmtt, jdbcType=VARCHAR},
+			    SCH_TREE         = #{schTree, jdbcType=VARCHAR},
+			    TREE_FILE_NAME   = #{treeFileName, jdbcType=VARCHAR},
+			    
+			    SCH_FLOWER       = #{schFlower, jdbcType=VARCHAR},
+			    FLOWER_FILE_NAME = #{flowerFileName, jdbcType=VARCHAR},
+			    
+			    SCH_BIRD         = #{schBird, jdbcType=VARCHAR},
+			    BIRD_FILE_NAME   = #{birdFileName, jdbcType=VARCHAR},
+			    
+			    SCH_SYMBOL       = #{schSymbol, jdbcType=VARCHAR},
+			    SYMBOL_FILE_NAME = #{symbolFileName, jdbcType=VARCHAR},
+			    
+			    SAVE_PATH        = #{savePath, jdbcType=VARCHAR},
+			    TREE_INFO        = #{treeInfo, jdbcType=VARCHAR},
+			    FLOWER_INFO      = #{flowerInfo, jdbcType=VARCHAR},
+			    BIRD_INFO        = #{birdInfo, jdbcType=VARCHAR},
+			    SYMBOL_INFO      = #{symbolInfo, jdbcType=VARCHAR}
+			WHERE
+		    	SCH_ID = #{schId, jdbcType=VARCHAR}
+
+	</update>
+
+</mapper>
+

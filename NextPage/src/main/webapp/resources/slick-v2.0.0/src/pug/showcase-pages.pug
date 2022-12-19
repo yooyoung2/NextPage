@@ -1,0 +1,32 @@
+extends layouts/LayoutTheme
+include mixins/common/Wave
+include mixins/common/Masonary
+include mixins/common/ShowcaseContent
+
+prepend scripts
+  script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+  script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+
+append variables
+  - var hideNavbar = true;
+  - var hideFooter = true;
+
+append mainContent
+  +Section({image: `${CWD}assets/img/header_showcase.jpg`, className: 'overlay', attrs: {style: 'background-position: top'}}, 'container-fluid p-0').pt-7.pt-md-9.pb-0.text-center
+    .row.flex-center.mx-auto.showcase-banner
+      .col.px-sm-4
+        h1.text-white.fs-4.fs-sm-5.fs-lg-7.fw-light.mb-4 Premade
+          strong.fw-bold  Pages
+        p.lead.text-300.opacity-75.px-sm-4.px-md-6 Launch quickly with
+          strong.fw-700  #{numbers.pages} fully designed
+          |  templates to choose from. Pick one and go, or customize them as you wish.
+    +Wave
+
+  block sortable
+    .container.container-wide-xl.showcase-content.showcase-pages.h-auto
+      .row.g-0.sortable-container.sortable-container-gutter-fix(data-sl-isotope!={layoutMode: 'packery'})
+        each page in pages
+          .col-6.col-lg-4.p-2.isotope-item(class=`${page}`)
+            a(href=`${CWD}pages/page-${page}.html` target='_blank')
+              img(src=`${CWD}assets/img/screenshots/page-${page}.jpg` alt=`${page}`).rounded.img-fluid.w-100.shadow-lg
+  +ShowcaseCTA('black')

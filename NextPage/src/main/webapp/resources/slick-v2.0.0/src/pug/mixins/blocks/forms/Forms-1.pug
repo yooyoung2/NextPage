@@ -1,0 +1,41 @@
+mixin Forms-1
+	+Section({image: `${CWD}assets/img/11.jpg`, className: 'overlay overlay-0'}).py-0#forms-1
+		.row.min-vh-100.flex-center.py-5
+			.col-sm-10.col-md-8.col-lg-6.col-xl-5
+				.tabs.bg-white.rounded-3.pb-4
+					ul.nav.nav-tabs.mb-3.flex-center.pt-3.border-200#nav-tab(role='tablist')
+						li.nav-item.px-3(role='presentation')
+							button.nav-link.pb-3.fs--1.active#pills-home-tab(data-bs-toggle='pill' data-bs-target='#pills-home' type='button' role='tab' aria-controls='pills-home' aria-selected='true') CREDIT CARD
+						li.nav-item.px-3(role='presentation')
+							button.nav-link.pb-3.fs--1#pills-profile-tab(data-bs-toggle='pill' data-bs-target='#pills-profile' type='button' role='tab' aria-controls='pills-profile' aria-selected='false') PAYPAL
+					
+					.tab-content.px-5#pills-tabContent
+						.tab-pane.fade.show.active#pills-home(role='tabpanel' aria-labelledby='pills-home-tab') 
+							form.align-items-center.pt-3(data-form)
+								.row
+									.col.mb-3
+										label.form-label.ls.text-uppercase.text-700.fw-bold.mb-0 Card Number
+										input.form-control.border-2(type="text" placeholder="")
+								.row
+									.col-6.mb-3
+										label.form-label.ls.text-uppercase.text-700.fw-bold.mb-0 Exp date
+										input.form-control.border-2(type="date" placeholder='MM/YY')
+									.col-6.mb-3
+										label.form-label.ls.text-uppercase.text-700.fw-bold.mb-0 CVV
+											a(href='#').d-inline-block
+												span.fa.fa-question-circle.ms-2.text-400
+										input.form-control.border-2(type="text" placeholder='')
+								.row
+									.col-12.mb-3
+										label.form-label.ls.text-uppercase.text-700.fw-bold.mb-0 Name on card
+										input.form-control.border-2(type="text" placeholder='')
+								.d-grid
+									button.btn.btn-primary.mt-3(type='submit' name='submit')
+										span.fa.fa-lock.me-2
+										| Pay $299	
+									.feedback
+
+						.tab-pane.fade.text-center#pills-profile(role='tabpanel' aria-labelledby='pills-profile-tab' style='min-height: 344px;')
+							.pt-4
+								img(src=`${CWD}assets/img/icons/icon-paypal.svg`, width='100' alt='paypal').mb-4
+							a(href='#').btn.btn-primary Pay $299 with paypal

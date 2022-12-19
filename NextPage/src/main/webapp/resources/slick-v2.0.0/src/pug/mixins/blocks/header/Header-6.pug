@@ -1,0 +1,18 @@
+mixin Header-6
+	section.py-md-0#header-6
+		div
+			+Background({image: `${CWD}assets/img/53.jpg`, className: "overlay overlay-0"})
+			.position-absolute.d-none.d-lg-flex.align-items-center.h-100.end-0(style="width: 40%;")
+				img(src=`${CWD}assets/img/sony.png` alt='').img-fluid
+			.container
+				.row.min-vh-100.align-items-center
+					.col-lg-7.col-md-10
+						h1.fs-6.text-white.mb-4.fw-light Step into the
+							br
+							| future of web design
+
+						p.lead.text-400 Slick is the new way of creating websites that empowers you to reuse the modular, structured block of codes; make beautiful webpages that you imagined. 
+
+						.input-group.mt-6.pe-lg-10.pe-md-8
+							input.form-control.background-white.border.border-white.border-2x(type='email', placeholder='Enter your email', aria-label='Email')
+							button.btn.btn-danger.px-3(type="button") See how it works

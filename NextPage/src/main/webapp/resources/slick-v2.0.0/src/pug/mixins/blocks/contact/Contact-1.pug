@@ -1,0 +1,47 @@
+mixin Contact-1
+	+Section({image: `${CWD}assets/img/landscape/01.jpg`, className: "overlay overlay-2"})#contact-1
+		.row.flex-center
+			.col-md-8.col-xl-7.text-center
+				h2.text-white Stay connected
+				p.lead.text-400 Let's talk if you have any query or suggestion. We are open to learn from you. So don't hesitate to reach us anytime.
+			.col-md-8.mt-4.mt-md-6
+				.bg-white.rounded-3.p-4.p-sm-5
+					form.row.gx-4.gy-3(data-form)
+						.col-sm
+							label.ls.text-uppercase.text-700.fw-bold.mb-0 Your Name
+							input.form-control.bg-white.border-2(type="text" placeholder="")
+						.col-sm-5
+							label.ls.text-uppercase.text-700.fw-bold.mb-0 Budget
+							select.form-select.border-2(aria-label='Default select example')
+								option(selected) 	&dollar;200.000
+								option(value='1') &dollar;50.000
+								option(value='2') &dollar;100.000
+								option(value='3') &dollar;500.000
+								option(value='4') &dollar;1000.000
+						.col-12
+							label.ls.text-uppercase.text-700.fw-bold.mb-0 Your Email
+							input.form-control.bg-white.border-2(type="email" placeholder="")
+						.col-12
+							label.ls.text-uppercase.text-700.fw-bold.mb-0 Message
+							textarea.form-control.bg-white.border-2(rows="3" placeholder="")
+						.col-sm
+							.form-check.text-start
+								label.form-check-label
+									input.form-check-input(type='checkbox' checked)
+									span.fw-normal.fs-0 Send me a copy
+						.col-sm-auto.text-end.mt-4.mt-sm-0.d-grid.pt-3
+							button.btn.btn-success(type="submit" name="submit" role="button")
+								| Send
+								span.fa.fa-angle-right.ms-2
+		.row.mt-4.justify-content-center
+			.col-auto.d-flex.align-items-center
+				span.fas.fa-phone.text-300.me-2
+				a(href="tel:112-334-48-55").link-400 +1 823 39544
+			.col-auto.d-flex.align-items-center
+				span.fas.fa-envelope.text-300.me-2
+				a(href="mailto:info@themewagon.com").link-400 info@themewagon.com
+			.col-auto.d-flex.align-items-center
+				span.fas.fa-map-marker.text-300.me-2
+				address.mb-0.text-400 Apt 45, Central Road, Estonia
+
+

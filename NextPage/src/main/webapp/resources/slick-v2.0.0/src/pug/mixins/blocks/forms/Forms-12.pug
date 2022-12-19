@@ -1,0 +1,25 @@
+mixin Forms-12
+	+Section({image: `${CWD}assets/img/29.jpg`, className: ""}).py-0#forms-12
+		.row.min-vh-100.flex-center.py-6
+			.col-md-8.col-lg-6.col-xl-5
+				.bg-white.rounded-3.p-5.text-center.shadow-lg
+					h2.fw-light.font-base Sign In
+					form(data-form).mt-5
+						.input-group.mb-3
+							span.input-group-text.bg-transparent.border
+								span.icon-Email.fs-2
+							input.form-control(type='email', placeholder='Your Email', aria-label='Email')
+
+						.input-group.mb-3
+							span.input-group-text.bg-transparent.border
+								span.icon-Lock-2.fs-2
+							input.form-control(type='password', placeholder='Password', aria-label='Password')
+
+						.fs--1.text-end
+							a(href="#") Forget Password?
+						.form-group
+							input.btn.btn-danger.rounded-pill.mt-4(type="submit" name="submit" value="Sign In")
+						.feedback.mt-3
+					hr.bg-500.mb-3.mt-5
+					p.fs--1.fw-light.text-700 Don't have an Account? 
+						a(href="#") Sign Up

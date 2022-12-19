@@ -1,0 +1,80 @@
+/*-----------------------------------------------
+|   Isotope
+-----------------------------------------------*/
+
+.isotope-nav{
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 12.8px;
+  font-weight: $font-weight-semi-bold;
+  color: $dark;
+  border-radius: $border-radius;
+  transition: all .2s ease-in-out;
+  letter-spacing: 0.02em;
+  margin-right: .5rem;
+  border: 1px solid $dark;
+  padding: map_get($spacers, 1) .75rem;
+  
+  &.active{
+    font-weight: $font-weight-semi-bold;
+    background-color: $gray-1100;
+    color: $light !important;
+    // border: 1px solid var(--#{$variable-prefix}black);
+    &:hover{
+      color: $dark;
+      background-color: $gray-1100;
+    }
+  }
+  &:hover{
+    color: var(--#{$variable-prefix}black);
+    background-color: #f8f9fa;
+		text-decoration: none;
+    font-weight: $font-weight-semi-bold;
+  }
+}
+
+
+// .isotope-item{
+//   visibility: hidden;
+// }
+
+.sortable{
+  .menu{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: $font-family-base;
+    text-transform: uppercase;
+    color: $black;
+    text-decoration: none;
+    font-weight: $font-weight-normal;
+    font-size: map_get($font-sizes, '-1');
+    letter-spacing: 0.13rem;
+    .isotope-nav{
+      cursor: pointer;
+      padding: map_get($spacers, 1) map_get($spacers, 2);
+      margin-bottom: map_get($spacers, 2);
+      border: 1px solid transparent;
+      // border-radius: $border-radius;
+      transition: $transition-base;
+      margin-right: map_get($spacers, 1);
+      &:last-child{
+        margin-right: 0;
+      }
+      &.active{
+        border-color: currentColor;
+        color: $black;
+        border-radius: $btn-border-radius;
+      }
+    }
+  }
+}
+
+.sortable-container.sortable-container-gutter-fix{
+  margin-left: - map_get($spacers, 2);
+  margin-right: - map_get($spacers, 2);
+}
+
+// Work-alt page 
+.work-alt-sticky-nav{
+  padding-top: 6.25rem;
+  margin-top: -6.25rem;
+}

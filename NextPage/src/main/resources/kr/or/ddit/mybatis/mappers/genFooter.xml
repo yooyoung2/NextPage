@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.generation.options.footer.dao.FooterDAO">
+
+<select id="selectFooter" parameterType="string" resultType="SchoolVO" >
+SELECT
+    GF.EMAIL,
+    GF.SCH_TEL_NUM,
+    GF.SCH_FAX_NUM,
+    S.SCH_ADDR1,
+    S.SCH_ADDR2,
+    S.SCH_NM,
+    S.SCH_POST_NUM,
+    S.SCH_EMAIL
+FROM GEN_FOOTER GF, SCHOOL S
+WHERE GF.SCH_ID =#{schId}
+AND GF.SCH_ID = S.SCH_ID
+</select>
+
+</mapper>

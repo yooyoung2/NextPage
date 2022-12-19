@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.operator.history.stastics.dao.TemplateDAO">
+
+
+	<!--
+		탬플릿별 판매현황 
+	 -->
+	<select id = "templateSell" resultType="TemplateStasticsVO">
+		SELECT  
+        GT.TMPLT_NM AS templateNm,
+        COUNT(*) AS amount
+		FROM	GEN_TEMPLATE GT
+				FULL OUTER JOIN GEN_SITE GS ON GT.TMPLT_ID = GS.TMPLT_ID
+				FULL OUTER JOIN PRJCT PRJ ON GS.PRJCT_ID = PRJ.PRJCT_ID
+				FULL OUTER JOIN SCHOOL SCH ON PRJ.SCH_ID = SCH.SCH_ID
+				FULL OUTER JOIN CART C ON SCH.SCH_ID = C.SCH_ID
+				FULL OUTER JOIN PAY_BRKDWN PB ON C.CART_ID = PB.CART_ID
+				FULL OUTER JOIN PRD_ITEMS PRI ON C.PROD_ID = PRI.PROD_ID
+		WHERE PB.PAY_DATE IS NOT NULL AND GT.TMPLT_NM IS NOT NULL
+		GROUP BY GT.TMPLT_NM
+	</select>
+	
+	<!--
+		탬플릿별 사용현황 
+	 -->
+	<select id = "templateUse" resultType="TemplateStasticsVO">
+		SELECT  GT.TMPLT_NM AS templateNm,
+        COUNT(*) AS amount
+		FROM    PRJCT PRJ
+		FULL OUTER JOIN GEN_SITE GS ON PRJ.PRJCT_ID = GS.PRJCT_ID
+		FULL OUTER JOIN GEN_TEMPLATE GT ON GS.TMPLT_ID = GT.TMPLT_ID
+		WHERE   PRJ.SCH_ID IS NOT NULL AND
+        		GT.TMPLT_NM IS NOT NULL AND
+        		GS.HOME_SELECT = 'YES'
+		GROUP BY GT.TMPLT_NM  
+	</select>
+	
+
+</mapper>

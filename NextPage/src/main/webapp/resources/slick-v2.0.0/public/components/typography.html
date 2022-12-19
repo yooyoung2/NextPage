@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Slick | Create Beautiful Websites. Effortlessly.</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="../vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../vendors/prism/prism.css" rel="stylesheet">
+    <link href="../vendors/hamburgers/hamburgers.min.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet" />
+    <link href="../assets/css/user.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../vendors/iconsmind/iconsmind.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </head>
+
+
+  <body>
+    <div class="preloader" id="preloader" data-preloader>
+      <div class="preloader-wrapper big active" data-preloader>
+        <div class="spinner-layer spinner-white-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-slick navbar-expand-lg navbar-dark fixed-top py-2 bg-dark sticky-top">
+      <div class="container container-wide-xl"><a class="navbar-brand ls-2 p-0 me-4" href="../index.html"><img src="../assets/img/slick-logo.svg" alt="SLiCK" width="50" /></a>
+        <button class="navbar-toggler hamburger hamburger--emphatic" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="../showcase-pages.html">Pages</a></li>
+            <li class="nav-item"><a class="nav-link" href="../all-blocks.html">All Blocks</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink" href="#!" data-bs-toggle="dropdown" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Components<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <div class="dropdown-menu fade dropdown-components shadow-lg" aria-labelledby="navbarDropdownMenuLink">
+                <div class="row justify-content-between">
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/accordion.html">Accordion</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/alerts.html">Alerts</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/backgrounds.html">Backgrounds</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/badges.html">Badges</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/borders.html">Borders</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/buttons.html">Buttons</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/cards.html">Cards</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/carousel.html">Carousel</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/colors.html">Colors</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/dropdowns.html">Dropdowns</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/filter.html">Filter</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/fontawesome.html">Fontawesome</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/forms.html">Forms</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/googlemap.html">Google Map</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/grid.html">Grid</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/iconsmind.html">Iconsmind</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/lightbox.html">Lightbox</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/masonary.html">Masonary</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal-video.html">Modal video</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal.html">Modal</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navbar.html">Navbar</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/parallax.html">Parallax</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/scrollspy.html">Scrollspy</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/sizing.html">Sizing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/smtpjs.html">Smtpjs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/spacing.html">Spacing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tables.html">Tables</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tooltips.html">Tooltips</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typed-text.html">Typed text</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typography.html">Typography</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/zanimation.html">Zanimation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink2" href="#!" data-bs-toggle="dropdown-on-hover" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Docs<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <ul class="dropdown-menu rounded fade border-0 bg-white shadow-lg" aria-labelledby="navbarDropdownMenuLink2">
+                <li><a class="dropdown-item link-700" href="../docs/getting-started.html">Getting Started</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/file-structure.html">File Structure</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/customization.html">Customization</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/gulp.html">Gulp</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/generator.html">Generator</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/plugins.html">Plugins</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/changelog.html">Changelog </a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="../sitemap.html">Sitemap</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://prium.github.io/slick/v2.0.0/generator.html" target="_blank">Generator</a></li>
+            <li class="nav-item"><a class="btn btn-outline-light rounded-pill btn-sm border-2 ms-lg-2" href="https://themewagon.com/themes/slick/" target="_blank">Purchase </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-8 pb-6 bg-200">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="fw-medium font-sans-serif fs-3 fs-sm-4">Typography</h1>
+            </div>
+            <div class="col-lg-6">
+              <p class="text-800 fs-1 font-sans-serif">These modular elements can be readily used and customized in every layout across pages.</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-0 pb-5">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-9 pt-8">
+              <p class="fs-1 font-sans-serif">For detail documentation. <a href="https://getbootstrap.com/docs/5.1/content/typography/" target="_blank">View Typography on Bootstrap<span class="d-inline-block ms-1">&xrarr;</span></a></p>
+              <h4 class="mb-1">Font Family</h4>
+              <p>You have three sets of <code>font-family</code> available to use.</p>
+              <div class="component-preview">
+                <div class="font-sans-serif">Raleway</div>
+                <div class="font-base">Roboto</div>
+                <div> <code>Monospace</code></div>
+                <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;font-sans-serif&quot;&gt;Raleway&lt;/div&gt;
+&lt;div class=&quot;font-base&quot;&gt;Roboto&lt;/div&gt;
+&lt;div&gt; &lt;code&gt;Monospace&lt;/code&gt;&lt;/div&gt;</code></pre>
+              </div>
+              <h4 class="mt-4 mb-1">Headings</h4>
+              <p><strong>Slick</strong> has all the html headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, styled for you. Also you can use <code>.h1</code> through <code>.h6</code> classes when you want to match the font styling of a heading but still want your text to be displayed inline.</p>
+              <div class="component-preview">
+                <h1>Heading 1</h1>
+                <h2>Heading 2</h2>
+                <h3>Heading 3</h3>
+                <h4>Heading 4</h4>
+                <h5>Heading 5</h5>
+                <h6>Heading 6</h6>
+                <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+              </div>
+              <h4 class="mt-4">Paragraphs</h4>
+              <div class="component-preview">
+                <p>This is a paragraph text. Following text are dummy copy text. Donec feugiat lorem dolor, eu fringilla urna tincidunt quis.</p>
+                <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;p&gt;This is a paragraph text. Following text are dummy copy text. Donec feugiat lorem dolor, eu fringilla urna tincidunt quis.&lt;/p&gt;</code></pre>
+              </div>
+              <h5 class="mt-4 mb-1">Lead Paragraph and Drop cap</h5>
+              <p>Make a paragraph stand out by adding <code>.lead</code> and for drop cap, use <code>.dropcap</code> class.</p>
+              <div class="component-preview">
+                <p class="dropcap lead">Morem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus at cumque deleniti dolores, est fugiat harum impedit ipsam, itaque iusto magnam natus neque, nulla placeat quis quod recusandae sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque consectetur culpa eos est exercitationem harum impedit iusto magnam molestiae neque non officia, pariatur possimus rem sapiente, sequi! Beatae, quae.</p>
+                <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;p class=&quot;dropcap lead&quot;&gt;Morem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus at cumque deleniti dolores, est fugiat harum impedit ipsam, itaque iusto magnam natus neque, nulla placeat quis quod recusandae sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque consectetur culpa eos est exercitationem harum impedit iusto magnam molestiae neque non officia, pariatur possimus rem sapiente, sequi! Beatae, quae.&lt;/p&gt;</code></pre>
+              </div>
+              <h5 class="mt-4">Font Weights</h5>
+              <pre class="my-3 px-3"><code class="language-html">&lt;div class=&quot;font-weight-thin&quot;&gt;{font-weight: 100 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-lighter&quot;&gt;{font-weight: 200 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-light&quot;&gt;{font-weight: 300 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-normal&quot;&gt;{font-weight: 400 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-medium&quot;&gt;{font-weight: 500 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-semi-bold&quot;&gt;{font-weight: 600 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-bold&quot;&gt;{font-weight: 700 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-bolder&quot;&gt;{font-weight: 800 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-black&quot;&gt;{font-weight: 900 !important;}&lt;/div&gt;</code></pre>
+              <h5 class="mt-4 mb-1">Colors</h5>
+              <p>Use the following colors to change the text color</p>
+              <div class="component-preview">
+                <h5 class="text-primary">.text-primary</h5>
+                <h5 class="text-info">.text-info</h5>
+                <h5 class="text-success">.text-success</h5>
+                <h5 class="text-warning">.text-warning</h5>
+                <h5 class="text-danger">.text-danger</h5>
+                <h5 class="text-black">.text-black</h5>
+                <h5 class="text-dark">.text-dark</h5>
+                <h5 class="text-1000">.text-1000</h5>
+                <h5 class="text-900">.text-900</h5>
+                <h5 class="text-800">.text-800</h5>
+                <h5 class="text-700">.text-700</h5>
+                <h5 class="text-600">.text-600</h5>
+                <h5 class="text-500">.text-500</h5>
+                <h5 class="text-400">.text-400</h5>
+                <h5 class="text-300"><span class="bg-black">.text-300</span></h5>
+                <h5 class="text-200"><span class="bg-dark">.text-200</span></h5>
+                <h5 class="text-light"><span class="bg-1000">.text-light</span></h5>
+                <h5 class="text-white"><span class="bg-900">.text-white</span></h5>
+                <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;h5 class=&quot;text-primary&quot;&gt;.text-primary&lt;/h5&gt;
+&lt;h5 class=&quot;text-info&quot;&gt;.text-info&lt;/h5&gt;
+&lt;h5 class=&quot;text-success&quot;&gt;.text-success&lt;/h5&gt;
+&lt;h5 class=&quot;text-warning&quot;&gt;.text-warning&lt;/h5&gt;
+&lt;h5 class=&quot;text-danger&quot;&gt;.text-danger&lt;/h5&gt;
+&lt;h5 class=&quot;text-black&quot;&gt;.text-black&lt;/h5&gt;
+&lt;h5 class=&quot;text-dark&quot;&gt;.text-dark&lt;/h5&gt;
+&lt;h5 class=&quot;text-1000&quot;&gt;.text-1000&lt;/h5&gt;
+&lt;h5 class=&quot;text-900&quot;&gt;.text-900&lt;/h5&gt;
+&lt;h5 class=&quot;text-800&quot;&gt;.text-800&lt;/h5&gt;
+&lt;h5 class=&quot;text-700&quot;&gt;.text-700&lt;/h5&gt;
+&lt;h5 class=&quot;text-600&quot;&gt;.text-600&lt;/h5&gt;
+&lt;h5 class=&quot;text-500&quot;&gt;.text-500&lt;/h5&gt;
+&lt;h5 class=&quot;text-400&quot;&gt;.text-400&lt;/h5&gt;
+&lt;h5 class=&quot;text-300&quot;&gt;&lt;span class=&quot;bg-black&quot;&gt;.text-300&lt;/span&gt;&lt;/h5&gt;
+&lt;h5 class=&quot;text-200&quot;&gt;&lt;span class=&quot;bg-dark&quot;&gt;.text-200&lt;/span&gt;&lt;/h5&gt;
+&lt;h5 class=&quot;text-light&quot;&gt;&lt;span class=&quot;bg-1000&quot;&gt;.text-light&lt;/span&gt;&lt;/h5&gt;
+&lt;h5 class=&quot;text-white&quot;&gt;&lt;span class=&quot;bg-900&quot;&gt;.text-white&lt;/span&gt;&lt;/h5&gt;</code></pre>
+              </div>
+              <h5 class="mt-4 mb-1">Sizes</h5>
+              <p>If you want different sizes of fonts, you may use the following classes.</p>
+              <div class="component-preview">
+                <p class="fs--2">.fs--2</p>
+                <p class="fs--1">.fs--1</p>
+                <p class="fs-0">.fs-0</p>
+                <p class="fs-1">.fs-1</p>
+                <p class="fs-2">.fs-2</p>
+                <p class="fs-4">.fs-4</p>
+                <p class="fs-5">.fs-5</p>
+                <p class="fs-6">.fs-6</p>
+                <p class="fs-7">.fs-7</p>
+                <p class="fs-8">.fs-8</p>
+                <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;p class=&quot;fs--2&quot;&gt;.fs--2&lt;/p&gt;
+&lt;p class=&quot;fs--1&quot;&gt;.fs--1&lt;/p&gt;
+&lt;p class=&quot;fs-0&quot;&gt;.fs-0&lt;/p&gt;
+&lt;p class=&quot;fs-1&quot;&gt;.fs-1&lt;/p&gt;
+&lt;p class=&quot;fs-2&quot;&gt;.fs-2&lt;/p&gt;
+&lt;p class=&quot;fs-4&quot;&gt;.fs-4&lt;/p&gt;
+&lt;p class=&quot;fs-5&quot;&gt;.fs-5&lt;/p&gt;
+&lt;p class=&quot;fs-6&quot;&gt;.fs-6&lt;/p&gt;
+&lt;p class=&quot;fs-7&quot;&gt;.fs-7&lt;/p&gt;
+&lt;p class=&quot;fs-8&quot;&gt;.fs-8&lt;/p&gt;</code></pre>
+              </div>
+              <h5 class="mt-4 mb-1">Display Headings</h5>
+              <p>Traditional heading elements are designed to work best in the meat of your page content</p>
+              <div class="component-preview">
+                <h2 class="display-1">Display 1</h2>
+                <h2 class="display-2">Display 2</h2>
+                <h2 class="display-3">Display 3</h2>
+                <h2 class="display-4">Display 4 </h2>
+                <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;h2 class=&quot;display-1&quot;&gt;Display 1&lt;/h2&gt;
+&lt;h2 class=&quot;display-2&quot;&gt;Display 2&lt;/h2&gt;
+&lt;h2 class=&quot;display-3&quot;&gt;Display 3&lt;/h2&gt;
+&lt;h2 class=&quot;display-4&quot;&gt;Display 4 &lt;/h2&gt;</code></pre>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 class="mt-4">Left Alignment</h5>
+                  <div class="component-preview">
+                    <div class="text-start">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;text-start&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <h5 class="mt-4">Right Alignment</h5>
+                  <div class="component-preview">
+                    <div class="text-end">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;text-end&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <h5 class="mt-4">Center Aligned</h5>
+                  <div class="component-preview">
+                    <div class="text-center">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;text-center&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <h5 class="mt-4">Justified</h5>
+                  <div class="component-preview">
+                    <div class="text-justify">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;text-justify&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <h5 class="mt-4">Transformation</h5>
+                  <div class="component-preview">
+                    <div class="text-lowercase">Lowercased text</div>
+                    <div class="text-uppercase">Uppercased text</div>
+                    <div class="text-capitalize">Capitalized text</div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;text-lowercase&quot;&gt;Lowercased text&lt;/div&gt;
+&lt;div class=&quot;text-uppercase&quot;&gt;Uppercased text&lt;/div&gt;
+&lt;div class=&quot;text-capitalize&quot;&gt;Capitalized text&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <h5 class="mt-4">Blockquotes</h5>
+                  <div class="component-preview">
+                    <blockquote class="blockquote">
+                      <p class="fs-2 text-800 fst-italic">Racing is life, everything before or after is just waiting.”</p>
+                      <footer class="blockquote-footer">Frank Zappa </footer>
+                    </blockquote>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;blockquote class=&quot;blockquote&quot;&gt;
+  &lt;p class=&quot;fs-2 text-800 fst-italic&quot;&gt;Racing is life, everything before or after is just waiting.”&lt;/p&gt;
+  &lt;footer class=&quot;blockquote-footer&quot;&gt;Frank Zappa &lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <h5 class="mt-4">Inline styles</h5>
+                  <p>
+                    Use these tags for inline styling. Feel free to use <code>&lt;b&gt;</code> and <code>&lt;em&gt;</code> tags insted of<code>&lt;strong&gt;</code> and <code>&lt;i&gt;</code> tags.</p>
+                  <div class="component-preview">
+                    <p>
+                      <mark>Highlight text</mark>
+                    </p>
+                    <p>
+                      <del>Deleted text</del>
+                    </p>
+                    <p>
+                      <u>Underlined text</u>
+                    </p>
+                    <p><small>Small text</small></p>
+                    <p><strong>Bold text</strong></p>
+                    <p><i>Italic text</i></p>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;p&gt;
+  &lt;mark&gt;Highlight text&lt;/mark&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;del&gt;Deleted text&lt;/del&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;u&gt;Underlined text&lt;/u&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Small text&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bold text&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Italic text&lt;/i&gt;&lt;/p&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h5 class="mt-4">Unordered List</h5>
+                  <p>A list of items in which the order does not explicitly matter.</p>
+                  <div class="component-preview">
+                    <ul>
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipiscing elit</li>
+                      <li>Nulla volutpat aliquam velit
+                        <ul>
+                          <li>Phasellus iaculis neque</li>
+                          <li>Purus sodales ultricies</li>
+                        </ul>
+                      </li>
+                      <li>Faucibus porta lacus fringilla vel </li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ul&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h5 class="mt-4">Ordered List</h5>
+                  <p>A list of items in which the order does explicitly matter.</p>
+                  <div class="component-preview">
+                    <ol>
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipiscing elit</li>
+                      <li>Nulla volutpat aliquam velit
+                        <ol>
+                          <li>Phasellus iaculis neque</li>
+                          <li>Purus sodales ultricies</li>
+                        </ol>
+                      </li>
+                      <li>Faucibus porta lacus fringilla vel </li>
+                    </ol>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ol&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ol&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h5 class="mt-4">Unstyled List</h5>
+                  <p>Adding <code>list-unstyled</code> class to <code>ul</code> element will produce the following list style:</p>
+                  <div class="component-preview">
+                    <ul class="list-unstyled">
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipiscing elit</li>
+                      <li>Nulla volutpat aliquam velit
+
+                        <ul class="list-unstyled ps-4">
+                          <li>Phasellus iaculis neque</li>
+                          <li>Purus sodales ultricies</li>
+                        </ul>
+                      </li>
+                      <li>Faucibus porta lacus fringilla vel</li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ul class=&quot;list-unstyled ps-4&quot;&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h5 class="mt-4">Checkmarked List</h5>
+                  <p>Adding <code>style-check</code> class to <code>ul</code> element will produce the following list style:</p>
+                  <div class="component-preview">
+                    <ul class="style-check">
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipiscing elit</li>
+                      <li>Nulla volutpat aliquam velit
+
+                        <ul>
+                          <li>Phasellus iaculis neque</li>
+                          <li>Purus sodales ultricies</li>
+                        </ul>
+                      </li>
+                      <li>Faucibus porta lacus fringilla vel </li>
+                    </ul>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;ul class=&quot;style-check&quot;&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ul&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-none d-lg-block col-auto mb-5 my-8">
+              <div class="sticky-sidebar ps-4">
+                <ul class="components-nav list-unstyled" id="components-nav">
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/accordion.html">Accordion</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/alerts.html">Alerts</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/backgrounds.html">Backgrounds</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/badges.html">Badges</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/borders.html">Borders</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/buttons.html">Buttons</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/cards.html">Cards</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/carousel.html">Carousel</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/colors.html">Colors</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/dropdowns.html">Dropdowns</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/filter.html">Filter</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/fontawesome.html">Fontawesome</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/forms.html">Forms</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/googlemap.html">Google Map</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/grid.html">Grid</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/iconsmind.html">Iconsmind</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/lightbox.html">Lightbox</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/masonary.html">Masonary</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal-video.html">Modal video</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal.html">Modal</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navbar.html">Navbar</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/parallax.html">Parallax</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/scrollspy.html">Scrollspy</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/sizing.html">Sizing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/smtpjs.html">Smtpjs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/spacing.html">Spacing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tables.html">Tables</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tooltips.html">Tooltips</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typed-text.html">Typed text</a></li>
+                  <li><a class="link-primary fw-bold font-sans-serif text-capitalize" href="../components/typography.html">Typography</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/zanimation.html">Zanimation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <footer class="bg-100 text-1100 py-3 fs--1 fw-semi-bold position-absolute bottom-0 w-100">
+        <div class="container-wide">
+          <div class="row justify-content-between">
+            <div class="col-12 col-md-auto mb-1 mb-md-0 font-base">&copy; 2022 Slick &trade; Inc.</div>
+            <div class="col-12 col-md-auto">
+              <p class="text-900 mb-0">Made with<span class="fas fa-heart mx-2"></span>by <a class="link-900" href="https://themewagon.com/" target="_blank"> Themewagon</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!--===============================================-->
+    <!--    Footer-->
+    <!--===============================================-->
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../vendors/popper/popper.min.js"></script>
+    <script src="../vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../vendors/anchorjs/anchor.min.js"></script>
+    <script src="../vendors/is/is.min.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/fontawesome/all.min.js"></script>
+    <script src="../vendors/lodash/lodash.min.js"></script>
+    <script src="../vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../vendors/gsap/gsap.js"></script>
+    <script src="../vendors/gsap/customEase.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

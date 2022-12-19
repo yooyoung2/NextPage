@@ -1,0 +1,35 @@
+mixin Features-7
+	+Section#features-7
+		.row.justify-content-between
+			.col-lg-5.text-center
+				#carouselExampleFade.carousel.slide.carousel-fade.h-100.carousel-slider.carousel-control-hover(data-bs-ride='carousel')
+					.carousel-inner.h-100
+						.carousel-item.active.h-100
+							img.rounded-3.img-fluid.fit-cover.h-100(src=`${CWD}assets/img/60.jpg` alt='')
+						.carousel-item.h-100
+							img.rounded-3.img-fluid.fit-cover.h-100(src=`${CWD}assets/img/58.jpg` alt='')
+						.carousel-item.h-100
+							img.rounded-3.img-fluid.fit-cover.h-100(src=`${CWD}assets/img/61.jpg` alt='')
+					button.carousel-control-prev.ms-3(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='prev')
+						span.carousel-control-prev-icon(aria-hidden='true')
+						span.visually-hidden Previous
+					button.carousel-control-next.me-3(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='next')
+						span.carousel-control-next-icon(aria-hidden='true')
+						span.visually-hidden Next		
+			
+			.col-lg-7.col-xl-6.mb-5.mb-lg-0.mt-4.mt-lg-0.ps-lg-5.ps-xl-2.h-100
+				h3.lh-2  Use reusable code blocks.
+					br
+					| With or without coding knowledge.
+				p.lead.mt-4.pe-md-9.pe-lg-0 Slick features #{numbers.components} sets of reusable components like icons, buttons, accordions, animations etc, that can be blended into any design in your website.
+				.mt-6
+					a(href=purchase_link target='_blank').btn.btn-dark.rounded-pill.me-3
+						span.fab.fa-apple.me-2
+						| Purchase Slick
+					.w-100.d-sm-none
+					a(href="#!").btn.btn-link.px-2
+						span.fab.fa-android.fs-2.text-400
+					a(href="#!").btn.btn-link.px-2
+						span.fab.fa-windows.fs-2.text-400
+					a(href="#!").btn.btn-link.px-2
+						span.fab.fa-slack-hash.fs-2.text-400

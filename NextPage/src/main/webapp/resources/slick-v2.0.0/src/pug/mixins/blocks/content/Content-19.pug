@@ -1,0 +1,27 @@
+mixin Content-19
+	+Section.text-center#content-19
+		.row.justify-content-center
+			.col-md-11.col-lg-9
+				h3.mb-5 Explore what's beyond 
+					br.d-none.d-sm-block.d-md-none
+					span.fw-bold the horizon 
+					| with Slick
+				#carouselIndicators.carousel.slide(data-bs-ride='carousel')
+					.carousel-inner.mt-3
+						.carousel-item.active 
+							.row.g-3
+								.col-6
+									img(src=`${CWD}assets/img/38.jpg` alt="Image").rounded-3.img-fluid
+								.col-6
+									img(src=`${CWD}assets/img/04.jpg` alt="Image").rounded-3.img-fluid
+						.carousel-item
+							.row.g-3
+								.col-6
+									img(src=`${CWD}assets/img/40.jpg` alt="Image").rounded-3.img-fluid
+								.col-6
+									img(src=`${CWD}assets/img/41.jpg` alt="Image").rounded-3.img-fluid
+					.row.mt-6
+						.col.position-relative
+							.carousel-indicators
+								button.active(type='button' data-bs-target='#carouselIndicators' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1' style="background:#007AFF")
+								button(type='button' data-bs-target='#carouselIndicators' data-bs-slide-to='1' aria-label='Slide 2' style="background:#007AFF")

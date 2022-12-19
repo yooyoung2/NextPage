@@ -1,0 +1,24 @@
+mixin Header-2
+	+Section(
+		{
+			image: `${CWD}assets/img/15.jpg`, 
+			youtube: {
+				videoId:'iGpuQ0ioPrM', 
+				startSeconds: 7, 
+				endSeconds: 40, 
+			},
+			className: 'overlay overlay-0',
+		}).text-center.py-md-0#header-2
+		.row.min-vh-100.flex-center
+			.col-sm-6.col-lg-5.text-sm-end
+				img(src=`${CWD}assets/img/iphone-x-4.png` alt="iphone7" width=300)
+			.col-11.col-sm-6.col-lg-7.mt-5.mt-sm-0
+				h1.text-100.fs-4.fs-md-5 Intuitive codes make it 
+					br.d-none.d-lg-block 
+					| easy to get around
+				p.lead.text-300.mt-4 Or replace your coding headache with all 
+					br.d-none.d-lg-block 
+					| new powerful page builder				
+				a(href=purchase_link target='_blank').btn.btn-danger.rounded-pill.me-3.mt-4
+					span.fab.fa-apple.me-3(data-fa-transform="grow-8")
+					| Get Slick Now

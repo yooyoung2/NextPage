@@ -1,0 +1,27 @@
+mixin Gallery-2
+  +Section("container-fluid px-0").text-center.py-0#gallery-2
+    mixin Lightbox(img, img1)
+      a(href=`${CWD}assets/img/gallery/2/${img1}.jpg` data-gallery="gallery-2" data-title="your caption")
+        img(src=`${CWD}assets/img/gallery/2/${img}.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.1
+        } data-zanim-trigger='scroll').img-fluid
+    .row.g-0
+      .col-6.col-sm-4
+        +Lightbox("01", "01-f")
+      .col-6.col-sm-4
+        +Lightbox("02", "02-f")
+      .col-6.col-sm-4
+        +Lightbox("03", "03-f")
+      .col-6.col-sm-4
+        +Lightbox("04", "04-f")
+      .col-6.col-sm-4
+        +Lightbox("05", "05-f")
+      .col-6.col-sm-4
+        +Lightbox("06", "06-f")
+      .col-6.col-sm-4
+        +Lightbox("07", "07-f")
+      .col-6.col-sm-4
+        +Lightbox("08", "08-f")
+      .col-6.col-sm-4
+        +Lightbox("09", "09-f")

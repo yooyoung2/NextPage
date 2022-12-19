@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 학교매니저 기능관리 오시는길 -->
+
+<mapper namespace="kr.or.ddit.school.manager.ontheway.dao.SchoolOnTheWayDAO">
+
+
+	<!-- 지도api등록 -->
+	<insert id="insertMap" parameterType="GenDrctnVO">
+
+			INSERT INTO GEN_DRCTN (
+			    SCH_ID,
+			    DRCTN_URL
+			) VALUES (
+			    #{schId, jdbcType=VARCHAR},
+				#{drctnUrl, jdbcType=VARCHAR}
+			)
+	</insert>
+
+
+<!-- 지도상세조회 -->
+	<select id="selectMap" parameterType="String" resultType="GenDrctnVO">
+	SELECT
+	    SCH_ID,
+	    DRCTN_URL
+	FROM
+	    GEN_DRCTN
+	WHERE SCH_ID=#{schId, jdbcType=VARCHAR}
+	</select>
+
+<!-- 지도 수정 -->
+
+	<update id="updateMap" parameterType="GenDrctnVO">
+    UPDATE GEN_DRCTN
+	    SET
+	        DRCTN_URL = #{drctnUrl, jdbcType=VARCHAR}
+	WHERE
+	    SCH_ID = #{schId, jdbcType=VARCHAR}
+
+	</update>
+
+</mapper>
+

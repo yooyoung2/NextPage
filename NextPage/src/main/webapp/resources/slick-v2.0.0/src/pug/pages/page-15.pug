@@ -1,0 +1,29 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-1
+include ../mixins/blocks/header/Header-12
+include ../mixins/blocks/content/Content-9
+include ../mixins/blocks/features/Features-3
+include ../mixins/blocks/cta/Cta-16
+include ../mixins/blocks/footer/Footer-4
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+
+append mainContent
+
+	+Navigation-1(true).navbar-dark.position-fixed.w-100.z-index-2
+	+Header-12
+	+Content-9
+	.container
+		hr.text-300.my-0
+	+Features-3
+	+Cta-16('container')
+	+Footer-4
+

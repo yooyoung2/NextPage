@@ -1,0 +1,16 @@
+mixin Features-15
+	+Section#features-15
+		.row.justify-content-center
+			.col-lg-5.col-xl-4
+				h2.mt-0.mb-3.fs-4 Packed with 
+					br
+					| unique #{numbers.layouts} Layouts 
+				p.lead.pe-xl-2 To ease your life and save your time, Slick has #{numbers.layouts} layouts designed for you. Redesign, modify, or reuse them in your projects.
+				a(href=purchase_link target='_blank').fw-semi-bold.d-block.mt-4 Learn More
+					img(src=`${CWD}assets/img/icons/icon-angle-right.svg` height=13 alt='').ms-1
+
+			.col-lg-5.text-center.offset-lg-1.mt-6.mt-lg-0
+				.position-relative.py-8
+					+Background({image: `${CWD}assets/img/06.jpg`, className: "rounded-3 z-index--1"})
+					a(data-bigpicture='{"ytSrc":"c8aFcHFu8QM"}').cursor-pointer
+						img(src=`${CWD}assets/img/icons/icon-play.svg` alt="play" width=60)

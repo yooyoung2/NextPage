@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.or.ddit.school.manager.homepage.manage.dao.HomePageManageDAO">
+	
+	<select id="selectLayoutList" resultType="LayoutVO">
+		SELECT
+		    LAYOUT_ID, LAYOUT_X_PSTN, LAYOUT_Y_PSTN,
+		    LAYOUT_WDTH, LAYOUT_HGHT, LAYOUT_FILE
+		FROM
+		    LAYOUT
+	</select>
+</mapper>

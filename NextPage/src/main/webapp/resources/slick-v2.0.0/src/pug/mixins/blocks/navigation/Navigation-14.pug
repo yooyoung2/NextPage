@@ -1,0 +1,27 @@
+mixin Navigation-14(brand, isNavbarONScroll, searchBoxClass='border-900')
+	nav.navbar.py-2&attributes(attributes)(data-navbar-dark-on-scroll!=isNavbarONScroll)
+		.container
+			a.navbar-brand.position-lg-absolute.absolute-centered-lg(href=`${CWD}index.html`)!=brand	
+			.d-none.d-sm-block
+				.input-group-icon
+					.input-icon
+						a(href='#')
+							span.fas.fa-search.fs-0
+					input.form-control.me-2.rounded-pill.border(type='search' placeholder='Search...' aria-label='Search'  class=`${searchBoxClass}`)
+
+			ul.nav.ms-auto
+				li.nav-item
+					a.nav-link(href='#!').px-2.text-600
+						span.fab.fa-twitter.fa-lg
+				li.nav-item
+					a.nav-link(href='#!').px-2.ms-0.text-600
+						span.fab.fa-facebook-f.fa-lg
+				li.nav-item
+					a.nav-link(href='#!').px-2.ms-0.text-600
+						span.fab.fa-google-plus-g.fa-lg
+
+			button.hamburger.hamburger--emphatic.ms-2.lh-0(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight')
+				span.hamburger
+					span.hamburger-box
+						span.hamburger-inner
+			+HamburgerMenu

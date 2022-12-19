@@ -1,0 +1,17 @@
+mixin Header-17
+	+Section({image: `${CWD}assets/img/08.jpg`, className: 'overlay'}).pt-6.pb-0.text-center.overflow-hidden#header-17
+		.row.justify-content-center
+			.col-lg-10.mt-6.mt-md-10
+				.row.justify-content-center
+					.col-lg-10.col-xl-8
+						h1.fw-light.font-base.lh-3.text-100.fs-4.fs-md-5 Bridging the gap between 
+							| you &amp; the 
+							strong.fw-bold experts
+						a(href="#!").btn.btn-light.rounded-pill.mt-4 
+							span.fab.fa-apple.me-2
+							| Explore How
+						.mt-7.position-relative(style="height: 500px")
+							img.position-absolute.w-75(style="left: -45%;" data-inertia!={ weight: 1 } src=`${CWD}assets/img/iphone-x-3.png` alt='')
+							img.w-75(data-inertia!={ weight: 2 } src=`${CWD}assets/img/iphone-x-5.png` alt='' style='transform: translateY(150px)')
+							img.position-absolute.w-75(style="left: 70%;" data-inertia!={ weight: 1 } src=`${CWD}assets/img/iphone-x-2.png` alt='')
+						

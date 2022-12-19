@@ -1,0 +1,26 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-4
+include ../mixins/blocks/header/Header-4
+include ../mixins/blocks/features/Features-4
+include ../mixins/blocks/partners/Partners-3
+include ../mixins/blocks/features/Features-12
+include ../mixins/blocks/content/Content-2
+include ../mixins/blocks/footer/Footer-3
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+	+Navigation-4('light').navbar-dark.bg-dark
+	+Header-4
+	+Features-4
+	+Partners-3
+	+Features-12
+	+Content-2
+	+Footer-3
+

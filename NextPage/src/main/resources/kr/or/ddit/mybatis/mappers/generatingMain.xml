@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.generation.website.main.dao.GeneratingMainDAO">
+
+<!--
+	작성자 : 최현우 
+ -->
+ 
+<!-- ==================== 2022.12.10 추가 ==================== --> 
+<!-- GENERATING MAIN 이미지 -->
+<select id = "getMainImages" resultType="GenMainImgVO" parameterType="String">
+	SELECT SCH_ID, FILE_NAME, ORD_NUM
+	FROM GEN_MAIN_IMG
+	WHERE SCH_ID = #{schId}
+	ORDER BY ORD_NUM 
+</select> 
+ 
+<!-- GENERATING LOGO 이미지 --> 
+<select id = "getLogoImage" resultType="SchLogoVO" parameterType="String">
+	SELECT SCH_ID, FILE_NAME 
+	FROM SCH_LOGO
+	WHERE SCH_ID = #{schId} 
+</select> 
+<!-- =================================================== --> 
+<select id = "getOptionsURL" parameterType="string" resultType="GeneratingMainVO">
+	SELECT	SCH_ID,
+        	TOP_MENU_ID,
+        	MENU_NM,
+        	MENU_LINK,
+        	MENU_ID,
+        	TOP,
+        	MENU_TYPE,
+        	RTRN_JSP AS rtrnJsp
+	FROM GEN_MENU
+	WHERE SCH_ID = #{schId} AND MENU_USE_OK = 'YES' AND NOT MENU_TYPE = 'ETC'
+	ORDER BY MENU_ID
+</select>
+
+
+<select id = "selectAll" resultType="GeneratingMainVO">
+SELECT
+    SCH_ID,
+    TOP_MENU_ID,
+    MENU_NM,
+    MENU_LINK,
+    MENU_ID,
+    TOP,
+    MENU_USE_OK,
+    MENU_TYPE,
+    RTRN_JSP
+	FROM GEN_MENU
+	WHERE MENU_USE_OK = 'YES'
+</select>
+
+<!--
+	작성자 : 최현우
+	request로 들어온 uri에 해당하는 데이터 조회	
+ 	( Interceptor에서 쓰임 ) 
+ -->
+<select id = "selectSchoolByUri" parameterType="string" resultType="GeneratingMainVO">
+ 	SELECT	SCH_ID,
+        	TOP_MENU_ID,
+        	MENU_NM,
+        	MENU_LINK,
+        	MENU_ID,
+        	TOP,
+        	MENU_TYPE,
+        	RTRN_JSP AS rtrnJsp
+	FROM GEN_MENU
+	WHERE MENU_LINK = #{menuLink} AND MENU_USE_OK = 'YES' AND NOT MENU_TYPE = 'ETC'
+	ORDER BY MENU_ID
+	
+</select>
+
+<select id = "selectSchoolByBrdNum" parameterType="string" resultType="GeneratingMainVO">
+	SELECT * FROM GEN_MENU WHERE SUBSTR(MENU_LINK, INSTR(MENU_LINK, '?') +1) = #{brdNum}
+</select>
+
+
+<!--
+	작성자 : 최현우
+	@param id ( 학교아이디 )
+	@return ProjectVO ( 학교아이디, 프로젝트아이디, 탬플릿아이디 )
+ -->
+<select id = "selectProjectInfo" parameterType="string" resultType="ProjectVO">
+	SELECT	P.SCH_ID AS schId,
+        	GS.PRJCT_ID AS prjctId,
+        	GS.TMPLT_ID AS tmpltId
+	FROM    PRJCT P
+			LEFT OUTER JOIN GEN_SITE GS ON GS.PRJCT_ID = P.PRJCT_ID 
+			LEFT OUTER JOIN GEN_TEMPLATE GT ON GT.TMPLT_ID = GS.TMPLT_ID
+		
+	WHERE P.SCH_ID = #{schId} AND GS.HOME_SELECT = 'YES' 
+</select>
+	
+</mapper>

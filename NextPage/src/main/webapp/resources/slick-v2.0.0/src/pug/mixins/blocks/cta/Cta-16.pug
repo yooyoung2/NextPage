@@ -1,0 +1,34 @@
+mixin Cta-16(container)
+	+Section(false, `${(container === 'container') ? 'container' : 'container-fluid'}`).text-center.text-200.fs-6.py-0#cta-16
+		.row
+			.col-6.col-sm-4.col-xl.bg-twitter.py-7
+				a(href="#").d-block.hvr-underline-none
+					span.fab.fa-twitter.text-white.me-2
+					sup
+						span.badge.font-sans-serif.rounded-pill.bg-white.text-twitter.fs--1(style="transform: translateY(-100%)" data-countup!={endValue: 13.3, decimalPlaces: 1, suffix : 'm' }) 0
+			.col-6.col-sm-4.col-xl.py-7(style='background: linear-gradient(45deg,#bd3381,#ee583f) 105% !important')
+				a(href="#").d-block.hvr-underline-none
+					span.fab.fa-instagram.text-white.me-2
+					sup
+						span.badge.font-sans-serif.rounded-pill.bg-white.text-instagram.fs--1(style="transform: translateY(-100%)" data-countup!={endValue: 27.8, decimalPlaces: 1, suffix : 'k' }) 0
+			.col-6.col-sm-4.col-xl.bg-facebook.py-7
+				a(href="#").d-block.hvr-underline-none
+					span.fab.fa-facebook-f.text-white.me-2
+					sup
+						span.badge.font-sans-serif.rounded-pill.bg-white.text-facebook.fs--1(style="transform: translateY(-100%)" data-countup!={endValue: 7.2, decimalPlaces: 1, suffix : 'k' }) 0
+			.col-6.col-sm-4.col-xl.bg-google-plus.py-7
+				a(href="#").d-block.hvr-underline-none
+					span.fab.fa-google-plus-g.text-white.me-2
+					sup
+						span.badge.font-sans-serif.rounded-pill.bg-white.text-google-plus.fs--1(style="transform: translateY(-100%)" data-countup!={endValue: 15.2, decimalPlaces: 1, suffix : 'k' }) 0
+			if !container
+				.col-6.col-sm-4.col-xl.bg-linkedin.py-7
+					a(href="#").d-block.hvr-underline-none
+						span.fab.fa-linkedin-in.text-white.me-2
+						sup
+							span.badge.font-sans-serif.rounded-pill.bg-white.text-linkedin.fs--1(style="transform: translateY(-100%)" data-countup!={endValue: 8.5, decimalPlaces: 1, suffix : 'k' }) 0
+				.col-6.col-sm-4.col-xl.bg-pinterest.py-7
+					a(href="#").d-block.hvr-underline-none
+						span.fab.fa-pinterest-p.text-white.me-2
+						sup
+							span.badge.font-sans-serif.rounded-pill.bg-white.text-pinterest.fs--1(style="transform: translateY(-100%)" data-countup!={endValue: 17.3, decimalPlaces: 1, suffix : 'k' }) 0

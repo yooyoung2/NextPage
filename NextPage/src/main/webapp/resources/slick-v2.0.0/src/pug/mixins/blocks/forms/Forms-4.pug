@@ -1,0 +1,65 @@
+mixin Forms-4
+	+Section#forms-4
+		.row.flex-center
+			.col-lg-11
+				.row.flex-center
+					.col-lg-6.pe-lg-6
+						h2.mb-4.text-primary With slick you can:
+						ul.text-700.bullet-inside.ps-0
+							li.mt-2 Design any websites in no time and no pain
+							li.mt-2 Launch beautiful sites with minimum coding
+							li.mt-2 Drag &amp; drop sections and get your HTML
+							li.mt-2 Get the full power of Bootstrap 5
+							li.mt-2 Plus much more...
+
+					.col-lg-5.mt-6.mt-lg-0.pt-2.d-grid.position-relative
+						a(href="#").btn.btn-icon.fw-semi-bold.btn-outline-primary.btn-icon-left.hvr-sweep-left
+							span.bg-primary
+								i.fab.fa-google.fs-1.me-3(data-fa-transform="right-6").text-white
+							| Sign Up with Google
+						.position-relative.bg-300.my-4(style="height: 1px;")
+							span.bg-white.absolute-centered.position-absolute.px-2.text-600 OR
+
+						form.row.g-3
+							.col-12
+								label.form-label(for='inputName') Your name
+								input.form-control#inputName(type="text" placeholder="eg: John Doe")
+							.col-12
+								label.form-label(for='inputEmail') Your Email
+								input.form-control#inputEmail(type="email" placeholder="eg: someone@somewhere.com")
+							.col-6
+								label.form-label(for='inputPassword') Type Password
+								input.form-control#inputPassword(type="password" placeholder="********")
+							.col-6
+								label.form-label(for='inputRetypePassword') Re-type Password
+								input.form-control#inputRetypePassword(type="password" placeholder="********")
+							.col-12
+								label.form-label(for='inputCompanyName') Company Name
+								input.form-control#inputCompanyName(type="text" placeholder="eg: Slick Inc.")
+							.col-6
+								label.form-label(for='inputCompanySize') Company Size
+								select#inputCompanySize.form-select.form-control.form-control-lg.border-300.fw-normal
+									option(selected) Select Company Size
+									option 1-5 Employees
+									option 6-10 Employees
+									option 10-20 Employees
+									option 20-50 Employees
+									option 100-500  Employees
+									option 1000+ Employees
+							.col-6
+								label.form-label(for='inputYourRole') Your Role
+								select#inputYourRolee.form-select.form-control.form-control-lg.border-300.fw-normal
+									option(selected) Select Your Role
+									option Product Management
+									option Engineering
+									option Sales
+									option Design
+									option Marketing
+									option Customer Support
+									option Founder/CEO
+									option Other
+							
+							.col-12.d-grid
+								p.fs--1.fw-light.text-900.mb-3 By singing up here, you agree to Slick's 
+									a(href="#") Terms of Service.
+								input.btn.btn-primary(type="submit" name="submit" value="Sign up")

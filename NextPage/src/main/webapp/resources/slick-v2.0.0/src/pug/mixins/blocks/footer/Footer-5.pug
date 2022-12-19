@@ -1,0 +1,59 @@
+mixin Footer-5
+	+Section.py-6#footer-5
+		.row
+			.col-md.col-lg-3
+				.d-flex.align-items-center.mb-3
+					img.me-2(src=`${CWD}assets/img/icons/icon-pin.svg` width=20 alt='')
+					span Tracking
+				.d-flex.align-items-center.mb-3
+					img.me-2(src=`${CWD}assets/img/icons/icon-recycle.svg` width=20 alt='')
+					span Seamless Syncing
+				.d-flex.align-items-center.mb-5
+					img.me-2(src=`${CWD}assets/img/icons/icon-globe.svg` width=20 alt='')
+					span Global Delivery
+				a(href="#").btn.btn-outline-facebook.mb-3.mb-lg-0.fw-semi-bold
+					span.fab.fa-facebook-square.me-3(data-fa-transform='grow-12')
+					| Find Us on Facebook
+
+			.col-md-7.col-lg-8.ms-lg-auto.mt-6.mt-md-0
+				.row
+					.col-auto.pe-4
+						h5.text-900.fw-normal.mb-3 About
+						ul.list-unstyled.ps-0.font-base
+							li
+								a(href="#").link-600 About Slick
+							li.mt-1
+								a(href="#").link-600 News
+							li.mt-1
+								a(href="#").link-600 Members
+							li.mt-1
+								a(href="#").link-600 Career
+							li.mt-1
+								a(href="#").link-600 Contact us
+
+					.col-auto.pe-lg-7
+						h5.text-900.fw-normal.mb-3 Company
+						ul.list-unstyled.ps-0.font-base
+							li
+								a(href="#").link-600 Terms
+							li.mt-1
+								a(href="#").link-600 Support
+							li.mt-1
+								a(href="#").link-600 Help Forum
+							li.mt-1
+								a(href="#").link-600 FAQ
+
+					.col-lg.mt-4.mt-lg-0
+						h5.text-900.fw-normal.mb-3 Subscribe to Slick Newsletters
+						form
+							.input-group
+								input.form-control(type="email" placeholder="Your Email")
+								span.input-group-append
+									button.btn.btn-danger(type="button") Sign Up
+						.mt-4
+							a(href="#").link-800.me-3
+								span.fab.fa-twitter
+							a(href="#").link-800.me-3
+								span.fab.fa-facebook-f
+							a(href="#").link-800
+								span.fab.fa-google-plus-g

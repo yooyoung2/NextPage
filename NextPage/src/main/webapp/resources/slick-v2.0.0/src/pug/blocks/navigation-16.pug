@@ -1,0 +1,13 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/navigation/Navigation-2
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+	+Navigation-2('border-300').navbar-light.bg-light

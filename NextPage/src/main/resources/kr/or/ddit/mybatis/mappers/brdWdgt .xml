@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.homepage.main.update.dao.HomePageMainUpdateDAO">
+	
+	<select id="selectBrdWdgt" parameterType="string" resultType="BoardWidgetVO">
+		SELECT SCH_ID, BRD_NUM, WIDGET_ORD
+			FROM BOARD_WIDGET 
+			WHERE SCH_ID = #{schId}
+			AND WIDGET_ORD = 1
+	</select>
+	
+	<select id="selectBrdWdgtList" parameterType="string" resultType="BoardWidgetVO">
+			SELECT SCH_ID, BRD_NUM, WIDGET_ORD
+			FROM BOARD_WIDGET 
+			WHERE SCH_ID = #{schId}
+			AND WIDGET_ORD BETWEEN 2 AND 3
+	</select>
+	
+	
+	<select id="selectBrdWdId" parameterType="string" resultType="int">	
+		SELECT BRD_WIDGET_ID 
+        FROM GEN_BRD_WDGT 
+        WHERE SCH_ID=#{schId}
+	</select>
+	
+	<!-- 일반게시판(2,3)삭제 -->
+	<delete id="deleteListBrdDelete" parameterType="string"> 
+		DELETE FROM BOARD_WIDGET 
+		WHERE SCH_ID= #{schId}
+		AND WIDGET_ORD BETWEEN 2 AND 3
+	</delete>
+	
+	<insert id="insertListBrd" parameterType="BoardWidgetVO">
+		INSERT INTO BOARD_WIDGET (
+		    SCH_ID, BRD_NUM, WIDGET_ORD
+		) VALUES (
+		    #{schId}, #{brdNum}, #{widgetOrd}
+		)
+	</insert>
+	
+	<!-- 일반게시판 (1번)삭제 -->
+	<delete id="deleteBrdDelete" parameterType="string">
+		DELETE FROM BOARD_WIDGET 
+		WHERE SCH_ID= #{schId}
+		AND WIDGET_ORD = 1
+	</delete>
+	
+	<select id="selectImgBrdWdgt" parameterType="string" resultType="BoardWidgetVO">
+		SELECT SCH_ID, BRD_NUM, WIDGET_ORD
+			FROM BOARD_WIDGET 
+			WHERE SCH_ID = #{schId}
+			AND WIDGET_ORD = 4 
+	</select>
+	
+	<select id="selectImgBrdWdgtList" parameterType="string" resultType="BoardWidgetVO">
+		SELECT SCH_ID, BRD_NUM, WIDGET_ORD
+			FROM BOARD_WIDGET 
+			WHERE SCH_ID = #{schId}
+			AND WIDGET_ORD BETWEEN 5 AND 6
+	</select>
+	
+	<!-- 이미지게시판(4번)삭제 -->
+	<delete id="deleteImgDelete" parameterType="string">
+		DELETE FROM BOARD_WIDGET 
+		WHERE SCH_ID= #{schId}
+		AND WIDGET_ORD = 4
+	</delete>
+	
+	<!-- 이미지게시판(5,6) 삭제 -->
+	<delete id="deleteImgListDelete" parameterType="string">
+		DELETE FROM BOARD_WIDGET 
+		WHERE SCH_ID= #{schId}
+		AND WIDGET_ORD BETWEEN 5 AND 6
+	</delete>
+	
+	<delete id="deleteVideoDelete" parameterType="string">
+		DELETE FROM BOARD_WIDGET 
+		WHERE SCH_ID= #{schId}
+		AND WIDGET_ORD BETWEEN 7 AND 8
+	</delete>
+	
+	<delete id="deleteVideoListDelete" parameterType="string"> 
+		DELETE FROM BOARD_WIDGET 
+		WHERE SCH_ID= #{schId}
+		AND WIDGET_ORD BETWEEN 9 AND 11
+	</delete>
+	
+	<select id="selectVideoBrdWdgt" parameterType="string" resultType="BoardWidgetVO">
+		SELECT SCH_ID, BRD_NUM, WIDGET_ORD
+		FROM BOARD_WIDGET 
+		WHERE SCH_ID = #{schId}
+		AND WIDGET_ORD BETWEEN 7 AND 8
+	</select>
+	
+	<select id="selectVideoBrdWdgtList" parameterType="string" resultType="BoardWidgetVO">
+		SELECT SCH_ID, BRD_NUM, WIDGET_ORD
+		FROM BOARD_WIDGET 
+		WHERE SCH_ID = #{schId}
+		AND WIDGET_ORD BETWEEN 9 AND 11
+		
+	</select>
+	
+	<select id="selectGenAlertBrdList" parameterType="string" resultType="GenAlertBrdVO">
+		SELECT SCH_ID, ORD_NUM, FILE_NAME,
+		       URL_INFO, SAVE_NAME, SAVE_PATH
+		FROM GEN_ALERT_BRD
+		WHERE SCH_ID = #{schId}
+		ORDER BY ORD_NUM
+		
+	</select>
+	
+	<delete id="deleteGenAlertBrd" parameterType="string">
+		DELETE FROM GEN_ALERT_BRD
+		WHERE SCH_ID = #{schId}
+	</delete>
+	
+	<insert id="insertGenAlertBrd" parameterType="GenAlertBrdVO">
+		INSERT INTO GEN_ALERT_BRD (
+		    SCH_ID, ORD_NUM, FILE_NAME,
+		    URL_INFO, SAVE_NAME, SAVE_PATH
+		) VALUES (
+		    #{schId,jdbcType=VARCHAR},
+		    #{ordNum,jdbcType=NUMERIC},
+		    #{fileName,jdbcType=VARCHAR},
+		    #{urlInfo,jdbcType=VARCHAR},
+		    #{saveName,jdbcType=VARCHAR},
+		    #{savePath,jdbcType=VARCHAR}
+		)
+		
+	</insert>
+	
+	<select id="selectGenFooter" parameterType="string" resultType="GenFooterVO">
+		SELECT
+		    SCH_ID, EMAIL, SCH_TEL_NUM, 
+		    SCH_FAX_NUM 
+		FROM
+		    GEN_FOOTER
+		WHERE SCH_ID = #{schId}
+	</select>
+	
+	
+	
+	<delete id="deleteGenFooter" parameterType="string">
+		DELETE FROM GEN_FOOTER
+		WHERE SCH_ID = #{schId}
+	</delete>
+	
+	<insert id="insertGenFooter" parameterType="GenFooterVO">
+		INSERT INTO GEN_FOOTER (
+		    SCH_ID, EMAIL,
+		    SCH_TEL_NUM, SCH_FAX_NUM
+		) VALUES (
+		    #{schId,jdbcType=VARCHAR},
+		    #{email,jdbcType=VARCHAR},
+		    #{schTelNum,jdbcType=VARCHAR},
+		    #{schFaxNum,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="selectBnrLkInfoList" resultType="BnrLkInfoVO">
+		SELECT
+		    BNR_LK_ID, BNR_LK_NM, BNR_LK_IMG,
+		    BNR_LK_URL
+		FROM
+		    BNR_LK_INFO
+	</select>
+	
+	<select id="selectGenBnrList" parameterType="string" resultType="GenBnrVO">
+		SELECT
+		    SCH_ID, BNR_LK_ID, BNNR_ORD
+		FROM
+		    GEN_BNR
+		WHERE SCH_ID = #{schId}
+		ORDER BY BNNR_ORD 
+	</select>
+	
+	<delete id="deleteGenBnr" parameterType="string">
+		DELETE FROM GEN_BNR
+		WHERE SCH_ID = #{schId}
+	</delete>
+	
+	<insert id="insertGenBnr" parameterType="GenBnrVO" >
+		INSERT INTO GEN_BNR (
+		    SCH_ID, BNR_LK_ID, BNNR_ORD
+		) VALUES (
+		    #{schId}, 
+		    #{bnrLkId},
+		    #{bnnrOrd}
+		)
+	</insert>
+	
+	<select id="selectGenMainImgList" parameterType="string" resultType="GenMainImgVO">
+		SELECT SCH_ID, ORD_NUM, FILE_NAME,
+		        SAVE_NAME, SAVE_PATH
+		FROM GEN_MAIN_IMG
+		WHERE SCH_ID= #{schId}
+		ORDER BY ORD_NUM
+	</select>
+	
+	<select id="selectLkLstIconList" resultType="LkLstIconVO">
+		SELECT ICON_NM, ICON_FILE_NAME 
+		FROM LK_LST_ICON
+	</select>
+	
+	<select id="selectGenLkLstList" parameterType="string" resultType="GenLkLstVO">
+		SELECT SCH_ID, ICON_NM, WIDGET_ORD,
+		        LINK_URL, LINK_TITLE
+		FROM GEN_LK_LST
+		WHERE SCH_ID = #{schId}
+		ORDER BY WIDGET_ORD
+	
+	</select>
+	
+	<delete id="deleteGenLkLst" parameterType="string">
+		DELETE FROM GEN_LK_LST 
+		WHERE SCH_ID = #{schId}
+	</delete>
+	
+	<insert id="insertGenLkLst" parameterType="GenLkLstVO">
+		INSERT INTO GEN_LK_LST (
+		    SCH_ID, ICON_NM, WIDGET_ORD,
+		    LINK_URL, LINK_TITLE
+		) VALUES (
+		    #{schId},
+		    #{iconNm},
+		    #{widgetOrd},
+		    #{linkUrl},
+		    #{linkTitle}
+		)
+	</insert>
+	
+	<select id="selectGenCaldList" parameterType="string" resultType="GenCaldVO">
+		SELECT SCH_ID, TO_CHAR(CALD_START_DATE,'YYYY-MM-DD') CALD_START_DATE, 
+        TO_CHAR(CALD_END_DATE,'YYYY-MM-DD') CALD_END_DATE, SCHEDULE
+		FROM GEN_CALD
+		WHERE SCH_ID =  #{schId}
+	</select>
+	
+	<delete id="deleteGenCald" parameterType="string">
+		DELETE FROM GEN_CALD 
+		WHERE SCH_ID = #{schId}
+	
+	</delete>
+	
+	<insert id="insertGenCald" parameterType="GenCaldVO">
+		INSERT INTO GEN_CALD (
+		    SCH_ID,
+		    CALD_START_DATE,
+		    CALD_END_DATE,
+		    SCHEDULE
+		) VALUES (
+		    #{schId},
+		    TO_DATE(#{caldStartDate}, 'YYYY-MM-DD'),
+		    TO_DATE(#{caldEndDate}, 'YYYY-MM-DD'),
+		    #{schedule}
+		)
+	
+	</insert>
+	
+	<select id="selectSchLogo" parameterType="string" resultType="SchLogoVO">
+		SELECT SCH_ID, FILE_NAME, SAVE_NAME, 
+		        SAVE_PATH 
+		FROM SCH_LOGO 
+		WHERE SCH_ID = #{schId}
+	</select>
+	
+	<delete id="deleteSchLogo" parameterType="string">
+		DELETE FROM SCH_LOGO
+		WHERE
+		    SCH_ID = #{schId}
+	</delete>
+	
+	<insert id="insertSchLogo" parameterType="SchLogoVO">
+	INSERT INTO SCH_LOGO (
+		    SCH_ID,
+		    FILE_NAME
+		) VALUES (
+		    #{schId},
+		    #{fileName}
+		)
+	</insert>
+	
+	<delete id="deleteMainImage" parameterType="string">
+		DELETE FROM GEN_MAIN_IMG
+		WHERE
+		    SCH_ID = #{schId}
+	</delete>
+	
+	<insert id="insertMainImage" parameterType="GenMainImgVO" >
+		INSERT INTO GEN_MAIN_IMG (
+		    SCH_ID,
+		    ORD_NUM,
+		    FILE_NAME
+		
+		) VALUES (
+		    #{schId},
+		    #{ordNum},
+		    #{fileName}
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+

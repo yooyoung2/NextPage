@@ -1,0 +1,14 @@
+extends ../layouts/LayoutBlock
+include ../mixins/blocks/content/Content-24
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+
+append mainContent
+	+Content-24

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Slick | Create Beautiful Websites. Effortlessly.</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="../vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../vendors/prism/prism.css" rel="stylesheet">
+    <link href="../vendors/hamburgers/hamburgers.min.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet" />
+    <link href="../assets/css/user.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../vendors/iconsmind/iconsmind.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </head>
+
+
+  <body>
+    <div class="preloader" id="preloader" data-preloader>
+      <div class="preloader-wrapper big active" data-preloader>
+        <div class="spinner-layer spinner-white-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-slick navbar-expand-lg navbar-dark fixed-top py-2 bg-dark sticky-top">
+      <div class="container container-wide-xl"><a class="navbar-brand ls-2 p-0 me-4" href="../index.html"><img src="../assets/img/slick-logo.svg" alt="SLiCK" width="50" /></a>
+        <button class="navbar-toggler hamburger hamburger--emphatic" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="../showcase-pages.html">Pages</a></li>
+            <li class="nav-item"><a class="nav-link" href="../all-blocks.html">All Blocks</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink" href="#!" data-bs-toggle="dropdown" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Components<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <div class="dropdown-menu fade dropdown-components shadow-lg" aria-labelledby="navbarDropdownMenuLink">
+                <div class="row justify-content-between">
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/accordion.html">Accordion</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/alerts.html">Alerts</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/backgrounds.html">Backgrounds</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/badges.html">Badges</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/borders.html">Borders</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/buttons.html">Buttons</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/cards.html">Cards</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/carousel.html">Carousel</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/colors.html">Colors</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/dropdowns.html">Dropdowns</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal" href="../components/filter.html">Filter</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/fontawesome.html">Fontawesome</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/forms.html">Forms</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/googlemap.html">Google Map</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/grid.html">Grid</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/iconsmind.html">Iconsmind</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/lightbox.html">Lightbox</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/masonary.html">Masonary</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal-video.html">Modal video</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/modal.html">Modal</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/navbar.html">Navbar</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-auto">
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/parallax.html">Parallax</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/scrollspy.html">Scrollspy</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/sizing.html">Sizing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/smtpjs.html">Smtpjs</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/spacing.html">Spacing</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tables.html">Tables</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/tooltips.html">Tooltips</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typed-text.html">Typed text</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/typography.html">Typography</a></li>
+                      <li class="nav-item mb-1"><a class="text-decoration-none link-700 fw-normal py-1" href="../components/zanimation.html">Zanimation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle dropdown-caret-none" id="navbarDropdownMenuLink2" href="#!" data-bs-toggle="dropdown-on-hover" data-sl-dropdown-on-hover="data-sl-dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Docs<span class="fa-solid fa-angle-down ms-1 fs--1 fw-bold"></span></span></a>
+              <ul class="dropdown-menu rounded fade border-0 bg-white shadow-lg" aria-labelledby="navbarDropdownMenuLink2">
+                <li><a class="dropdown-item link-700" href="../docs/getting-started.html">Getting Started</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/file-structure.html">File Structure</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/customization.html">Customization</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/gulp.html">Gulp</a></li>
+                <li><a class="dropdown-item link-700" href="../docs/generator.html">Generator</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/plugins.html">Plugins</a></li>
+                <li class="nav-item"><a class="dropdown-item link-700" href="../docs/changelog.html">Changelog </a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="../sitemap.html">Sitemap</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://prium.github.io/slick/v2.0.0/generator.html" target="_blank">Generator</a></li>
+            <li class="nav-item"><a class="btn btn-outline-light rounded-pill btn-sm border-2 ms-lg-2" href="https://themewagon.com/themes/slick/" target="_blank">Purchase </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-8 pb-6 bg-200">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="fw-medium font-sans-serif fs-3 fs-sm-4">Forms</h1>
+            </div>
+            <div class="col-lg-6">
+              <p class="text-800 fs-1 font-sans-serif">These modular elements can be readily used and customized in every layout across pages.</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-0 pb-5">
+
+        <div class="container-wide">
+          <div class="row">
+            <div class="col-lg-9 pt-8">
+              <p class="fs-1 font-sans-serif">For detail documentation. <a href="https://getbootstrap.com/docs/5.1/forms/overview/" target="_blank">View Forms on Bootstrap <span class="d-inline-block ms-1">&xrarr;</span></a></p>
+              <div class="row g-0">
+                <div class="col-12">
+                  <h5>Basic Form</h5>
+                  <div class="component-preview">
+                    <form>
+                      <div class="mb-3">
+                        <label class="form-label" for="exampleInputEmail1">Email address</label>
+                        <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" />
+                        <div class="form-text" id="emailHelp">We'll never share your email with anyone else.</div>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label" for="exampleInputPassword1">Password</label>
+                        <input class="form-control" id="exampleInputPassword1" type="password" />
+                      </div>
+                      <div class="mb-3 form-check">
+                        <input class="form-check-input" id="exampleCheck1" type="checkbox" />
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div>
+                      <button class="btn btn-dark" type="submit">Submit</button>
+                    </form>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;form&gt;
+  &lt;div class=&quot;mb-3&quot;&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;exampleInputEmail1&quot;&gt;Email address&lt;/label&gt;
+    &lt;input class=&quot;form-control&quot; id=&quot;exampleInputEmail1&quot; type=&quot;email&quot; aria-describedby=&quot;emailHelp&quot; /&gt;
+    &lt;div class=&quot;form-text&quot; id=&quot;emailHelp&quot;&gt;We'll never share your email with anyone else.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-3&quot;&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;exampleInputPassword1&quot;&gt;Password&lt;/label&gt;
+    &lt;input class=&quot;form-control&quot; id=&quot;exampleInputPassword1&quot; type=&quot;password&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-3 form-check&quot;&gt;
+    &lt;input class=&quot;form-check-input&quot; id=&quot;exampleCheck1&quot; type=&quot;checkbox&quot; /&gt;
+    &lt;label class=&quot;form-check-label&quot; for=&quot;exampleCheck1&quot;&gt;Check me out&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button class=&quot;btn btn-dark&quot; type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                  </div>
+                  <h5 class="mt-4">Form Controls</h5>
+                  <div class="component-preview">
+                    <div class="mb-3">
+                      <label class="form-label" for="exampleFormControlInput1">Email address</label>
+                      <input class="form-control" id="exampleFormControlInput1" type="email" placeholder="name@example.com" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="exampleFormControlTextarea1">Example textarea</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;mb-3&quot;&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;exampleFormControlInput1&quot;&gt;Email address&lt;/label&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;exampleFormControlInput1&quot; type=&quot;email&quot; placeholder=&quot;name@example.com&quot; /&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mb-3&quot;&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;exampleFormControlTextarea1&quot;&gt;Example textarea&lt;/label&gt;
+  &lt;textarea class=&quot;form-control&quot; id=&quot;exampleFormControlTextarea1&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <h5 class="mt-4">Form Select</h5>
+                  <div class="component-preview">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                      <option selected="selected">Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <select class="form-select mb-3" aria-label=".form-select-lg example">
+                      <option selected="selected">Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three </option>
+                    </select>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                      <option selected="selected">Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;select class=&quot;form-select form-select-lg mb-3&quot; aria-label=&quot;.form-select-lg example&quot;&gt;
+  &lt;option selected=&quot;selected&quot;&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+&lt;/select&gt;
+&lt;select class=&quot;form-select mb-3&quot; aria-label=&quot;.form-select-lg example&quot;&gt;
+  &lt;option selected=&quot;selected&quot;&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Three &lt;/option&gt;
+&lt;/select&gt;
+&lt;select class=&quot;form-select form-select-sm&quot; aria-label=&quot;.form-select-sm example&quot;&gt;
+  &lt;option selected=&quot;selected&quot;&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h5 class="mt-4">Form Multiple Select</h5>
+                  <div class="component-preview">
+                    <select class="form-select mb-3" multiple="multiple" aria-label="multiple select example">
+                      <option selected="selected">Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                      <option value="4">Four</option>
+                      <option value="5">Five</option>
+                    </select>
+                    <select class="form-select" size="3" aria-label="size 3 select example">
+                      <option selected="selected">Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three </option>
+                      <option value="4">Four</option>
+                      <option value="5">Five</option>
+                    </select>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;select class=&quot;form-select mb-3&quot; multiple=&quot;multiple&quot; aria-label=&quot;multiple select example&quot;&gt;
+  &lt;option selected=&quot;selected&quot;&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+  &lt;option value=&quot;4&quot;&gt;Four&lt;/option&gt;
+  &lt;option value=&quot;5&quot;&gt;Five&lt;/option&gt;
+&lt;/select&gt;
+&lt;select class=&quot;form-select&quot; size=&quot;3&quot; aria-label=&quot;size 3 select example&quot;&gt;
+  &lt;option selected=&quot;selected&quot;&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Three &lt;/option&gt;
+  &lt;option value=&quot;4&quot;&gt;Four&lt;/option&gt;
+  &lt;option value=&quot;5&quot;&gt;Five&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h5 class="mt-4">Checkboxes</h5>
+                  <div class="component-preview">
+                    <div class="form-check">
+                      <input class="form-check-input" id="flexCheckDefault" type="checkbox" />
+                      <label class="form-check-label" for="flexCheckDefault">Default checkbox</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" id="flexCheckChecked" type="checkbox" />
+                      <label class="form-check-label" for="flexCheckChecked">Checked checkbox</label>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;form-check&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexCheckDefault&quot; type=&quot;checkbox&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexCheckDefault&quot;&gt;Default checkbox&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexCheckChecked&quot; type=&quot;checkbox&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexCheckChecked&quot;&gt;Checked checkbox&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h5 class="mt-4">Radios</h5>
+                  <div class="component-preview">
+                    <div class="form-check">
+                      <input class="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" />
+                      <label class="form-check-label" for="flexRadioDefault1">Default radio</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault" />
+                      <label class="form-check-label" for="flexRadioDefault2">Default checked radio</label>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;form-check&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexRadioDefault1&quot; type=&quot;radio&quot; name=&quot;flexRadioDefault&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexRadioDefault1&quot;&gt;Default radio&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexRadioDefault2&quot; type=&quot;radio&quot; name=&quot;flexRadioDefault&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexRadioDefault2&quot;&gt;Default checked radio&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h5 class="mt-4">Inline Radios</h5>
+                  <div class="component-preview">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="inlineRadio1" type="radio" name="inlineRadioOptions" value="option1" />
+                      <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="inlineRadio2" type="radio" name="inlineRadioOptions" value="option2" />
+                      <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" id="inlineRadio3" type="radio" name="inlineRadioOptions" value="option3" disabled="disabled" />
+                      <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;form-check form-check-inline&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;inlineRadio1&quot; type=&quot;radio&quot; name=&quot;inlineRadioOptions&quot; value=&quot;option1&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;inlineRadio1&quot;&gt;1&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check form-check-inline&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;inlineRadio2&quot; type=&quot;radio&quot; name=&quot;inlineRadioOptions&quot; value=&quot;option2&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;inlineRadio2&quot;&gt;2&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check form-check-inline&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;inlineRadio3&quot; type=&quot;radio&quot; name=&quot;inlineRadioOptions&quot; value=&quot;option3&quot; disabled=&quot;disabled&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;inlineRadio3&quot;&gt;3 (disabled)&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h5 class="mt-4">Disabled</h5>
+                  <div class="component-preview">
+                    <div class="form-check">
+                      <input class="form-check-input" id="flexCheckDisabled" type="checkbox" disabled="disabled" />
+                      <label class="form-check-label" for="flexCheckDisabled">Disabled checkbox</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" id="flexCheckCheckedDisabled" type="checkbox" checked="checked" disabled="disabled" />
+                      <label class="form-check-label" for="flexCheckCheckedDisabled">Disabled checked checkbox</label>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;form-check&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexCheckDisabled&quot; type=&quot;checkbox&quot; disabled=&quot;disabled&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexCheckDisabled&quot;&gt;Disabled checkbox&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexCheckCheckedDisabled&quot; type=&quot;checkbox&quot; checked=&quot;checked&quot; disabled=&quot;disabled&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexCheckCheckedDisabled&quot;&gt;Disabled checked checkbox&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h5 class="mt-4">Disabled Switches</h5>
+                  <div class="component-preview">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" id="flexSwitchCheckDisabled" type="checkbox" role="switch" disabled="disabled" />
+                      <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" id="flexSwitchCheckCheckedDisabled" type="checkbox" role="switch" checked="checked" disabled="disabled" />
+                      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;form-check form-switch&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexSwitchCheckDisabled&quot; type=&quot;checkbox&quot; role=&quot;switch&quot; disabled=&quot;disabled&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexSwitchCheckDisabled&quot;&gt;Disabled switch checkbox input&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check form-switch&quot;&gt;
+  &lt;input class=&quot;form-check-input&quot; id=&quot;flexSwitchCheckCheckedDisabled&quot; type=&quot;checkbox&quot; role=&quot;switch&quot; checked=&quot;checked&quot; disabled=&quot;disabled&quot; /&gt;
+  &lt;label class=&quot;form-check-label&quot; for=&quot;flexSwitchCheckCheckedDisabled&quot;&gt;Disabled checked switch checkbox input&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h5 class="mt-4">Range Input</h5>
+                  <div class="component-preview">
+                    <label class="form-label" for="customRange1">Example range</label>
+                    <input class="form-range" id="customRange1" type="range" />
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;label class=&quot;form-label&quot; for=&quot;customRange1&quot;&gt;Example range&lt;/label&gt;
+&lt;input class=&quot;form-range&quot; id=&quot;customRange1&quot; type=&quot;range&quot; /&gt;</code></pre>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <h5 class="mt-4">File Browser</h5>
+                  <div class="component-preview">
+                    <div class="mb-3">
+                      <label class="form-label" for="formFile">Default file input example</label>
+                      <input class="form-control" id="formFile" type="file" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="formFileMultiple">Multiple files input example</label>
+                      <input class="form-control" id="formFileMultiple" type="file" multiple="multiple" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="formFileDisabled">Disabled file input example</label>
+                      <input class="form-control" id="formFileDisabled" type="file" disabled="disabled" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="formFileSm">Small file input example</label>
+                      <input class="form-control form-control-sm" id="formFileSm" type="file" />
+                    </div>
+                    <div>
+                      <label class="form-label" for="formFileLg">Large file input example</label>
+                      <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                    </div>
+                    <pre class="language-html border mb-0 p-3 mt-5"><code>&lt;div class=&quot;mb-3&quot;&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;formFile&quot;&gt;Default file input example&lt;/label&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;formFile&quot; type=&quot;file&quot; /&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mb-3&quot;&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;formFileMultiple&quot;&gt;Multiple files input example&lt;/label&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;formFileMultiple&quot; type=&quot;file&quot; multiple=&quot;multiple&quot; /&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mb-3&quot;&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;formFileDisabled&quot;&gt;Disabled file input example&lt;/label&gt;
+  &lt;input class=&quot;form-control&quot; id=&quot;formFileDisabled&quot; type=&quot;file&quot; disabled=&quot;disabled&quot; /&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mb-3&quot;&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;formFileSm&quot;&gt;Small file input example&lt;/label&gt;
+  &lt;input class=&quot;form-control form-control-sm&quot; id=&quot;formFileSm&quot; type=&quot;file&quot; /&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;formFileLg&quot;&gt;Large file input example&lt;/label&gt;
+  &lt;input class=&quot;form-control form-control-lg&quot; id=&quot;formFileLg&quot; type=&quot;file&quot; /&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-none d-lg-block col-auto mb-5 my-8">
+              <div class="sticky-sidebar ps-4">
+                <ul class="components-nav list-unstyled" id="components-nav">
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/accordion.html">Accordion</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/alerts.html">Alerts</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/backgrounds.html">Backgrounds</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/badges.html">Badges</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/borders.html">Borders</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/buttons.html">Buttons</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/cards.html">Cards</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/carousel.html">Carousel</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/colors.html">Colors</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/dropdowns.html">Dropdowns</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/filter.html">Filter</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/fontawesome.html">Fontawesome</a></li>
+                  <li><a class="link-primary fw-bold font-sans-serif text-capitalize" href="../components/forms.html">Forms</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/googlemap.html">Google Map</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/grid.html">Grid</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/iconsmind.html">Iconsmind</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/lightbox.html">Lightbox</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/masonary.html">Masonary</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal-video.html">Modal video</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/modal.html">Modal</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navs-tabs.html">Navs &amp; tabs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/navbar.html">Navbar</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/parallax.html">Parallax</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/scrollspy.html">Scrollspy</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/sizing.html">Sizing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/smtpjs.html">Smtpjs</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/spacing.html">Spacing</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tables.html">Tables</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/tooltips.html">Tooltips</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typed-text.html">Typed text</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/typography.html">Typography</a></li>
+                  <li><a class="link-700 font-sans-serif text-capitalize" href="../components/zanimation.html">Zanimation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <footer class="bg-100 text-1100 py-3 fs--1 fw-semi-bold position-absolute bottom-0 w-100">
+        <div class="container-wide">
+          <div class="row justify-content-between">
+            <div class="col-12 col-md-auto mb-1 mb-md-0 font-base">&copy; 2022 Slick &trade; Inc.</div>
+            <div class="col-12 col-md-auto">
+              <p class="text-900 mb-0">Made with<span class="fas fa-heart mx-2"></span>by <a class="link-900" href="https://themewagon.com/" target="_blank"> Themewagon</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!--===============================================-->
+    <!--    Footer-->
+    <!--===============================================-->
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../vendors/popper/popper.min.js"></script>
+    <script src="../vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../vendors/anchorjs/anchor.min.js"></script>
+    <script src="../vendors/is/is.min.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/prism/prism.js"></script>
+    <script src="../vendors/fontawesome/all.min.js"></script>
+    <script src="../vendors/lodash/lodash.min.js"></script>
+    <script src="../vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../vendors/gsap/gsap.js"></script>
+    <script src="../vendors/gsap/customEase.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

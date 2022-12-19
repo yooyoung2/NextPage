@@ -1,0 +1,23 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-8
+include ../mixins/blocks/header/Header-6
+include ../mixins/blocks/content/Content-22
+include ../mixins/blocks/team/Team-2
+include ../mixins/blocks/cta/Cta-21
+include ../mixins/blocks/footer/Footer-2
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	
+append mainContent
+	+Navigation-8('Slick', true).navbar-dark.position-fixed.w-100.z-index-2
+	+Header-6
+	+Content-22
+	+Team-2
+	+Cta-21
+	+Footer-2.border-top.border-300

@@ -1,0 +1,122 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Horizontal Form</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+										<form class="form form-horizontal">
+											<div class="form-body">
+												<div class="row">
+													<div class="col-md-4">
+														<label>학교아이디</label>
+													</div>
+													<div class="col-md-8 form-group">
+														<input id="schoolId first-name-icon" class="form-control"
+															name="schoolId" type="text" readonly
+															value="${ school['schId'] }">
+													</div>
+													<div class="col-md-4">
+														<label>학교이름</label>
+													</div>
+													<div class="col-md-8 form-group">
+														<input id="schoolName" class="form-control"
+															name="schoolName" type="text" readonly
+															value="${ school['schNm'] }">
+													</div>
+													<div class="col-md-4">
+														<label>지역</label>
+													</div>
+													<div class="col-md-8 form-group">
+														<input id="schoolAddr1" class="form-control"
+															name="schoolAddr1" type="text" readonly
+															value="${ school['schAddr1'] }">
+													</div>
+													<div class="col-md-4">
+														<label>학교분류</label>
+													</div>
+													<div class="col-md-8 form-group">
+														<input id="schoolApntd" class="form-control"
+															name="schoolApntd" type="text" readonly
+															value="${ school['schApntd'] }">
+													</div>
+													<div class="col-md-4">
+														<label>적용중인템플릿</label>
+													</div>
+													<div class="col-md-8 form-group">
+														<input id="templateName" class="form-control"
+															name="templateName" type="text" readonly
+															value="${ school['tmpltNm'] }">
+													</div>
+													<div class="col-md-4">
+														<label>홈페이지링크</label>
+													</div>
+													<div class="col-md-8 form-group">
+														<input id="hpLink" class="form-control" name="hpLink"
+															type="text" readonly value="${ school['hpLink'] }">
+													</div>
+													운영상태 <select>
+														<option value="use">사용</option>
+														<option value="stop">운영중지</option>
+													</select>
+										</form>
+										<div class="col-sm-12 d-flex justify-content-end">
+                                                        <button type="submit"
+                                                            class="btn btn-primary me-1 mb-1">수정</button>
+                                                        <input type="button"
+                                                            class="btn btn-light-secondary me-1 mb-1" value="뒤로">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- // Basic Horizontal form layout section end -->
+
+	<script>
+		let button = document.getElementById("btn");
+		button.onclick = function() {
+			if (button.value == "수정") {
+
+				button.value = "확인"
+
+				// 학교 아이디는 바꾸게 하는게 안되제?~
+
+				//document.getElementById( "schoolId" ).readOnly = false;
+				document.getElementById("schoolName").readOnly = false;
+				document.getElementById("schoolAddr1").readOnly = false;
+				document.getElementById("schoolApntd").readOnly = false;
+				document.getElementById("templateName").readOnly = false;
+				document.getElementById("hpLink").readOnly = false;
+
+			} else if (button.value == "확인") {
+
+				button.value = "수정";
+
+				document.getElementById("schoolName").readOnly = true;
+				document.getElementById("schoolAddr1").readOnly = true;
+				document.getElementById("schoolApntd").readOnly = true;
+				document.getElementById("templateName").readOnly = true;
+				document.getElementById("hpLink").readOnly = true;
+
+				// 다시 '확인'을 누른건 수정을 완료했다는 뜻이므로 value를 controller로 보낸다.
+				let form = document.getElementById("frm");
+				//form.setAttribute(“method”,”post”); // method 설정
+				//form.setAttribute(“action”,”/etc/cs/view”);// action 설정
+				form.submit();
+
+			}
+		}
+	</script>

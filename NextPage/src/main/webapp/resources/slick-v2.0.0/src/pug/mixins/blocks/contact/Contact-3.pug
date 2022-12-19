@@ -1,0 +1,93 @@
+mixin Contact-3
+	#contact-3
+		.googlemap(data-gmap data-latlng='41.8333925,-88.0123393' data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png` data-zoom='15' data-theme='SubtleGray', style='height: 200px')
+			.marker-content.py-3
+				h5 Google map
+				p A nice template for your site.
+					br
+					| Customize it as you want.
+		+Section.py-0.py-lg-8
+			.row.justify-content-center
+				.col-md-11.col-lg-5.me-lg-7.mt-6.mt-lg-0
+					h2 Get in touch
+					p.mt-3.pe-lg-4.pe-md-9.pe-lg-0 Slick has a real team to support its customers and potential clients. Don't hesitate to ask us any questions.  
+					
+					.row
+						.col-11
+							hr.text-300.my-4
+						.col-auto
+							h5.mb-3 Slick HQ
+
+							p
+								| 35 King Street
+
+								br
+								| Bristol, BS1 4DZ
+						.col-auto(style='min-width: 180px;')
+							.row
+								.col-12
+									.row.align-items-center.mt-4
+										.col-1
+											span.fas.fa-phone.text-900
+										.col.ps-1
+											a(href="tel:112-334-48-55").fw-semi-bold.link-1100 +112-334-48-55
+								.col-12
+									.row.align-items-center.mt-2
+										.col-1
+											span.far.fa-envelope.text-900
+										.col.ps-1
+											a(href="mailto:info@themewagon.com").fw-semi-bold.link-1100 info@slick.com
+											
+						.col-11
+							hr.bg-300.opacity-100.my-4
+
+						.col-auto(style='min-width: 135px;')
+							a(href="#").link-500.row.align-items-center.mt-3
+								.col-1
+									span.fab.fa-facebook-f
+								.col
+									| Facebook
+							a(href="#").link-500.row.align-items-center.mt-2
+								.col-1
+									span.fab.fa-twitter
+								.col
+									| Twitter
+							a(href="#").link-500.row.align-items-center.mt-2
+								.col-1
+									span.fab.fa-linkedin-in
+								.col
+									| Linkedin
+						.col-auto(style='min-width: 135px;')
+							a(href="#").link-500.row.align-items-center.mt-3
+								.col-1
+									span.fab.fa-pinterest-p
+								.col
+									| Pinterest
+							a(href="#").link-500.row.align-items-center.mt-2
+								.col-1
+									span.fab.fa-behance
+								.col
+									| Behance
+							a(href="#").link-500.row.align-items-center.mt-2
+								.col-1
+									span.fab.fa-dribbble
+								.col
+									| Dribbble
+
+				.col-lg-5.my-6.my-lg-0
+					h2 Drop us a line
+					p.mt-3.pe-md-11.pe-lg-4 Please let us know if you found any issue while checking the live preview or using the template.
+					
+					form.row.g-3(data-form)
+						.col-12
+							label.ls.text-uppercase.text-700.fw-bold.mb-0 Name
+							input.form-control.bg-white(type="text" name="name" placeholder="" required)
+						.col-12
+							label.ls.text-uppercase.text-700.fw-bold.mb-0 Your Email
+							input.form-control.bg-white(type="email" name="email" placeholder="" required)
+						.col-12
+							label.ls.text-uppercase.text-700.fw-bold.mb-0 Message
+							textarea.form-control.bg-white(rows="4" name="message" placeholder="" required)
+						.col-12.d-grid.mt-4
+							button(type="submit").btn.btn-danger Submit
+						.feedback

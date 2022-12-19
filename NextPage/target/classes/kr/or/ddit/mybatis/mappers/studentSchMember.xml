@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.student.Insert.dao.StudentInsertDAO">
+
+
+
+	 <sql id="searchFrag">
+		
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				<choose>
+					<when test="'name' eq simpleCondition.searchType">
+						AND INSTR(MEM_NM, #{simpleCondition.searchWord}) > 0 AND INSTR(MEM_ID, '-') > 0
+						AND SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+1,4) IS NOT NULL AND 9000 > SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+5,9)
+					</when>
+					<when test="'address' eq simpleCondition.searchType">
+						AND INSTR(ADDR1, #{simpleCondition.searchWord}) > 0 AND INSTR(MEM_ID, '-') > 0
+						AND SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+1,4) IS NOT NULL AND 9000 > SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+5,9)
+					</when>
+					<otherwise>
+							AND INSTR(MEM_NM, #{simpleCondition.searchWord}) > 0
+							OR
+							INSTR(ADDR1, #{simpleCondition.searchWord}) > 0 AND INSTR(MEM_ID, '-') > 0
+							AND SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+1,4) IS NOT NULL AND 9000 > SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+5,9)
+					</otherwise>
+				</choose>
+			</if>
+	</sql> 
+	
+	<select id="selectTotalRecord" resultType="int" parameterType="PagingVO">
+		SELECT COUNT(*)
+		FROM SCH_MEMBER
+		WHERE 1=1 AND INSTR(MEM_ID, '-') > 0
+		AND SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+1,4) IS NOT NULL AND 9000 > SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+5,9)  AND SCH_ID=#{schId}
+	<include refid="searchFrag" /> 
+	</select>
+	
+	<select id="selectMemberList" resultType="SchMemberVO" parameterType="PagingVO">
+		SELECT *
+		FROM (
+			SELECT A.*, ROWNUM RNUM
+			FROM(
+				SELECT                                        
+				    MEM_ID ,MEM_NM ,    TEL_NUM,    MEM_EMAIL,         
+				    ADDR1,    ADDR2   
+				FROM SCH_MEMBER WHERE INSTR(MEM_ID, '-') > 0 
+				AND SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+1,4) IS NOT NULL AND 9000 > SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+5,9)  AND SCH_ID=#{schId}       
+				<include refid="searchFrag" />     
+				ORDER BY ROWID DESC
+			) A
+		) B
+		<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow} AND INSTR(MEM_ID, '-') > 0
+		AND SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+1,4) IS NOT NULL AND 9000 > SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+5,9)
+		AND SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+1,4) IS NOT NULL AND 9000 > SUBSTR(MEM_ID,INSTR(MEM_ID,'-')+5,9)
+		]]>
+	</select>
+	
+	<!-- <resultMap type="SchMemberVO" id="memberMap" autoMapping="true">
+		<id property="memId" column="MEM_ID"/>
+		<collection property="prodList" ofType="ProdVO" autoMapping="true">
+			<id property="prodId" column="PROD_ID"/>
+			<association property="buyer" javaType="BuyerVO" autoMapping="true" />
+		</collection>
+	</resultMap> -->
+
+	
+	
+	
+	<select id="selectMember" parameterType="string" resultType="SchMemberVO">
+		
+		 SELECT * FROM SCH_MEMBER WHERE MEM_Id = #{memId}
+	</select>  
+	
+	
+	<insert id="insertMember" parameterType="SchMemberVO">
+		INSERT INTO SCH_MEMBER (         
+			  		MEM_ID,
+					SCH_ID,
+					MEM_PW,
+					MEM_NM,
+					MEM_EMAIL,
+					TEL_NUM,
+					ADDR1,
+					ADDR2
+			) VALUES (               
+					#{schId,jdbcType=VARCHAR}||'-'||2022||student_id.NEXTVAL
+					, #{schId,jdbcType=VARCHAR}
+					, #{memPw,jdbcType=VARCHAR}
+					, #{memNm,jdbcType=VARCHAR}
+					, #{memEmail,jdbcType=VARCHAR}
+					, #{telNum,jdbcType=VARCHAR}
+					, #{addr1,jdbcType=VARCHAR}
+					, #{addr2,jdbcType=VARCHAR}
+			)						 
+	</insert>
+	
+	<insert id="insertAllMember" parameterType="java.util.List">
+		
+		<selectKey resultType="int" keyProperty="startNo" order="BEFORE">
+			
+			
+		</selectKey>
+		
+		
+		
+		INSERT ALL
+		
+		<foreach collection="list" item="member" index="idx">
+		
+			INTO SCH_MEMBER (         
+			  		MEM_ID,
+					SCH_ID,
+					MEM_PW,
+					MEM_NM,
+					MEM_EMAIL,
+					TEL_NUM,
+					ADDR1,
+					ADDR2
+			) VALUES (               
+					'b001'||'-'||(student_id.NEXTVAL+#{idx})
+					, 'b001'
+					, '1234'
+					, #{member.memNm,jdbcType=VARCHAR}
+					, #{member.memEmail,jdbcType=VARCHAR}
+					, #{member.telNum,jdbcType=VARCHAR}
+					, #{member.addr1,jdbcType=VARCHAR}
+					, #{member.addr2,jdbcType=VARCHAR}
+			)	
+			
+			
+		
+		</foreach>
+		
+		SELECT * FROM DUAL
+	</insert>
+	
+	<update id="updateMember" parameterType="SchMemberVO">
+		UPDATE SCH_MEMBER
+		SET
+			 MEM_NM = #{memNm,jdbcType=VARCHAR}
+			, TEL_NUM = #{telNum,jdbcType=VARCHAR}
+			, MEM_EMAIL = #{memEmail,jdbcType=VARCHAR}
+			, ADDR1 = #{addr1,jdbcType=VARCHAR}
+			, ADDR2 = #{addr2,jdbcType=VARCHAR}
+		WHERE MEM_Id = #{memId,jdbcType=VARCHAR}
+	</update>
+	
+	
+	
+	
+	
+	<select id="selectMemId" parameterType="SchMemberVO" resultType="SchMemberVO">
+		 SELECT * FROM SCH_MEMBER WHERE 
+		 MEM_NM=#{memNm,jdbcType=VARCHAR} AND
+					MEM_EMAIL= #{memEmail,jdbcType=VARCHAR} AND
+					TEL_NUM= #{telNum,jdbcType=VARCHAR} AND
+					ADDR1= #{addr1,jdbcType=VARCHAR} AND
+					ADDR2= #{addr2,jdbcType=VARCHAR}
+		 
+	</select>  
+	
+	<insert id="insertStaff" parameterType="String">
+		INSERT INTO STUD(STUD_ID) VALUES(#{member,jdbcType=VARCHAR})		
+	</insert>
+	
+	<insert id="insertClass" parameterType="ClassMemVO">
+		INSERT INTO CLASS_MEM(STUD_ID, YEAR, CLASSES, STUD_CNDTN) 
+		VALUES(#{studId},#{year},'-','재학')
+	</insert>
+	
+	<select id="whoClasses" parameterType="string" resultType="string">
+		SELECT  AA.CLASSES
+				        FROM YEAR_CLASS AA,
+				             EDUPSN BB,
+				             SCH_MEMBER CC 
+				        WHERE AA.EDUPSN_ID=BB.EDUPSN_ID 
+				        AND BB.EDUPSN_ID=CC.MEM_ID AND CC.MEM_ID=#{member}
+		 
+	</select>  
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

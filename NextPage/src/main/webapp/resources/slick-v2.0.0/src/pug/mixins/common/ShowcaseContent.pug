@@ -1,0 +1,50 @@
+//---------------------------------------
+	|  Showcase
+//---------------------------------------
+mixin ShowcaseCTA(theme, className)
+	.position-relative
+		+Wave('black')(style='top: -100%').z-index--1
+		+Section.mt-8(class=`${theme === 'black' ? `bg-${className ? className : 'black'}` : `bg-${className ? className : 'white'}`}`)
+			.row.justify-content-center
+				.col
+					.border.border-2.rounded-3.py-6.px-4.px-md-5.px-md-6.px-lg-8.text-center(class=`${theme === 'black' ? 'border-900' : 'border-300'}`)
+						h1.mb-5.fs-3.fs-md-4.fs-lg-5.fs-xl-6.fw-light(class=`${theme === 'black' ? 'text-white' : ''}`) Create a beautiful, responsive website like this one effortlessly.
+						a(href=purchase_link target='_blank').btn.btn-primary.btn-lg.rounded-pill.px-5.px-md-7 Purchase Slick
+			.mt-6.ps-lg-4    
+				.row
+					.col-md-4
+						.d-flex.pe-lg-6
+							span.icon-Dollar-Sign.text-white.fs-3
+							.flex-1.ms-3
+								h5.mb-lg-3.text-uppercase.text-200 No Risk
+								p.mb-4.mb-lg-0.text-500 We'll give your money back within a 10-day period.
+					.col-md-4
+						.d-flex.pe-lg-6
+							span.icon-Calendar-4.text-white.fs-3
+							.flex-1.ms-3
+								h5.mb-lg-3.text-uppercase.text-200 NO SUBSCRIPTIONS
+								p.mb-4.mb-lg-0.text-500 One-time fee. Why pay monthly when you can pay once?
+					.col-md-4
+						.d-flex.pe-lg-6
+							span.icon-Clouds.text-white.fs-3
+							.flex-1.ms-3
+								h5.mb-lg-3.text-uppercas.text-200 UNLIMITED SITES
+								p.mb-4.mb-lg-0.text-500 Lifetime license. Build unlimited sites at no additional cost!
+
+			.row.mt-6
+				.col-md-6
+					.border.rounded-3.p-4.shadow-lg.border-900
+						.row.align-items-center
+							.col-sm
+								img(src=`${CWD}assets/img/screenshots/blocks/header-11.jpg` alt='About').img-fluid.rounded-3.shadow-sm
+							.col
+								h4.text-200 Drag &amp; Drop Builder
+								a(href=generator_link target='_blank').btn.btn-sm.btn-outline-light Try Generator
+				.col-md-6.mt-4.mt-md-0
+					.border.rounded-3.p-4.shadow-lg.border-900
+						.row.align-items-center
+							.col-sm
+								img(src=`${CWD}assets/img/screenshots/blocks/header-12.jpg` alt='About').img-fluid.rounded-3.shadow-sm
+							.col
+								h4.text-200 #{numbers.layouts} Premade Blocks
+								a(href=`${CWD}all-blocks.html`).btn.btn-sm.btn-outline-light Explore Blocks

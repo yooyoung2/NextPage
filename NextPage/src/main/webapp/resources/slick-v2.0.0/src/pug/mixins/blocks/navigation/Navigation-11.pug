@@ -1,0 +1,20 @@
+mixin Navigation-11(brand, btnOutline, attrs  )
+	nav.navbar.navbar-expand-lg.py-2&attributes(attributes)= attrs
+		.container
+			if brand
+				a.navbar-brand.position-lg-absolute.absolute-centered-lg(href=`${CWD}index.html`) 
+					!=brand
+			button.navbar-toggler.hamburger.hamburger--emphatic(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+				span.hamburger-box
+					span.hamburger-inner
+
+			.collapse.navbar-collapse#navbarSupportedContent
+				ul.navbar-nav.py-3.py-lg-0
+					li.nav-item 
+						a.btn.btn-sm.border-0.w-100(class=`btn-outline-${btnOutline}`) Take the Tour
+				ul.navbar-nav.ms-auto.pt-0
+					li.nav-item
+						a.nav-link.link-200(href='#' class=`${attrs ? (attrs.class === 'znav-white' && 'color-black') : 'color-white'}`)  Sign In
+					li.nav-item
+						a.nav-link.link-200(href='#' class=`${attrs ? (attrs.class === 'znav-white' && 'color-black') : 'color-white'}`) Sign Up
+				

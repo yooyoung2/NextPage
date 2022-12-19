@@ -1,0 +1,141 @@
+package kr.or.ddit.school.manager.schhistory.contoller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import kr.or.ddit.common.enumpkg.ServiceResult;
+import kr.or.ddit.operator.history.log.service.LogService;
+import kr.or.ddit.school.manager.schhistory.service.SchoolHistroyService;
+import kr.or.ddit.school.manager.student.classes.service.StudentClassInsertService;
+import kr.or.ddit.validate.InsertGroup;
+import kr.or.ddit.vo.SchoolHistoryVO;
+import kr.or.ddit.vo.Join_Year_SCH_VO;
+import kr.or.ddit.vo.LogVO;
+import kr.or.ddit.vo.SchMemberVO;
+import kr.or.ddit.vo.SchoolHistoryVO;
+import lombok.extern.slf4j.Slf4j;
+
+
+/*
+ * ★일괄등록을 위함
+ * 김건호
+ */
+@Slf4j
+@Controller
+@RequestMapping("school/manager/historyRealInsert")
+public class HistoryRealInsertController{
+
+	/*
+	 * GET방식일때는  command에 insert를 넣어주고 VO객체를 생성만 해준다.
+	 * 그리고 디스패치
+	 */
+	@Inject
+	private SchoolHistroyService service;
+
+	//로그체크 구지현
+	@Inject
+	private LogService logService;
+
+
+	@ModelAttribute("command")
+	public String command() {
+		return "INSERT";
+	}
+
+	@ModelAttribute("member")
+	public SchMemberVO member() {
+		return new SchMemberVO();
+	}
+
+	@GetMapping
+	public String doGet(){
+		return "schoolManager/103_studentClassEachInsert/studentEachInsert";
+	}
+
+	/*
+	 * POST방식일때는 에러를 가지고 있지 않다면 받아온 memberVO객체를 매개변수로
+	 * INSERT를 실행해라. 그러면 dao와 service를 거쳐 중복 OR 성공 OR 오류 메시지를 출력한다.
+	 */
+	@PostMapping
+	public String doPost(
+		@Validated(InsertGroup.class) @ModelAttribute("member") SchMemberVO member
+		, Errors errors
+		, Model model
+		, HttpSession session
+	)
+			throws ServletException, IOException {
+
+		ArrayList<SchoolHistoryVO> list = (ArrayList) session.getAttribute("poi_list");
+
+
+		String schId=(String) session.getAttribute("authSch");
+		 //로그체크 구지현
+		        LogVO inputLog = new LogVO();
+		        inputLog.setLogHpnId(schId);
+		        inputLog.setLogTypeId(3);
+		        inputLog.setLogCntnt("학년/반 등록");
+
+		        log.info("학년/반 등록 로그 : "+ inputLog);
+
+		SchoolHistoryVO data = new SchoolHistoryVO();
+
+		String logicalViewName = null;
+		//ServiceResult result = service.insertAllMember(list);
+		ServiceResult result = ServiceResult.OK;
+
+		//리스트 갯수만큼 = 엑셀파일의 row수만큼 // for문돌면서 값을 1건씩입력한다.
+		// 시퀀스 쓸수있어.
+		ServiceResult t;
+		int success=0;
+		service.deleteHist(schId);
+		for(int i = 0 ; i < list.size() ; i++) {
+			System.out.println("리스트1개씩 " + list.get(i));
+			data = list.get(i);
+			data.setSchId(schId);
+			System.out.println("확인히소토리"+data);
+			t=service.insertHist(data);
+			if(t==ServiceResult.OK)
+			{
+				success++;
+			}
+		}
+
+
+			switch (result) {
+			case PKDUPLICATED:
+				System.out.println("수빈중복");
+				model.addAttribute("message", "아이디 중복");
+				logicalViewName = "schoolManager/103_studentClassEachInsert/studentEachInsert";
+				break;
+			case OK:
+				ServiceResult loginLog = logService.createLog(inputLog);
+				model.addAttribute("msg",success+"개의 데이터가 삽입되었습니다!");
+	            model.addAttribute("url","/school/manager/schoolHistory");
+				logicalViewName = "schoolManager/102_studentClassInsert/success";
+				break;
+
+			default:
+				System.out.println("수빈오류");
+				model.addAttribute("message", "서버 오류, 쫌따 다시 하셈.");
+				logicalViewName = "schoolManager/103_studentClassEachInsert/studentEachInsert";
+				break;
+			}
+
+		//에러가 있다면 다시작성
+		return logicalViewName;
+	}
+
+}

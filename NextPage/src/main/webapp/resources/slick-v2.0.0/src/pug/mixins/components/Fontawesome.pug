@@ -1,0 +1,6 @@
+mixin IconCard(icon)
+  .col-lg-3.col-md-4.col-sm-6
+    span.icon-list-item.d-none=icon
+    .border.border-300.rounded-2.p-3.mb-4.text-center.bg-white.dark__bg-1000.shadow-sm
+      block
+      input.form-control.form-control-sm.mt-3.text-center.w-100.text-dark.bg-200.dark__bg-1100.border-300(type='text' readonly value=icon)

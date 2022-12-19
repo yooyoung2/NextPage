@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.operator.Index.dao.DealStatusDAO">
+
+<!--
+	작성자 : 최현우
+ 	운영자/인덱스/거래현황,거래수 반환
+ 	
+ 	( 수정 완료 )
+ 	
+ -->
+ 	<!-- 거래현황 -->
+	<select id = "selectAllDeal" resultType="DealStatusVO">
+		SELECT	PB.PAY_DATE AS day,
+        		SCH.SCH_NM AS schNm,
+        		GT.TMPLT_ID AS tmpltId,
+        		GT.TMPLT_NM AS tmpltNm,
+        		PI.PROD_NM AS payStat
+	
+		FROM    SCHOOL SCH
+		
+		FULL OUTER JOIN CART C ON SCH.SCH_ID = C.SCH_ID
+		FULL OUTER JOIN PRD_ITEMS PI ON C.PROD_ID = PI.PROD_ID
+		FULL OUTER JOIN PAY_BRKDWN PB ON C.CART_ID = PB.CART_ID
+		FULL OUTER JOIN PRJCT PRJ ON SCH.SCH_ID = PRJ.SCH_ID
+		FULL OUTER JOIN GEN_SITE GS ON GS.PRJCT_ID = PRJ.PRJCT_ID
+		FULL OUTER JOIN GEN_TEMPLATE GT ON GT.TMPLT_ID = GS.TMPLT_ID
+        WHERE   PB.PAY_DATE IS NOT NULL AND
+                GT.TMPLT_ID IS NOT NULL AND
+                GT.TMPLT_NM IS NOT NULL AND
+                PI.PROD_NM IS NOT NULL
+	</select>
+	
+	<!-- 거래 수 반환 -->
+	<select id = "dealCount" resultType="int">
+		SELECT  COUNT(SCH.SCH_ID)
+		
+		FROM    SCHOOL SCH
+		
+		FULL OUTER JOIN CART C ON SCH.SCH_ID = C.SCH_ID
+		FULL OUTER JOIN PRD_ITEMS PI ON C.PROD_ID = PI.PROD_ID
+		FULL OUTER JOIN PAY_BRKDWN PB ON C.CART_ID = PB.CART_ID
+		FULL OUTER JOIN PRJCT PRJ ON SCH.SCH_ID = PRJ.SCH_ID
+		FULL OUTER JOIN GEN_SITE GS ON GS.PRJCT_ID = PRJ.PRJCT_ID
+		FULL OUTER JOIN GEN_TEMPLATE GT ON GT.TMPLT_ID = GS.TMPLT_ID
+	</select>
+	
+	
+
+</mapper>

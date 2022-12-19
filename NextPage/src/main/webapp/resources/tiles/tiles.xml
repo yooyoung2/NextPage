@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd" >
+<tiles-definitions>
+	<!-- definition name == logical view name -->
+
+
+	<!-- 넥스트 페이지 부모 -->
+	<definition name="nextpage"
+		template="/resources/templates/nextpage/nextpage_template.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/nextpage/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/nextpage/headerMenu.jsp" />
+		<!-- <put-attribute name="leftMenu" value="/includee/nextpage/leftMenu.jsp" 
+			/> -->
+		<put-attribute name="footer"
+			value="/includee/nextpage/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/nextpage/postScript.jsp" />
+	</definition>
+
+	<definition name="nextpage_nomenu"
+		template="/resources/templates/nextpage/nextpage_template_nomenu.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/nextpage/nomenu/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/nextpage/headerMenu.jsp" />
+
+		<put-attribute name="footer"
+			value="/includee/nextpage/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/nextpage/nomenu/postScript.jsp" />
+	</definition>
+
+	<!-- 전 generation 현 template01 부모 -->
+	<!-- ============================= template 01번 부모 ============================= -->
+	<definition name="template01"
+		template="/resources/templates/template01/template01_template.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/template01/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/template01/headerMenu.jsp" />
+		<!-- <put-attribute name="leftMenu" value="/includee/template01/leftMenu.jsp" 
+			/> -->
+		<put-attribute name="footer"
+			value="/includee/template01/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/template01/postScript.jsp" />
+	</definition>
+
+	<definition name="template01_nomenu"
+		template="/resources/templates/template01/template01_template_nomenu.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/template01/nomenu/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/template01/headerMenu.jsp" />
+		<put-attribute name="footer"
+			value="/includee/template01/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/template01/nomenu/postScript.jsp" />
+	</definition>
+	<!-- ============================= template 01번 부모 끝 ============================= -->
+
+	<!-- ============================= template02 부모 ============================= -->
+	<definition name="template02"
+		template="/resources/templates/template02/template02_template.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/template02/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/template02/headerMenu.jsp" />
+		<!--<put-attribute name="leftMenu" value="/includee/template02/leftMenu.jsp" 
+			/> -->
+		<put-attribute name="footer"
+			value="/includee/template02/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/template02/postScript.jsp" />
+	</definition>
+
+	<definition name="template02_nomenu"
+		template="/resources/templates/template02/template02_template_nomenu.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/template02/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/template02/headerMenu.jsp" />
+
+		<put-attribute name="footer"
+			value="/includee/template02/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/template02/postScript.jsp" />
+	</definition>
+	<!-- ============================= template 02번 부모 끝 ============================= -->
+
+	<!-- ============================= template 03번 부모 ============================= -->
+	<definition name="template03"
+		template="/resources/templates/template03/template03_template.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/template03/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/template03/headerMenu.jsp" />
+		<!--<put-attribute name="leftMenu" value="/includee/template02/leftMenu.jsp" 
+			/> -->
+		<put-attribute name="footer"
+			value="/includee/template03/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/template03/postScript.jsp" />
+	</definition>
+
+	<definition name="template03_nomenu"
+		template="/resources/templates/template03/template03_template_nomenu.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/template03/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/template03/headerMenu.jsp" />
+
+		<put-attribute name="footer"
+			value="/includee/template03/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/template03/postScript.jsp" />
+	</definition>
+	<!-- ============================= template 03번 부모 끝 ============================= -->
+
+	<!-- 운영자 페이지 부모 -->
+	<definition name="operator"
+		template="/resources/templates/operator/operator_template.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/operator/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/operator/headerMenu.jsp" />
+		<put-attribute name="leftMenu"
+			value="/includee/operator/leftMenu.jsp" />
+		<put-attribute name="footer"
+			value="/includee/operator/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/operator/postScript.jsp" />
+	</definition>
+
+	<!-- 학교관리자 페이지 부모 -->
+	<definition name="schoolManager"
+		template="/resources/templates/schoolmanager/schoolmanager_template.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="preScript"
+			value="/includee/schoolManager/preScript.jsp" />
+		<put-attribute name="headerMenu"
+			value="/includee/schoolManager/headerMenu.jsp" />
+		<put-attribute name="leftMenu"
+			value="/includee/schoolManager/leftMenu.jsp" />
+		<put-attribute name="footer"
+			value="/includee/schoolManager/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/schoolManager/postScript.jsp" />
+	</definition>
+
+	<!-- ★★★★★★★★★★★★★★★★넥스트 페이지 자식★★★★★★★★★★★★★★★★ -->
+	<!-- 인덱스 및 모든 페이지 타일즈화(오류를 안뜨게 하기 위함 임시파일이라고 생각하면 편함.) -->
+
+
+	<definition name="nextpage/*/*" extends="nextpage"
+		preparer="kr.or.ddit.member.view.MemberViewPreparer.java">
+		<put-attribute name="leftMenu"
+			value="/includee/nextpage/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="nextpage/nomenu/*/*"
+		extends="nextpage_nomenu">
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/nomenu/{1}/{2}.jsp" />
+	</definition>
+
+
+	<!-- 1차메뉴 -->
+	<definition name="nextpage/companyIntroduction/*/*"
+		extends="nextpage">
+		<put-attribute name="leftMenu"
+			value="/includee/nextpage/companyIntroduction/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/companyIntroduction/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="nextpage/customerService/*/*"
+		extends="nextpage">
+		<put-attribute name="leftMenu"
+			value="/includee/nextpage/customerService/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/customerService/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="nextpage/feeInformation/*/*"
+		extends="nextpage">
+		<put-attribute name="leftMenu"
+			value="/includee/nextpage/feeInformation/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/feeInformation/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="nextpage/systemGuide/*/*"
+		extends="nextpage">
+		<put-attribute name="leftMenu"
+			value="/includee/nextpage/systemGuide/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/systemGuide/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="nextpage/template/*/*" extends="nextpage">
+		<put-attribute name="leftMenu"
+			value="/includee/nextpage/template/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/template/{1}/{2}.jsp" />
+	</definition>
+
+
+	<!-- nextpage mypage -->
+	<definition name="nextpage/mypage/*/*" extends="nextpage">
+		<put-attribute name="preScript"
+			value="/includee/nextpage/mypage/preScript.jsp" />
+		<put-attribute name="leftMenu"
+			value="/includee/nextpage/mypage/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/nextpage/mypage/{1}/{2}.jsp" />
+		<put-attribute name="footer"
+					value="/includee/nextpage/mypage/footer.jsp" />
+		<put-attribute name="postScript"
+			value="/includee/nextpage/mypage/postScript.jsp" />
+	</definition>
+
+
+
+	<!-- ====================== 전 generation 현 template01 자식 ====================== -->
+
+	<definition name="generation/template01/*/*"
+		extends="template01">
+		<put-attribute name="leftMenu"
+			value="/includee/template01/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/generation/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="generation/template01/nomenu/*/*"
+		extends="template01_nomenu">
+		<put-attribute name="main"
+			value="/WEB-INF/views/generation/{1}/{2}.jsp" />
+	</definition>
+
+
+
+
+
+
+	<!-- 은비누나 요청 레프트 메뉴 -->
+	<definition name="generation/template01/mypage/*/*"
+		extends="template01">
+		<put-attribute name="leftMenu"
+			value="/includee/template01/otherLeftMenu/mypage/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/generation/{1}/{2}.jsp" />
+	</definition>
+
+
+	<!-- ============================== template 02 자식 ============================== -->
+	<definition name="generation/template02/*/*"
+		extends="template02">
+		<put-attribute name="leftMenu"
+			value="/includee/template02/leftMenu.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/generation/{1}/{2}.jsp" />
+	</definition>
+
+	<!-- generation/tempalte02/nomenu/36_generatingLogin/generatingLogin -->
+	<definition name="generation/template02/nomenu/*/*"
+		extends="template02_nomenu">
+		<put-attribute name="main"
+			value="/WEB-INF/views/generation/{1}/{2}.jsp" />
+	</definition>
+	<!-- ============================================================================= -->
+
+	<!-- ============================== template 03 자식 ============================== -->
+	<definition name="generation/template03/*/*"
+		extends="template03">
+		<!-- <put-attribute name="leftMenu"
+			value="/includee/template03/leftMenu.jsp" /> -->
+		<put-attribute name="main"
+			value="/WEB-INF/views/generation/{1}/{2}.jsp" />
+	</definition>
+	
+	
+	<!-- generation/tempalte02/nomenu/36_generatingLogin/generatingLogin -->
+	<definition name="generation/template03/nomenu/*/*"
+		extends="template03_nomenu">
+		<put-attribute name="main"
+			value="/WEB-INF/views/generation/{1}/{2}.jsp" />
+	</definition>
+	<!-- ============================================================================= -->
+
+
+
+
+
+
+
+	<!-- 운영자 페이지 자식 -->
+	<definition name="operator/*/*" extends="operator">
+		<put-attribute name="main"
+			value="/WEB-INF/views/operator/{1}/{2}.jsp" />
+	</definition>
+
+
+	<!-- 학교 관리자 페이지 자식 -->
+
+	<definition name="schoolManager/*/*" extends="schoolManager">
+		<put-attribute name="main"
+			value="/WEB-INF/views/schoolManager/{1}/{2}.jsp" />
+	</definition>
+
+
+
+
+</tiles-definitions>

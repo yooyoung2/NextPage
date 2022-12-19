@@ -1,0 +1,22 @@
+mixin Header-7
+	section.py-0#Header-7
+		+Background({image: `${CWD}assets/img/16.jpg`, className: " overlay-0 d-none d-lg-block w-75 background-left"})
+		.container-fluid
+			.row.justify-content-end
+				.col-lg-8.col-xl-7.bg-white.py-6.min-vh-lg-100.d-flex
+					.align-self-center.mx-auto(style='max-width: 34.375rem')
+						h1.fs-5.fs-lg-6.lh-1 Design comes to life with Slick. Magically.
+						p.lead With #{numbers.layouts}+ built-in layouts, organic animations and intuitive coding base, Slick lets you deploy website magically.
+						form.mt-4.row.align-items-center.g-3
+							.col-6
+								input.form-control.border(type="text" placeholder="First Name")
+							.col-6
+								input.form-control.border(type="text" placeholder="Last Name")
+							.col-12
+								input.form-control.border(type="email" placeholder="Your Email")
+							.col-sm-6.col-xl-7
+								input.form-control.border(type="password" placeholder="Password")
+							.col-sm-6.col-xl-5
+								.btn.btn-success.w-100 Create an Account
+						p.fs--1.fw-light.text-900.mt-2 By signing up, you agree to 
+							a(href="#!") Terms of Service.

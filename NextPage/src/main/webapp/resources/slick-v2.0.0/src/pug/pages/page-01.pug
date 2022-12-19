@@ -1,0 +1,30 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-1
+include ../mixins/blocks/header/Header-1
+include ../mixins/blocks/features/Features-5
+include ../mixins/blocks/content/Content-12
+include ../mixins/blocks/cta/Cta-6
+include ../mixins/blocks/pricing/Pricing-4
+include ../mixins/blocks/cta/Cta-11
+include ../mixins/blocks/partners/Partners-2
+include ../mixins/blocks/footer/Footer-9
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+
+append mainContent
+	+Navigation-1.navbar-dark.bg-dark
+	+Header-1
+	+Features-5
+	+Content-12
+	+Cta-6
+	+Pricing-4
+	+Cta-11
+	+Partners-2
+	+Footer-9
+

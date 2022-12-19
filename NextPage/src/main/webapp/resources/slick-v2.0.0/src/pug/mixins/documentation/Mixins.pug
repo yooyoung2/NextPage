@@ -1,0 +1,294 @@
+mixin GettingStarted 
+  h3.pt-5.mt-n5(data-anchor) Quick start
+  p Looking to start your project quickly? Just unzip the 
+    code #{version}.zip
+    | . We have precompiled and packaged everything in the 
+    code public
+    |  directory for you. Start editing the 
+    code index.html
+    |  with a text or code editor, save it, and open the file in your favourite browser to see the changes.
+
+  h3.pt-5(data-anchor) Setting up Build system
+  p Unzip the
+    code #{version}.zip
+    |  to any folder and open a command line or terminal at that location.
+    | #{name}'s dev tools require 
+    a(href='https://nodejs.org/en/' target='_blank') Node
+    |  and 
+    a(href='https://git-scm.com/' target='_blank') Git
+    |  . If you do not have them in your machine, please install their latest stable version from their corresponding website. As you have 
+    span.fw-black.text-black Node and Git installed and accessible from your terminal or command line
+    | , install 
+    a(href="https://gulpjs.com/" target='_blank') Gulp CLI
+    |  package 
+    |  globally with the following command:
+  pre
+    code.lang-html.
+      npm i gulp-cli -g
+
+  p.mt-4 When you’re done, install the rest of the #{name}’s dependencies with:
+  pre
+    code.lang-html.
+      npm i
+
+  p.mt-4 Now run:
+  pre
+    code.lang-html.
+      gulp
+
+  p.mt-4 Running gulp will compile the SCSS, transpile the javascript, copy all required libraries form 
+    code node_modules
+    |  to the corresponding 
+    code public/assets/vendors 
+    |  directory and will open a browser window to 
+    code public/index.html
+  p All of the following folders are monitored for changes, which will tell the browser to reload automatically after any changes are made:
+  +ComponentCardLib
+    | public/assets/video/
+    | public/assets/img/
+    | public/vendors
+    | src/pug/
+    | src/scss/ 
+    | src/js/
+
+
+  p.mt-4 Now you can edit any 
+    code pug
+    |  file from 
+    code src/pug
+    | , change SCSS variable with 
+    code scss/_user-variables.scss
+    | , or write your own SCSS code in 
+    code scss/_user.scss
+    |  and add or update 
+    code javaScript
+    |  from 
+    code src/js
+    |  directory.
+
+  .alert.alert-warning Running the 
+    code gulp
+    |  command will discard and regenerate all the files in following directories:
+  +ComponentCardLib
+    |  public/**/*.html
+    |  public/assets/css/
+    |  public/assets/js/
+    |  public/vendors
+
+  p.mt-4 Hit 
+    code Ctrl+C
+    |  or just close the command line window to stop the server.
+
+  p Happy editing!
+
+mixin FileStructure 
+  h3(data-anchor) File Structure
+  p.mt-3 Within your #{theme} you’ll find the following directories and files, grouping common resources and providing both compiled, transpiled and minified distribution files, as well as raw source files.
+  pre.language-html.
+    #{theme.toLowerCase()}#{currentVersion}/
+      ├── gulp/
+      |   ├── build.gulp.js
+      |   ├── clean.gulp.js
+      |   ├── gulp.json
+      |   ├── link.gulp.js
+      |   ├── product.gulp.js
+      |   ├── pug.gulp.js
+      |   ├── script.gulp.js
+      |   ├── style.gulp.js
+      |   ├── utils.js
+      |   ├── vendor.gulp.js
+      |   ├── w3c.gulp.js
+      |   ├── watch.gulp.js     
+      ├── public/
+      |   ├── assets/
+      |   ├── blocks/
+      |   ├── components/
+      |   ├── pages/
+      |   ├── vendors/
+      |   ├── all-blocks.html
+      |   ├── docs.html
+      |   ├── index.html
+      |   ├── showcase-pages.html
+      ├── src/
+      |   ├── js/
+      |   ├── pug/
+      |   ├── scss/
+      .babelrc
+      .eslintrc
+      .gitignore
+      .npmrc
+      .prettierignore
+      gulpfile.js
+      package-lock.json
+      package.json
+      README.md
+      vendors.json
+
+mixin Customization 
+  p We recommend you customize your theme styles using the user style files. You can customize the theme’s styles with the following approaches:
+
+  h5.mt-2(data-anchor) Gulp based workflow
+
+  h5.mt-2 
+    code _user.scss
+  p You can add your own SCSS and override the theme style in the 
+    code src/scss/user.scss
+    |  file
+
+  h5.mt-2 
+    code _user-variables.scss
+  p To make broader changes to the design of the theme, such as changing the color scheme or font sizes, use 
+    code scss/_user-variables.scss
+    | . Any variable from 
+    code scss/bootstrap/_variables.scss 
+    |  or 
+    code scss/custom/_variables.scss
+    |  can be overridden with your own value.
+
+  h5.mt-2(data-anchor) If you are not using Gulp based workflow
+
+  h4.mt-2 
+    code user.css
+  p You can add your own SCSS and override the theme style in the 
+    code public/assets/css/user.css
+    |  file
+
+mixin Gulp 
+  h3(data-anchor) Gulp
+  h5(data-anchor).py-2 To start your project run:
+  code.fs-2.border.rounded-1.py-2.px-3.d-block.border-300.bg-white gulp
+  p.mt-4 The 
+    code gulp
+    |  command will build, serve and watch the project with the following gulp tasks:
+
+  .table-responsive-md.table-responsive-xl
+    table.table.table-bordered
+      thead.bg-300.text-center.font-sans-serif
+        tr
+          th.text-nowrap Task
+          th Action
+      tbody
+        tr
+          td.text-nowrap
+            code clean
+          td Delete the following directories:
+            pre
+              code.lang-html.
+                public/assets/css
+                public/assets/js
+                public/vendors // packages which are included in vendors.json
+                public/**/*.html
+
+        tr
+          td.text-nowrap
+            code style
+          td Compiles 
+            code scss/theme.scss
+            |  and generates 
+            code theme.css, theme.min.css, theme-rlt.css, theme-rtl.min.css
+            |  and 
+            code theme.css.map, theme.min.css.map, theme-rlt.css.map, theme-rtl.min.css.map
+            |  to the 
+            code public/assets/css/ 
+            |  directory.
+        tr
+          td.text-nowrap
+            code script
+          td Concat the 
+            code js
+            |  files from 
+            code src/js/
+            |  and transpiles with babel to 
+            code theme.js
+            | , 
+            code theme.min.js
+            |  to the 
+            code public/assets/js/
+            |  directory.
+        tr
+          td.text-nowrap
+            code compile:all
+          td Compiles all the 
+            code js, 
+            code scss, 
+            code pug 
+            | files from the 
+            code src
+            |  directory.
+        tr
+          td.text-nowrap
+            code vendor
+          td Runs 
+            code vendor:clean
+            |  and 
+            code vendor:move
+            |  in series.
+        tr
+          td.text-nowrap
+            code vendor:clean
+          td Delete the vendors from 
+            code public/vendors
+            |  directory which are included in  
+            code vendors.json
+            | .
+
+        tr
+          td.text-nowrap
+            code vendor:move
+          td Copies the vendors from 
+            code node_modules/
+            |  directory to 
+            code public/vendors
+            |  directory according to the 
+            code vendors.json
+            | .
+
+        tr
+          td.text-nowrap
+            code watch
+          td All of the following folders are monitored for changes, which will tell the browser to reload automatically after any changes are made:
+            pre
+              code.lang-html.
+                public/assets/img
+                public/assets/video
+                public/vendors/
+                src/pug
+                src/scss
+                src/js
+        tr
+          td.text-nowrap
+            code build
+          td Will delete previous build directory and generate a new compressed version to deploy 
+            pre
+              code.lang-html.
+                build/assets/img
+                build/assets/video
+                build/assets/css
+                build/assets/js
+                build/vendors/
+                build/**/*.html
+
+        tr
+          td.text-nowrap
+            code build:test
+          td Will run the build version in port:3000
+
+mixin Generator 
+  h3(data-anchor) Generator
+  h5 Use generator to build a website with no coding
+  p Simple drag-and-drop HTML editor lets you implement any ideas for HTML Templates. Use responsive image gallery, video backgrounds, features, hamburger menu, sticky header and animation to bring sites to life.
+  p You can create your own website using a drag-and-drop generator with much ease. With such HTML editor, you can create any HTML Templates of your imagination and those sites come to life with responsive image galleries, video backgrounds, features, hamburger menus, sticky headers, and animation.
+
+  p.mb-0.text-justify
+    strong How to use:
+    |  With your purchased copy of Slick,  use the downloaded file or paste it into a  
+    code .html
+    |  file located in the public directory to get started
+
+mixin Changelog 
+  h3(data-anchor) Changelog
+
+  h5.mb-1.mt-3 Slick v2.0.0 - Initial Release
+  p.mb-3 9 June, 2022
+  p.mb-0 Nothing to see here.
+

@@ -1,0 +1,59 @@
+extends layouts/LayoutTheme
+
+block append styles
+  link(href=`${CWD}vendors/generator/generator.css` rel='stylesheet')
+  link(href=`${CWD}vendors/remodal/remodal-default-theme.css` rel='stylesheet')
+  link(href=`${CWD}vendors/remodal/remodal.css` rel='stylesheet')
+
+block append scripts
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous' referrerpolicy='no-referrer')
+  script(src=`https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js`)
+  script(src=`${CWD}vendors/js-beautify/js/lib/beautify-html.js`)
+  script(src=`${CWD}vendors/generator/builder.js`)
+  script(src=`${CWD}vendors/generator/generator.js`)
+  script(src=`${CWD}vendors/remodal/remodal.min.js`)
+  
+append mainContent
+  .actions-buttons
+    button(data-remodal-target='modal' style='z-index: 9999')#btn-export.btn.btn-primary.rounded-pill.shadow-lg
+      span.fas.fa-download(data-fa-transform='grow-10')
+      span.ms-3 Export
+
+  .sidebar
+    #generator-menu
+    #dragable-items
+
+  .browser
+    .browser-header
+      span(data-fa-transform='shrink-6').fa.fa-circle.text-danger.ms-2
+      span(data-fa-transform='shrink-6').fa.fa-circle.text-warning
+      span(data-fa-transform='shrink-6').fa.fa-circle.text-success
+    #drop-zone.shadow-lg.browser-intro-text-wrapper
+      h1.text.position-absolute.absolute-centered.fw-lighter.text-400.fs-3.fs-xl-4 Start with drag and drop blocks from the left panel
+
+append afterMainContent
+  .remodal.overflow-scroll.rounded-3.text-start(data-remodal-id='modal' style='max-height: 75vh;')
+    .position-sticky.bg-white.top-0.py-3.w-100(style='z-index: 10001')
+      .row.align-items-center
+        .col(style='max-width:30rem')
+          .d-flex.alert.alert-info
+            span.fas.fa-info-circle.fs-4.me-3
+            .flex-1
+              p.fs--1.mb-0.text-justify
+                strong How to use:
+                |  Put the downloaded file or paste the following code in a 
+                code .html
+                |  file in the public directory of your purchased copy of slick.
+        .col.text-end
+          .btn-group
+            button#btn-code.btn.btn-link.btn-sm.rounded-pill.d-none
+              span.far.fa-code(data-fa-transform='grow-10')
+              span.ms-3 Code
+            button#btn-copy.btn.btn-link.rounded-pill.btn-sm
+              span.far.fa-copy(data-fa-transform='grow-10')
+              span.fa-solid.fa-file-circle-check.d-none(data-fa-transform='grow-10')
+              span.text.ms-3 Copy
+            a(href='#')#btn-download.btn.btn-link.btn-sm.rounded-pill
+              span.fa-solid.fa-download(data-fa-transform='grow-20')
+              span.ms-3 Download
+    #blocks-stock

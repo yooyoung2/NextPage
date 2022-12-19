@@ -1,0 +1,16 @@
+mixin Features-21
+	+Section.text-center.font-base.py-6#features-21
+		mixin feature(title, des, icon, bg)
+			.col-10.col-sm-6.col-lg-4.my-4
+				.position-relative.mb-2
+					img(src=`${CWD}assets/img/shapes/${bg}.svg` alt=bg style='height: 180px')
+					span.absolute-centered.position-absolute.fs-6.text-white(class=icon)
+				h4.px-xl-5=title
+				p.mb-0.px-sm-3=des
+		.row.justify-content-center
+			+feature('Responsive Design', 'Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.', 'fas fa-columns', '1')
+			+feature('Brand Identity', 'Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.', 'fab fa-apple', '2')
+			+feature('Web Development', 'Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.', 'fas fa-dove', '3')
+			+feature('Creative Ideas', 'Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.', 'fas fa-umbrella', '6')
+			+feature('Making Stretagy', 'Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.', 'fas fa-frog', '7')
+			+feature('Business Solution', 'Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.', 'fas fa-piggy-bank', '8')

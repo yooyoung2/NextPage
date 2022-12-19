@@ -1,0 +1,21 @@
+mixin HamburgerMenu
+  .offcanvas.offcanvas-end.bg-dark.border-top.border-1000.border-start-0#offcanvasRight(tabindex='-1' data-bs-backdrop="false" aria-labelledby='offcanvasRightLabel')
+    .offcanvas-body.px-5.pt-5
+      .row.justify-content-center
+        .col-lg-11
+          h5.text-100 Do you have a refund policy?
+          p.lead.text-500.font-sans-serif Yes, we have a 100% money back gurantee. If you are not satisfied with Slick, please create a support ticket and we will get you full refund. No question asked.
+        .col-lg-11.mt-4
+          h5.text-100 What's the standard reply time for support?
+          p.lead.text-500.font-sans-serif Usually we reply within an hour if it's working hours. If not, it may be delayed upto 10 hours maximum.
+        .col-lg-11.mt-6
+          a(href=`${CWD}generator.html` target='_blank').btn.btn-light.rounded-pill.btn-sm.mr-3
+            span.fas.fa-gavel.me-3(data-fa-transform='grow-10')
+            | Generator
+          .w-100.d-sm-none
+          a(href="#").btn.btn-link.px-0
+            span.fab.fa-apple.mx-2.fs-2.text-400
+          a(href="#").btn.btn-link.px-0
+            span.fab.fa-android.mx-2.fs-2.text-400
+          a(href="#").btn.btn-link.px-0
+            span.fab.fa-windows.mx-2.fs-2.text-400

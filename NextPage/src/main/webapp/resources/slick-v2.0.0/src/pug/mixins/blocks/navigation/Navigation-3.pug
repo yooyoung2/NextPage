@@ -1,0 +1,81 @@
+mixin Navigation-3(config)
+	- var config = Object.assign({dropDownClass: 'dropdown-menu-dark bg-1100'}, config)
+	nav.navbar.navbar-expand-lg.py-2.nav-container&attributes(attributes)= attrs
+		.container
+			a.navbar-brand.fw-bolder.overflow-hidden.pb-2(href=`${CWD}index.html`) Slick
+				span.text-500.fw-normal       inc.
+			button.navbar-toggler.hamburger.hamburger--emphatic(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+				span.hamburger-box
+					span.hamburger-inner
+			.collapse.navbar-collapse#navbarSupportedContent
+				ul.navbar-nav.ms-auto
+					li.nav-item
+						a.nav-link(href=`${CWD}index.html`) Home
+					li.nav-item.dropdown
+						a.nav-link.dropdown-toggle.dropdown-caret-none#navbarDropdownMenuLink2(href='#', data-bs-toggle='dropdown', data-sl-dropdown-on-hover, aria-haspopup='true', aria-expanded='false')
+							span.nav-link-text
+								+cleanText('pages')
+								span.fa-solid.fa-angle-down.ms-1.fs--1.fw-bold
+						
+						ul.dropdown-menu.rounded.dropdown-page-components.px-0.border-0(aria-labelledby='navbarDropdownMenuLink2' class=`${config.dropDownClass}`)
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Starter
+							li
+								a(href='#!').dropdown-item.fw-semi-bold About
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Career
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Contacts
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Pricing
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Services
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Accounts
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Utility
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Shop
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Portfolio
+							li
+								a(href='#!').dropdown-item.fw-semi-bold Blog					
+								
+					li.nav-item.dropdown.position-static
+						a.nav-link.dropdown-toggle.dropdown-caret-none#navbarDropdownMenuLink3(href='#', data-bs-toggle='dropdown', data-sl-dropdown-on-hover, aria-haspopup='true', aria-expanded='false')
+							span.nav-link-text
+								+cleanText('components')
+								span.fa-solid.fa-angle-down.ms-1.fs--1.fw-bold
+						.dropdown-menu.dropdown-nav-components.p-0.border-0.rounded-2.mt-n1(aria-labelledby='navbarDropdownMenuLink3' class=`${config.dropDownClass}`)
+							.row
+								.col.g-0.hidden-md-down.text-white.position-relative
+									+Background({image: `${CWD}assets/img/05.jpg` , attrs: { style: { 'background-position': 'center', 'background-size': 'cover',} }, className: "overlay"})
+									.row.h-100.py-9
+										.offset-2.col.align-self-center.z-index-2
+											h4.text-white Detailed and
+												br
+												| organised components
+											a(href="#").btn.btn-outline-light.btn-sm.mt-4 Start Creating
+								.col-lg-6.d-flex.align-items-center.justify-content-center
+									.row
+										.col-auto
+											ul.nav.flex-column
+												each value, index in sitemap[0].pages
+													if index < components.length / 3
+														li.nav-item.mb-1
+															a(href=`${CWD}${value.path}.html`).link-700.text-decoration-none.fw-normal
+																=value.name
+										.col-auto
+											ul.nav.flex-column
+												each value, index in sitemap[0].pages
+													if index >= components.length / 3 && index < components.length * 2 / 3
+														li.nav-item.mb-1
+															a(href=`${CWD}${value.path}.html`).link-700.text-decoration-none.fw-normal.py-1
+																=value.name
+										.col-auto
+											ul.nav.flex-column
+												each value, index in sitemap[0].pages
+													if index >= components.length  * 2 / 3
+														li.nav-item.mb-1
+															a(href=`${CWD}${value.path}.html`).link-700.text-decoration-none.fw-normal.py-1
+																=value.name

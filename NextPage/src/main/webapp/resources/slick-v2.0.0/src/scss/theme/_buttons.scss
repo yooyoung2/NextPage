@@ -1,0 +1,136 @@
+/*-----------------------------------------------
+|   Buttons
+-----------------------------------------------*/
+.btn{ 
+  text-transform: uppercase; 
+  transition: $transition-base;
+  letter-spacing: .03em;
+}
+
+// .btn-group-sm>.btn,.btn-sm {
+//   font-weight: 600;
+//   font-size: 12.8px;
+//   line-height: 1.5;
+//   border-radius: .1875rem;
+// }
+
+.btn-link{
+  text-transform: uppercase;
+}
+
+.btn-link.btn-custom{
+  color: $gray-500;
+  background: transparent;
+  text-transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: $font-weight-semi-bold ;
+  
+  &:hover{
+    color: $gray-400;
+  }
+  .navbar-dark &{
+    &:hover{
+    color: $gray-100;
+    }
+  }
+}
+
+.btn-lg{
+  font-size: 1rem;
+  padding: 1.4rem 5rem;
+}
+
+.btn.btn-outline-light{ 
+  border-color: rgba($white,.35);
+  color: rgba($white,.8);
+  font-weight: 700!important;
+ }
+.btn-outline-light:hover, 
+.btn-light:hover {
+  color: $dark; 
+  background-color: #e2e2e2;
+  border-color: #dcdcdc;
+}
+
+.btn-xs{ padding: .2rem 1rem; font-size: $font-size-sm; }
+
+.btn-play {
+  color: $white;
+  border: 1px solid $white;
+  width: 3.75rem;
+  height: 3.75rem;
+  position: relative;
+  display: block;
+  line-height: 3.75rem;
+  border-radius: $border-radius;
+
+  @include hover-focus {
+    color: $black !important;
+  }
+}
+.btn-dark {
+  color: $gray-300;
+}
+/*-----------------------------------------------
+|   Brand Outline Buttons
+-----------------------------------------------*/
+
+@each $color in map_keys($brand-colors) {
+  .btn-outline-#{$color} {
+    @include button-outline-variant(map-get($brand-colors, $color));
+  }
+}
+
+@each $color, $value in $brand-colors {
+  .btn-#{$color} {
+    @include button-variant ($value, $value);
+  }
+}
+
+
+//
+// Icon Buttons
+//
+
+.btn-icon {
+  position: relative;
+  span {
+    left: 0;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    border-color: $primary;
+    background-color: rgba($black,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.btn-icon-left { span { left: 0; } }
+  &.btn-icon-right {
+    span {
+      right: 0;
+      left: auto;
+    }
+  }
+  &[class*='btn-outline-'] {
+    span {
+      border-right-width: 1px;
+      border-right-style: solid;
+    }
+    &.btn-icon-right {
+      span {
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-right: none;
+      }
+    }
+  }
+}
+.btn-icon-pop{
+  span{
+    font-size: 1.5em;
+    transform: translateY(0.13em);
+    line-height: 0;
+  }
+}

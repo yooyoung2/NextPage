@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.student.classes.dao.StudentClassInsertDAO">
+
+		
+
+	 <sql id="searchFrag">
+		
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				<choose>
+					<when test="'name' eq simpleCondition.searchType">
+						AND INSTR(AA.MEM_NM, #{simpleCondition.searchWord}) > 0 
+						
+					</when>
+					<when test="'classes' eq simpleCondition.searchType">
+						AND INSTR(CC.CLASSES, #{simpleCondition.searchWord}) > 0 
+						
+					</when>
+					<otherwise>
+							AND INSTR(AA.MEM_NM, #{simpleCondition.searchWord}) > 0
+							OR
+							INSTR(CC.CLASSES, #{simpleCondition.searchWord}) > 0 
+							
+					</otherwise>
+				</choose>
+			</if>
+	</sql> 
+	
+	<select id="selectTotalRecord" resultType="int" parameterType="PagingVO">
+		SELECT  count(*)
+        FROM SCH_MEMBER AA,
+             STUD BB,
+             CLASS_MEM CC 
+        WHERE AA.MEM_ID=BB.STUD_ID AND SCH_ID=#{schId} 
+        AND BB.STUD_ID=CC.STUD_ID
+		
+	<include refid="searchFrag" /> 
+<!-- 	ORDER BY CLASSES -->
+	</select>
+	
+	<select id="selectMemberList" resultType="ClassMemVO" parameterType="PagingVO">
+		SELECT *
+		FROM (
+			SELECT A.*, ROWNUM RNUM
+			FROM(
+				SELECT  AA.MEM_ID, 
+				        AA.MEM_NM, 
+				        CC.YEAR, 
+				        CC.CLASSES
+        		FROM SCH_MEMBER AA,
+            			STUD BB,
+             			CLASS_MEM CC 
+        		WHERE AA.MEM_ID=BB.STUD_ID AND SCH_ID=#{schId} 
+        				AND BB.STUD_ID=CC.STUD_ID  
+				<include refid="searchFrag" />  
+<!-- 				ORDER BY CLASSES    -->
+				
+			) A
+		) B
+		<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+		]]>
+	</select>
+	
+	<!-- <resultMap type="SchMemberVO" id="memberMap" autoMapping="true">
+		<id property="memId" column="MEM_ID"/>
+		<collection property="prodList" ofType="ProdVO" autoMapping="true">
+			<id property="prodId" column="PROD_ID"/>
+			<association property="buyer" javaType="BuyerVO" autoMapping="true" />
+		</collection>
+	</resultMap> -->
+
+	
+	
+	
+	<select id="selectMember" parameterType="string" resultType="ClassMemVO">
+		
+		
+                        SELECT  AA.MEM_ID, 
+				        AA.MEM_NM, 
+				        CC.YEAR, 
+				        CC.CLASSES
+        		FROM SCH_MEMBER AA,
+            			STUD BB,
+             			CLASS_MEM CC 
+        		WHERE AA.MEM_ID=BB.STUD_ID 
+        				AND BB.STUD_ID=CC.STUD_ID  
+				     	AND AA.MEM_ID = #{memId}
+	</select>  
+	
+	
+	<update id="setClassesMember" parameterType="ClassMemVO">
+		UPDATE CLASS_MEM SET CLASSES=#{classes} WHERE STUD_ID=#{studId}
+	</update>
+	
+	<insert id="insertAllMember" parameterType="java.util.List">
+		
+		<selectKey resultType="int" keyProperty="startNo" order="BEFORE">
+			
+			
+		</selectKey>
+		
+		
+		
+		INSERT ALL
+		
+		<foreach collection="list" item="member" index="idx">
+		
+			INTO SCH_MEMBER (         
+			  		MEM_ID,
+					SCH_ID,
+					MEM_PW,
+					MEM_NM,
+					MEM_EMAIL,
+					TEL_NUM,
+					ADDR1,
+					ADDR2
+			) VALUES (               
+					'b001'||'-'||(student_id.NEXTVAL+#{idx})
+					, 'b001'
+					, '1234'
+					, #{member.memNm,jdbcType=VARCHAR}
+					, #{member.memEmail,jdbcType=VARCHAR}
+					, #{member.telNum,jdbcType=VARCHAR}
+					, #{member.addr1,jdbcType=VARCHAR}
+					, #{member.addr2,jdbcType=VARCHAR}
+			)	
+			
+			
+		
+		</foreach>
+		
+		SELECT * FROM DUAL
+	</insert>
+	
+	<select id="selectClasses" parameterType="string" resultType="ClassMemVO">
+		
+		 
+                        SELECT  AA.MEM_ID, 
+				        AA.MEM_NM, 
+				        CC.YEAR, 
+				        CC.CLASSES
+        		FROM SCH_MEMBER AA,
+            			STUD BB,
+             			CLASS_MEM CC 
+        		WHERE AA.MEM_ID=BB.STUD_ID 
+        				AND BB.STUD_ID=CC.STUD_ID  
+				     	AND CC.CLASSES= #{classes}
+	</select>  
+	
+	<select id="getClassesList" resultType="StudentClassesVO" parameterType="string">
+        SELECT  B.CLASSES, D.MEM_NM , COUNT(A.CLASSES) STUD_NUM
+        FROM CLASS_MEM A, YEAR_CLASS B , EDUPSN C, SCH_MEMBER D
+        WHERE A.CLASSES(+)=B.CLASSES AND B.EDUPSN_ID=C.EDUPSN_ID AND C.EDUPSN_ID=D.MEM_ID AND SUBSTR(C.EDUPSN_ID,1,INSTR(C.EDUPSN_ID,'-')-1)=#{id} AND SUBSTR(A.STUD_ID(+),1,INSTR(A.STUD_ID(+),'-')-1)=#{id}
+        GROUP BY B.CLASSES, D.MEM_NM
+	</select>  
+	
+	<update id="updateMember" parameterType="ClassMemVO">
+		UPDATE CLASS_MEM SET CLASSES=#{classes} WHERE STUD_ID=#{memId}
+	</update>
+	
+	<update id="setClasses" parameterType="ClassMemVO">
+		UPDATE CLASS_MEM SET CLASSES='-' WHERE SUBSTR(CLASSES,0,1)>#{classes} OR SUBSTR(CLASSES,3,3)>#{studId}
+	</update>
+	
+	<!-- <delete id="deleteMember" parameterType="string">
+		UPDATE MEMBER
+		SET
+			MEM_DELETE = '1'
+		WHERE MEM_ID = #{memId}
+	</delete> -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

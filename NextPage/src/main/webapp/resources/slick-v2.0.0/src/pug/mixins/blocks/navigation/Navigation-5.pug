@@ -1,0 +1,23 @@
+mixin Navigation-5(searchBoxClass='border-900')
+	nav.navbar.navbar-expand-lg.py-2&attributes(attributes)
+		.container
+			a.navbar-brand.position-lg-absolute.absolute-centered-lg(href=`${CWD}index.html`) Slick Framework
+			button.navbar-toggler.hamburger.hamburger--emphatic(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+				span.hamburger-box
+					span.hamburger-inner
+
+			.collapse.navbar-collapse#navbarSupportedContent
+				form.d-flex.me-auto.mb-3.mb-lg-0
+					.input-group-icon.w-100
+						.input-icon
+							span.fas.fa-search.fs-0.text-500
+						input.form-control.me-2.rounded-pill.border.border(type='search' placeholder='Search...' aria-label='Search' class=`${searchBoxClass}`)
+
+				ul.navbar-nav.ms-auto
+					li.nav-item
+						a.nav-link(aria-current='page' href='#!') Contact
+					li.nav-item
+						a.nav-link(href='#!') Content
+					li.nav-item
+						a.nav-link(href='#!') CTA
+				

@@ -1,0 +1,523 @@
+extends layouts/LayoutTheme
+include mixins/common/HamburgerMenu
+include mixins/blocks/contact/Contact-1
+include mixins/blocks/contact/Contact-2
+include mixins/blocks/contact/Contact-3
+include mixins/blocks/contact/Contact-4
+include mixins/blocks/contact/Contact-5
+include mixins/blocks/contact/Contact-6
+include mixins/blocks/content/Content-1
+include mixins/blocks/content/Content-2
+include mixins/blocks/content/Content-3
+include mixins/blocks/content/Content-4
+include mixins/blocks/content/Content-5
+include mixins/blocks/content/Content-6
+include mixins/blocks/content/Content-7
+include mixins/blocks/content/Content-8
+include mixins/blocks/content/Content-9
+include mixins/blocks/content/Content-10
+include mixins/blocks/content/Content-11
+include mixins/blocks/content/Content-12
+include mixins/blocks/content/Content-13
+include mixins/blocks/content/Content-14
+include mixins/blocks/content/Content-15
+include mixins/blocks/content/Content-16
+include mixins/blocks/content/Content-17
+include mixins/blocks/content/Content-18
+include mixins/blocks/content/Content-19
+include mixins/blocks/content/Content-20
+include mixins/blocks/content/Content-21
+include mixins/blocks/content/Content-22
+include mixins/blocks/content/Content-23
+include mixins/blocks/content/Content-24
+include mixins/blocks/content/Content-25
+include mixins/blocks/content/Content-26
+include mixins/blocks/content/Content-27
+include mixins/blocks/content/Content-28
+include mixins/blocks/cta/Cta-1
+include mixins/blocks/cta/Cta-2
+include mixins/blocks/cta/Cta-3
+include mixins/blocks/cta/Cta-4
+include mixins/blocks/cta/Cta-5
+include mixins/blocks/cta/Cta-6
+include mixins/blocks/cta/Cta-7
+include mixins/blocks/cta/Cta-8
+include mixins/blocks/cta/Cta-9
+include mixins/blocks/cta/Cta-10
+include mixins/blocks/cta/Cta-11
+include mixins/blocks/cta/Cta-12
+include mixins/blocks/cta/Cta-13
+include mixins/blocks/cta/Cta-14
+include mixins/blocks/cta/Cta-15
+include mixins/blocks/cta/Cta-16
+include mixins/blocks/cta/Cta-17
+include mixins/blocks/cta/Cta-18
+include mixins/blocks/cta/Cta-19
+include mixins/blocks/cta/Cta-20
+include mixins/blocks/cta/Cta-21
+include mixins/blocks/features/Features-1
+include mixins/blocks/features/Features-2
+include mixins/blocks/features/Features-3
+include mixins/blocks/features/Features-4
+include mixins/blocks/features/Features-5
+include mixins/blocks/features/Features-6
+include mixins/blocks/features/Features-7
+include mixins/blocks/features/Features-8
+include mixins/blocks/features/Features-9
+include mixins/blocks/features/Features-10
+include mixins/blocks/features/Features-11
+include mixins/blocks/features/Features-12
+include mixins/blocks/features/Features-13
+include mixins/blocks/features/Features-14
+include mixins/blocks/features/Features-15
+include mixins/blocks/features/Features-16
+include mixins/blocks/features/Features-17
+include mixins/blocks/features/Features-18
+include mixins/blocks/features/Features-19
+include mixins/blocks/features/Features-20
+include mixins/blocks/features/Features-21
+include mixins/blocks/features/Features-22
+include mixins/blocks/footer/Footer-1
+include mixins/blocks/footer/Footer-2
+include mixins/blocks/footer/Footer-3
+include mixins/blocks/footer/Footer-4
+include mixins/blocks/footer/Footer-5
+include mixins/blocks/footer/Footer-6
+include mixins/blocks/footer/Footer-7
+include mixins/blocks/footer/Footer-8
+include mixins/blocks/footer/Footer-9
+include mixins/blocks/footer/Footer-10
+include mixins/blocks/footer/Footer-11
+include mixins/blocks/footer/Footer-12
+include mixins/blocks/footer/Footer-13
+include mixins/blocks/forms/Forms-1
+include mixins/blocks/forms/Forms-2
+include mixins/blocks/forms/Forms-3
+include mixins/blocks/forms/Forms-4
+include mixins/blocks/forms/Forms-5
+include mixins/blocks/forms/Forms-6
+include mixins/blocks/forms/Forms-7
+include mixins/blocks/forms/Forms-8
+include mixins/blocks/forms/Forms-9
+include mixins/blocks/forms/Forms-10
+include mixins/blocks/forms/Forms-11
+include mixins/blocks/forms/Forms-12
+include mixins/blocks/forms/Forms-13
+include mixins/blocks/forms/Forms-14
+include mixins/blocks/gallery/Gallery-1
+include mixins/blocks/gallery/Gallery-2
+include mixins/blocks/gallery/Gallery-3
+include mixins/blocks/header/header-1
+include mixins/blocks/header/header-2
+include mixins/blocks/header/header-3
+include mixins/blocks/header/header-4
+include mixins/blocks/header/header-5
+include mixins/blocks/header/header-6
+include mixins/blocks/header/header-7
+include mixins/blocks/header/header-8
+include mixins/blocks/header/header-9
+include mixins/blocks/header/header-10
+include mixins/blocks/header/header-11
+include mixins/blocks/header/header-12
+include mixins/blocks/header/header-13
+include mixins/blocks/header/header-14
+include mixins/blocks/header/header-15
+include mixins/blocks/header/header-16
+include mixins/blocks/header/header-17
+include mixins/blocks/navigation/Navigation-1
+include mixins/blocks/navigation/Navigation-2
+//- include mixins/blocks/navigation/Navigation-3
+include mixins/blocks/navigation/Navigation-4
+include mixins/blocks/navigation/Navigation-5
+include mixins/blocks/navigation/Navigation-6
+include mixins/blocks/navigation/Navigation-7
+include mixins/blocks/navigation/Navigation-8
+include mixins/blocks/navigation/Navigation-9
+include mixins/blocks/navigation/Navigation-10
+include mixins/blocks/navigation/Navigation-11
+include mixins/blocks/navigation/Navigation-12
+include mixins/blocks/navigation/Navigation-13
+include mixins/blocks/navigation/Navigation-14
+include mixins/blocks/partners/Partners-1
+include mixins/blocks/partners/Partners-2
+include mixins/blocks/partners/Partners-3
+include mixins/blocks/partners/Partners-4
+include mixins/blocks/pricing/Pricing-1
+include mixins/blocks/pricing/Pricing-2
+include mixins/blocks/pricing/Pricing-3
+include mixins/blocks/pricing/Pricing-4
+include mixins/blocks/pricing/Pricing-5
+include mixins/blocks/pricing/Pricing-6
+include mixins/blocks/pricing/Pricing-7
+include mixins/blocks/team/Team-1
+include mixins/blocks/team/Team-2
+include mixins/blocks/team/Team-3
+include mixins/blocks/team/Team-4
+include mixins/blocks/team/Team-5
+include mixins/blocks/testimonials/Testimonials-1
+include mixins/blocks/testimonials/Testimonials-2
+include mixins/blocks/testimonials/Testimonials-3
+include mixins/blocks/testimonials/Testimonials-4
+
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+	link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+
+append scripts
+	script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+	script(src=`${CWD}vendors/glightbox/glightbox.min.js`)
+	script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+
+append mainContent
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center contact--1
+	+Contact-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center contact--2
+	+Contact-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center contact--3
+	+Contact-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center contact--4
+	+Contact-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center contact--5
+	+Contact-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center contact--6
+	+Contact-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--1
+	+Content-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--2
+	+Content-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--3
+	+Content-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--4
+	+Content-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--5
+	+Content-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--6
+	+Content-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--7
+	+Content-7
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--8
+	+Content-8
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--9
+	+Content-9
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--10
+	+Content-10
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--11
+	+Content-11
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--12
+	+Content-12
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--13
+	+Content-13
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--14
+	+Content-14
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--15
+	+Content-15
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--16
+	+Content-16
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--17
+	+Content-17
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--18
+	+Content-18
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--19
+	+Content-19
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--20
+	+Content-20
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--21
+	+Content-21
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--22
+	+Content-22
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--23
+	+Content-23
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--24
+	+Content-24
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--25
+	+Content-25
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--26
+	+Content-26
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--27
+	+Content-27
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center content--28
+	+Content-28
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--1
+	+Cta-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--2
+	+Cta-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--3
+	+Cta-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--4
+	+Cta-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--5
+	+Cta-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--6
+	+Cta-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--7
+	+Cta-7
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--8
+	+Cta-8
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--9
+	+Cta-9
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--10
+	+Cta-10
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--11
+	+Cta-11
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--12
+	+Cta-12
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--13
+	+Cta-13
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--14
+	+Cta-14
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--15
+	+Cta-15
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--16
+	+Cta-16
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--17
+	+Cta-17
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--18
+	+Cta-18
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--19
+	+Cta-19
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--20
+	+Cta-20
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center cta--21
+	+Cta-21
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--1
+	+Features-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--2
+	+Features-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--3
+	+Features-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--4
+	+Features-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--5
+	+Features-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--6
+	+Features-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--7
+	+Features-7
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--8
+	+Features-8
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--9
+	+Features-9
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--10
+	+Features-10
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--11
+	+Features-11
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--12
+	+Features-12
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--13
+	+Features-13
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--14
+	+Features-14
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--15
+	+Features-15
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--16
+	+Features-16
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--17
+	+Features-17
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--18
+	+Features-18
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--19
+	+Features-19
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--20
+	+Features-20
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--21
+	+Features-21
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center features--22
+	+Features-22
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--1
+	+Footer-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--2
+	+Footer-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--3
+	+Footer-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--4
+	+Footer-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--5
+	+Footer-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--6
+	+Footer-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--7
+	+Footer-7
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--8
+	+Footer-8
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--9
+	+Footer-9
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--10
+	+Footer-10
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--11
+	+Footer-11
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--12
+	+Footer-12
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center footer--13
+	+Footer-13
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--1
+	+Forms-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--2
+	+Forms-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--3
+	+Forms-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--4
+	+Forms-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--5
+	+Forms-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--6
+	+Forms-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--7
+	+Forms-7
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--8
+	+Forms-8
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--9
+	+Forms-9
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--10
+	+Forms-10
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--11
+	+Forms-11
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--12
+	+Forms-12
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--13
+	+Forms-13
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center forms--14
+	+Forms-14
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center gallery--1
+	+Gallery-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center gallery--2
+	+Gallery-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center gallery--3
+	+Gallery-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--1
+	+Header-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--2
+	+Header-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--3
+	+Header-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--4
+	+Header-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--5
+	+Header-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--6
+	+Header-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--7
+	+Header-7
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--8
+	+Header-8
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--9
+	+Header-9
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--10
+	+Header-10
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--11
+	+Header-11
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--12
+	+Header-12
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--13
+	+Header-13
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--14
+	+Header-14
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--15
+	+Header-15
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--16
+	+Header-16
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center header--17
+	+Header-17
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--1
+	+Navigation-1.navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--2
+	+Navigation-2.navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--3
+	//- +Navigation-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--4
+	+Navigation-4('Slick','light').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--5
+	+Navigation-5.navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--6
+	+Navigation-6('Slick').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--7
+	+Navigation-7('Slick').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--8
+	+Navigation-8('Slick').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--9
+	+Navigation-9('Slick').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--10
+	+Navigation-10('Slick','white').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--11
+	+Navigation-11('Slick','light').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--12
+	+Navigation-12('Slick', 'light').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--13
+	+Navigation-13('Slick').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--14
+	+Navigation-14('Slick').navbar-dark.bg-dark
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--15
+	+Navigation-1.navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--16
+	+Navigation-2.navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--17
+	//- +Navigation-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--18
+	+Navigation-4('Slick','dark').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--19
+	+Navigation-5.navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--20
+	+Navigation-6('Slick').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--21
+	+Navigation-7('Slick').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--22
+	+Navigation-8('Slick').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--23
+	+Navigation-9('Slick').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--24
+	+Navigation-10('Slick','dark').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--25
+	+Navigation-11('Slick','dark').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--26
+	+Navigation-12('Slick', 'dark').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--27
+	+Navigation-13('Slick').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center navigation--28
+	+Navigation-14('Slick').navbar-light.bg-light
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center partners--1
+	+Partners-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center partners--2
+	+Partners-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center partners--3
+	+Partners-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center partners--4
+	+Partners-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center pricing--1
+	+Pricing-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center pricing--2
+	+Pricing-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center pricing--3
+	+Pricing-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center pricing--4
+	+Pricing-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center pricing--5
+	+Pricing-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center pricing--6
+	+Pricing-6
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center pricing--7
+	+Pricing-7
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center team--1
+	+Team-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center team--2
+	+Team-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center team--3
+	+Team-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center team--4
+	+Team-4
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center team--5
+	+Team-5
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center testimonials--1
+	+Testimonials-1
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center testimonials--2
+	+Testimonials-2
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center testimonials--3
+	+Testimonials-3
+	.bg-warning.hvr-background-primary.text-white.py-2.w-100.text-center testimonials--4
+	+Testimonials-4

@@ -1,0 +1,13 @@
+mixin Forms-13
+	+Section#forms-13
+		.row.flex-center
+			.col-8.col-md-5.col-lg-4.text-center.text-lg-start
+				img(src=`${CWD}assets/img/smiley_face.svg` alt="").img-fluid
+			.col-md-6.mt-4.mt-md-0.ms-lg-5
+				h2 Future updates
+				p.mt-3 Slick is driven by the community. We learn from the users and improve, enhance, fix bugs every day. Subscribe to our newsletter to get the latest update news. 
+				form.mt-5
+					.input-group
+						input.form-control.border.border-300(type='email', placeholder='Your Email', aria-label='Email')
+						.input-group-append
+							button.btn.btn-danger.ms-2(type="submit" name="submit" value="Subscribe") Subscribe

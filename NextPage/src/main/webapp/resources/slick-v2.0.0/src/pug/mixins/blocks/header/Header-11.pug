@@ -1,0 +1,26 @@
+mixin Header-11
+	+Section({image: `${CWD}assets/img/62.jpg`}).py-sm-0#header-11
+		.row.min-vh-100.align-items-center.justify-content-left
+			.col-sm-10.col-md-8.col-lg-6.my-6
+				h2.lh-1 Perfect for Startups,
+					br
+					| freelancers &amp; companies.
+				h6.text-danger.mt-3 Specially crafted for the people who care about design.
+				form.mt-6
+					.row.mb-4
+						.col
+							input.form-control.border-2(type="text" placeholder="Your Name")
+					.row.mb-4
+						.col
+							input.form-control.border-2(type="email" placeholder="Email Address")
+					.row.mb-4
+						.col
+							input.form-control.border-2(type="password" placeholder="Password")
+						.col
+							input.form-control.border-2(type="password" placeholder="Confirmation")
+					.row.mb-4
+						.col.d-grid
+							input.btn.btn-primary(type="submit" name="submit" value="Create an Account")
+						.col
+							p.fs--1.text-700.mb-0 By signing up, you agree to the 
+								a(href="#") terms and conditions.

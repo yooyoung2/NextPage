@@ -1,0 +1,57 @@
+
+/* -------------------------------------------------------------------------- */
+/*                             Bootstrap Carousel                             */
+/* -------------------------------------------------------------------------- */
+.carousel-indicators [data-bs-target]{
+  position: static;
+  border-radius: 50%;
+  margin-right: 7px;
+  margin-left: 7px;
+  button{
+    border-radius: 50%;
+  }
+  .active {
+    opacity: $carousel-indicator-active-opacity;
+    border-radius: 50%;
+  }
+}
+
+.carousel-slider{
+  @include hover-focus{
+    .carousel-control-next,
+    .carousel-control-prev{
+      color: $gray-700;
+      opacity: 0.5 !important;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0.125rem 0.125rem 0.25rem rgba($black, 0.1);
+    transition: opacity 0.4s ease-out;
+    background: $gray-200;
+    opacity: 0;
+    font-size: .5rem;
+    @include hover-focus{
+      opacity: 1 !important;
+    }
+  }
+  &.carousel-control-hover{
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    .carousel-control-prev,
+    .carousel-control-next{
+      width: auto;
+      height: auto;
+      background: transparent !important;
+    }
+  }
+}

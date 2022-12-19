@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="kr.or.ddit.operator.member.dao.SelectAllMemberDAO">
+
+	<!-- 검색, 페이징처리 -->
+	<sql id="searchFrag">
+		WHERE 1 = 1
+		<trim prefix="AND(" suffix=")">
+			1 = 1
+			<if test="simpleCondition neq null">
+				<if test="simpleCondition.searchType neq null and simpleCondition.searchType neq '' ">
+					AND SCH_APNTD = #{simpleCondition.searchType}
+				</if>
+				<if test="simpleCondition.searchWord neq null and simpleCondition.searchWord neq '' ">
+					AND INSTR(SCH_NM, #{simpleCondition.searchWord}) > 0
+				</if>
+			</if>
+		</trim>
+	</sql>
+
+<select id="selectTotalRecord" parameterType="PagingVO" resultType="int">
+     SELECT COUNT(*)
+		FROM SCHOOL
+      <include refid="searchFrag" />
+   </select>
+
+	<select id="selectAllmember" parameterType="PagingVO" resultType="SchoolVO">
+	WITH SORTEDBOARD AS (
+
+		SELECT SCH_ID,
+		SCH_NM,
+		SCH_APNTD,
+		SCH_ADDR1,
+		SCH_ADDR2,
+		TO_CHAR(FST_PCH_DATE, 'YYYY-MM-DD HH24:MI:SS') FST_PCH_DATE,
+		SRVC_WHTHR
+		FROM SCHOOL
+		<include refid="searchFrag" />
+		ORDER BY SCH_NM
+	), RNUMBOARD AS (
+	    SELECT ROWNUM RNUM, SORTEDBOARD.*
+	    FROM SORTEDBOARD
+	)
+	SELECT *
+	FROM RNUMBOARD
+		<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+	]]>
+	</select>
+
+
+
+	<select id="selectDetailSchool" resultType="SchoolVO"
+		parameterType="string">
+		SELECT	SCH.SCH_ID,
+				SCH.SCH_NM,
+				SCH.SCH_ADDR1,
+				SCH.SCH_ADDR2,
+				SCH.SCH_APNTD,
+				GT.TMPLT_NM
+		FROM SCHOOL SCH
+		LEFT OUTER JOIN PRJCT PRJ ON PRJ.SCH_ID = SCH.SCH_ID
+		LEFT OUTER JOIN GEN_SITE GS ON GS.PRJCT_ID = PRJ.PRJCT_ID
+		LEFT OUTER JOIN GEN_TEMPLATE GT ON GT.TMPLT_ID = GS.TMPLT_ID
+		WHERE SCH.SCH_ID = #{schId}
+	</select>
+
+
+	<update id = "updateDetailSchool" parameterType="SchoolVO">
+		UPDATE SCHOOL
+		SET SCH_NM = #{schNm},
+    		SCH_ADDR1 = #{schAddr1},
+    		SCH_ADDR2 = #{schAddr2},
+    		SCH_APNTD = #{schApntd},
+    		HP_LINK = #{hpLink}
+			WHERE SCH_ID = #{schId, jdbcType=VARCHAR}
+	</update>
+
+
+</mapper>

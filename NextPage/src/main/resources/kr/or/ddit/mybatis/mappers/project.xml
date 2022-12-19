@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.generation.website.project.dao.ProjectDAO">
+
+<select id="selectProject" parameterType="String" resultType="ProjectVO">
+SELECT
+	P.PRJCT_ID,
+	P.LAYOUT_ID,
+	P.SCH_ID,
+	GS.TMPLT_ID,
+	L.LAYOUT_SC
+FROM PRJCT P, GEN_SITE GS,LAYOUT L
+WHERE SCH_ID=#{schId, jdbcType=VARCHAR}
+AND P.PRJCT_ID = GS.PRJCT_ID
+AND GS.LAYOUT_ID = L.LAYOUT_ID
+AND GS.HOME_SELECT ='YES'
+
+
+</select>
+<select id="selectDiv" parameterType="String" resultType="ProjectVO">
+SELECT
+	S.DIV_NUM,
+	S.DIV_VALUE
+FROM PRJCT P, GEN_SITE GS, SLOT S, LAYOUT L
+WHERE SCH_ID=#{schId, jdbcType=VARCHAR}
+AND P.PRJCT_ID = GS.PRJCT_ID
+AND P.PRJCT_ID = S.PRJCT_ID
+AND GS.LAYOUT_ID = L.LAYOUT_ID
+AND GS.HOME_SELECT ='YES'
+
+</select>
+
+</mapper>

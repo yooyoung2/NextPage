@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.content.manage.dao.ContentManageDAO">
+	<select id="selectGenCntntOptionList" parameterType="String" resultType="GenCntntVO">
+		SELECT CNTNTS_ID, CNTNTS_TITLE , FILE_NAME
+		FROM GEN_CNTNT
+		WHERE SCH_ID =#{schId}
+		ORDER BY CNTNTS_ID
+		
+	</select>
+	
+	
+	<!--
+	작성자 : 최현우
+	컨텐츠 관련 sql 모음 
+ -->
+ 	<insert id = "insertContent" parameterType="ContentVO">
+ 		INSERT INTO GEN_CNTNT
+		(
+    		CNTNTS_ID,
+    		SCH_ID,
+    		CNTNTS_TITLE,
+    		CNTNTS_CNTNT,
+    		FILE_NAME
+		)
+		VALUES
+		(
+    		GEN_CNTNT_SEQ.NEXTVAL,
+    		#{schId},
+    		#{cntntsTitle},
+    		#{cntntsCntnt},
+    		#{fileName}
+		) 
+		
+		<selectKey resultType="int" keyProperty="cntntsId" order="AFTER">
+			SELECT GEN_CNTNT_SEQ.CURRVAL
+			FROM DUAL
+		</selectKey>
+ 	</insert>
+	
+	<!-- 페이징 -->
+	<select id = "getList" resultType = "ContentVO">
+		<![CDATA[
+			SELECT *
+			FROM ( SELECT ROWNUM RN,
+					A.*
+				FROM( SELECT *
+						FROM GEN_CNTNT
+						WHERE SCH_ID = #{schId}
+						ORDER BY CNTNTS_ID DESC ) A )
+			WHERE RN > ( #{pageNum} - 1 ) * #{amount} AND RN <= #{pageNum} * #{amount} 
+			
+		]]>
+	</select>
+	
+	<!-- 튜플 전체 개수  -->
+	<select id = "getTotal" parameterType="String" resultType = "int">
+		SELECT COUNT(*) AS total FROM GEN_CNTNT WHERE SCH_ID = #{schId}
+	</select>
+	
+	<select id = "getMenuList" parameterType="String" resultType = "GeneratingMainVO">
+		SELECT  *    
+		FROM    GEN_MENU
+		WHERE   SCH_ID = #{schId} AND MENU_TYPE = 'contents'
+	</select>
+ 
+ 	<!-- 컨텐츠 하나 가져오기 -->
+ 	<select id = "getContent" parameterType="String" resultType = "ContentVO">
+ 		SELECT * FROM GEN_CNTNT WHERE CNTNTS_ID = #{cntntsId}
+ 	</select>
+ 	
+ 	<update id = "updateContent" parameterType="ContentVO">
+ 		UPDATE	GEN_CNTNT SET
+    			CNTNTS_TITLE = #{cntntsTitle},
+    			CNTNTS_CNTNT = #{cntntsCntnt},
+    			FILE_NAME = #{fileName}
+		WHERE   CNTNTS_ID = #{cntntsId}
+ 	</update>
+ 	
+ 	<delete id = "delContent" parameterType="string">
+ 		DELETE FROM GEN_CNTNT WHERE CNTNTS_ID = #{cntntsId}
+ 	</delete>
+ 	
+
+ 
+</mapper>

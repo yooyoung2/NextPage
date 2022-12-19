@@ -1,0 +1,205 @@
+append variables
+  - var title = 'Slick | Create Beautiful Websites. Effortlessly.';
+  - var theme = `${name}-${version}`;
+  - var bootstrapVersion = '5.1';
+  - var generator_link = 'https://prium.github.io/slick/v2.0.0/generator.html';
+  - var purchase_link = 'https://themewagon.com/themes/slick/';
+  - var attrsMain = { id:'top',class: 'main' };
+  - var attrsLayout = { class: 'container', 'data-layout': 'container' }
+  - var colors = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'];
+  - var grays = ['black', 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 'white'];
+  - var colorsAll = colors.concat(grays);
+  -
+    var themeColor =  {
+      primary: '#007bff',
+      secondary: '#7f7f7f',
+      success: '#28a745',
+      info: '#17a2b8',
+      warning: '#ffc107',
+      danger: '#dc3545',
+      light: '#fafafa',
+      dark: '#000000',
+    }
+
+  - var footer = true;
+  - var pathName = (locals.filename || locals.history[0]).split('\\').join('/').split('src/pug/').pop().split('.pug').shift();
+  - var pageTree = pathName.split('/');
+  - var CWD = pageTree.slice(1).map(() => '../').join('');
+  - var preFooter = true;
+  - var numbers = { components: 33, pages: 21, layouts: 172, csshelpers: '2500+', price: 99 };
+  - var blocks = { 'contact':6, 'content':28, 'cta':21, 'features':22, 'footer':13, 'forms':14, 'gallery':3, 'header':17, 'navigation':28, 'partners':4, 'pricing':7, 'team':5, 'testimonials':4 };
+  - var TARGET_SORT_ARRAY = ['navigation', 'header' , 'features', 'content', 'team', 'cta', 'gallery', 'forms', 'partners', 'testimonials', 'pricing', 'contact', 'footer'];
+  - var components = ['accordion', 'alerts', 'backgrounds', 'badges', 'borders', 'buttons', 'cards', 'colors', 'dropdowns', 'filter', 'fontawesome', 'iconsmind', 'forms', 'googlemap', 'grid', 'layout-helpers', 'lightbox', 'masonry', 'modal-video', 'modals', 'navigation-in-page', 'navigations', 'owlcarousel', 'parallax', 'smtpjs', 'scrollspy', 'slider', 'spacing', 'tables', 'nabtabs', 'tooltips', 'typed-text', 'typography']
+  - var pages = ['01', '02', '03', '04', '05', '06', '07', '08', '09', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 'blank']
+  -
+    var sitemap = [
+      {
+        name: "Components",
+        pages: [
+          {
+            name: "Accordion",
+            path: "components/accordion"
+          },
+          {
+            name: "Alerts",
+            path: "components/alerts"
+          },
+          {
+            name: "Backgrounds",
+            path: "components/backgrounds"
+          },
+          {
+            name: "Badges",
+            path: "components/badges"
+          },
+          {
+            name: "Borders",
+            path: "components/borders"
+          },
+          {
+            name: "Buttons",
+            path: "components/buttons"
+          },
+          {
+            name: "Cards",
+            path: "components/cards"
+          },
+          {
+            name: "Carousel",
+            path: "components/carousel"
+          },
+          {
+            name: "Colors",
+            path: "components/colors"
+          },
+          {
+            name: "Dropdowns",
+            path: "components/dropdowns"
+          },
+          {
+            name: "Filter",
+            path: "components/filter"
+          },
+          {
+            name: "Fontawesome",
+            path: "components/fontawesome"
+          },
+          {
+            name: "Forms",
+            path: "components/forms"
+          },
+          {
+            name: "Google Map",
+            path: "components/googlemap"
+          },
+          {
+            name: "Grid",
+            path: "components/grid"
+          },
+          {
+            name: "Iconsmind",
+            path: "components/iconsmind"
+          },
+          {
+            name: "Lightbox",
+            path: "components/lightbox"
+          },
+          {
+            name: "Masonary",
+            path: "components/masonary"
+          },
+          {
+            name: "Modal video",
+            path: "components/modal-video"
+          },
+           {
+            name: "Modal",
+            path: "components/modal"
+          },
+          {
+            name: "Navs & tabs",
+            path: "components/navs-tabs"
+          },
+          {
+            name: "Navbar",
+            path: "components/navbar"
+          },
+          {
+            name: "Parallax",
+            path: "components/parallax"
+          },
+          {
+            name: "Scrollspy",
+            path: "components/scrollspy"
+          },
+          {
+            name: "Sizing",
+            path: "components/sizing"
+          },
+          {
+            name: "Smtpjs",
+            path: "components/smtpjs"
+          },
+          {
+            name: "Spacing",
+            path: "components/spacing"
+          },
+          {
+            name: "Tables",
+            path: "components/tables"
+          },
+          {
+            name: "Tooltips",
+            path: "components/tooltips"
+          },
+          {
+            name: "Typed text",
+            path: "components/typed-text"
+          },
+          {
+            name: "Typography",
+            path: "components/typography"
+          },
+          {
+            name: "Zanimation",
+            path: "components/zanimation"
+          },
+          
+        ]
+      },
+      {
+        name: "Docs",
+        pages: [
+          {
+            name: "Getting Started",
+            path: "docs/getting-started"
+          },
+          {
+            name: "File Structure",
+            path: "docs/file-structure"
+          },
+          {
+            name: "Customization",
+            path: "docs/customization"
+          },
+          {
+            name: "Gulp",
+            path: "docs/gulp"
+          },
+          {
+            name: "Generator",
+            path: "docs/generator"
+          },
+          {
+            name: "Plugins",
+            path: "docs/plugins"
+          },
+          {
+            name: "Changelog",
+            path: "docs/changelog"
+          },
+
+        ]
+      },
+    ];
+

@@ -1,0 +1,28 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-2
+include ../mixins/blocks/features/Features-8
+include ../mixins/blocks/cta/Cta-5
+include ../mixins/blocks/team/Team-5
+include ../mixins/blocks/testimonials/Testimonials-3
+include ../mixins/blocks/contact/Contact-2
+include ../mixins/blocks/footer/Footer-8
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+
+append mainContent
+	+Navigation-2({searchBoxClass:'border-200'}).navbar-light.bg-white.z-index-2.position-fixed.w-100
+	+Features-8
+	+Cta-5
+	+Testimonials-3
+	+Team-5
+	+Contact-2
+	+Footer-8
+

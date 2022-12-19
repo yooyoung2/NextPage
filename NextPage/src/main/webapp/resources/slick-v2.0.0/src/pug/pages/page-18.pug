@@ -1,0 +1,28 @@
+extends ../layouts/LayoutTheme
+include ../mixins/blocks/navigation/Navigation-7
+include ../mixins/blocks/forms/Forms-7
+include ../mixins/blocks/content/Content-15
+include ../mixins/blocks/team/team-5
+include ../mixins/blocks/cta/Cta-18
+include ../mixins/blocks/cta/Cta-8
+include ../mixins/blocks/footer/Footer-12
+
+append variables
+	- var navigation = false;
+	- var Footer = false;
+
+append styles
+
+append scripts
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+
+append mainContent
+
+	+Navigation-7('Slick').navbar-light.bg-light.position-fixed.w-100.z-index-2.shadow-sm
+	+Forms-7
+	+Content-15
+	+Team-5
+	+Cta-18
+	+Cta-8
+	+Footer-12
+

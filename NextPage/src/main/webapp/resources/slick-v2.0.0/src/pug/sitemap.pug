@@ -1,0 +1,56 @@
+extends layouts/LayoutTheme
+include mixins/common/Wave
+include mixins/common/Masonary
+include mixins/common/ShowcaseContent
+
+prepend scripts
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+
+append variables
+	- var hideNavbar = true;
+	- var hideFooter = true;
+	- var filter = false;
+
+append mainContent
+	+Section({image: `${CWD}assets/img/header_showcase.jpg`, className: 'overlay', attrs: {style: 'background-position: top'}}, 'container-fluid p-0').pt-7.pt-md-9.pb-0.text-center
+		.row.flex-center.mx-auto.showcase-banner
+			.col.px-sm-4
+				h1.text-white.fs-4.fs-sm-5.fs-lg-7.fw-light.mb-4 Quick
+					strong.fw-bold  Links
+		+Wave
+	block sortable 	
+		- var count = 1		
+		.container-wide.container.showcase-content.text-left.showcase-pages
+			.row.g-0.sortable-container.sortable-container-gutter-fix(data-sl-isotope!={layoutMode: 'packery'})
+				each blockName in TARGET_SORT_ARRAY
+					.col-6.col-lg-3.p-2.isotope-item(class=`${blockName}`)
+						.card.shadow
+							.card-body.px-4
+								h4.mb-2.text-capitalize #{blockName}
+								ul.list-unstyled.mb-0
+									- var n = 1
+									while n <= blocks[blockName]
+										li
+											span #{('000'+count++).slice(-3)}.
+											a(href=`blocks/${blockName}-${n}.html` target='_blank').ms-2 #{`${blockName}-${n++}`}
+
+				.col-6.col-lg-3.p-2.isotope-item
+					.card.shadow-sm
+						.card-body.px-4
+							h4.mb-2.text-capitalize pages
+							ul.list-unstyled.mb-0
+								each page in pages
+									li
+										span #{('000'+count++).slice(-3)}.
+										a(href=`page-${page}.html` target='_blank').ms-2 #{`page-${page}`}
+				.col-6.col-lg-3.p-2.isotope-item
+					.card.shadow-sm
+						.card-body.px-4
+							h4.mb-2.text-capitalize components
+							ul.list-unstyled.mb-0
+								each value, index in sitemap[0].pages
+									li
+										span #{('000'+count++).slice(-3)}.
+										a(href=`${value.path}.html` target='_blank').ms-2 #{(value.name)}
+	+ShowcaseCTA('black')

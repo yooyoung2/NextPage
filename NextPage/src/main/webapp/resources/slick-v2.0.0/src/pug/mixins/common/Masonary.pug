@@ -1,0 +1,28 @@
+mixin Masonary(filter)
+  if filter
+    ul.nav.font-sans-serif.mb-3.justify-content-center(data-filter-nav)&attributes(attributes)
+      li.nav-item
+        a.isotope-nav.active(href ='#!' data-filter='*') ALL
+      li.nav-item 
+        a.isotope-nav(href ='#!' data-filter='.small') NAVIGATION
+      li.nav-item 
+        a.isotope-nav(href ='#!' data-filter='.medium') HEADER
+      li.nav-item 
+        a.isotope-nav(href ='#!' data-filter='.large') FEATURES
+     
+  .row.g-3.mt-3(data-rp-isotope!={
+    layoutMode: 'packery',   
+  })
+    .col-6.col-md-4.isotope-item.small
+      img(src=`${CWD}assets/img/7.jpg` alt='' data-zanim-xs!={
+        animation: 'zoom-in',
+        delay: 0
+      }).img-fluid.rounded.w-100
+    .col-6.col-md-8.isotope-item.large
+      img(src=`${CWD}assets/img/1.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-4.isotope-item.medium
+      img(src=`${CWD}assets/img/03.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-4.isotope-item.medium
+      img(src=`${CWD}assets/img/02.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-4.isotope-item.small
+      img(src=`${CWD}assets/img/02.jpg` alt='').img-fluid.rounded.w-100

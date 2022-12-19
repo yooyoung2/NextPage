@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.school.manager.teacher.classes.dao.TeacherClassInsertDAO">
+
+
+
+	 <sql id="searchFrag">
+		
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				<choose>
+					<when test="'name' eq simpleCondition.searchType">
+						AND INSTR(CC.MEM_NM, #{simpleCondition.searchWord}) > 0 
+						
+					</when>
+					<when test="'classes' eq simpleCondition.searchType">
+						AND INSTR(AA.CLASSES, #{simpleCondition.searchWord}) > 0 
+						
+					</when>
+					<otherwise>
+							AND INSTR(CC.MEM_NM, #{simpleCondition.searchWord}) > 0
+							OR
+							INSTR(AA.CLASSES, #{simpleCondition.searchWord}) > 0 
+							
+					</otherwise>
+				</choose>
+			</if>
+	</sql> 
+	
+	<select id="selectTotalRecord" resultType="int" parameterType="PagingVO">
+		SELECT  count(*)
+        FROM YEAR_CLASS AA,
+             EDUPSN BB,
+             SCH_MEMBER CC 
+        WHERE AA.EDUPSN_ID=BB.EDUPSN_ID  AND SCH_ID=#{schId} 
+        AND BB.EDUPSN_ID=CC.MEM_ID
+		
+	<include refid="searchFrag" /> 
+	ORDER BY CLASSES
+	</select>
+	
+	<select id="selectMemberList" resultType="Join_Year_SCH_VO" parameterType="PagingVO">
+		SELECT *
+		FROM (
+			SELECT A.*, ROWNUM RNUM
+			FROM(
+				SELECT  AA.YEAR, 
+				        AA.CLASSES, 
+				        CC.MEM_NM, 
+				        AA.EDUPSN_ID
+				        FROM YEAR_CLASS AA,
+				             EDUPSN BB,
+				             SCH_MEMBER CC 
+				        WHERE AA.EDUPSN_ID=BB.EDUPSN_ID AND SCH_ID=#{schId} 
+				        AND BB.EDUPSN_ID=CC.MEM_ID    
+				<include refid="searchFrag" />  
+				ORDER BY CLASSES   
+				
+			) A
+		) B
+		<![CDATA[
+		WHERE RNUM >= #{startRow} AND RNUM <= #{endRow}
+		]]>
+	</select>
+	
+	<!-- <resultMap type="SchMemberVO" id="memberMap" autoMapping="true">
+		<id property="memId" column="MEM_ID"/>
+		<collection property="prodList" ofType="ProdVO" autoMapping="true">
+			<id property="prodId" column="PROD_ID"/>
+			<association property="buyer" javaType="BuyerVO" autoMapping="true" />
+		</collection>
+	</resultMap> -->
+
+	
+	
+	
+	<select id="selectMember" parameterType="string" resultType="Join_Year_SCH_VO">
+		
+		 SELECT  
+                        AA.YEAR, 
+				        AA.CLASSES, 
+				        CC.MEM_NM, 
+				        AA.EDUPSN_ID
+				        FROM YEAR_CLASS AA,
+				             EDUPSN BB,
+				             SCH_MEMBER CC 
+				        WHERE AA.EDUPSN_ID=BB.EDUPSN_ID 
+				        AND BB.EDUPSN_ID=CC.MEM_ID
+				     	AND AA.EDUPSN_ID = #{memId}
+	</select>  
+	
+	
+	<update id="setClassesMember" parameterType="Join_Year_SCH_VO">
+		UPDATE YEAR_CLASS SET CLASSES=#{classes} WHERE EDUPSN_ID=#{edupsnId}
+	</update>
+	
+	<insert id="insertAllMember" parameterType="java.util.List">
+		
+		<selectKey resultType="int" keyProperty="startNo" order="BEFORE">
+			
+			
+		</selectKey>
+		
+		
+		
+		INSERT ALL
+		
+		<foreach collection="list" item="member" index="idx">
+		
+			INTO SCH_MEMBER (         
+			  		MEM_ID,
+					SCH_ID,
+					MEM_PW,
+					MEM_NM,
+					MEM_EMAIL,
+					TEL_NUM,
+					ADDR1,
+					ADDR2
+			) VALUES (               
+					'b001'||'-'||(teacher_id.NEXTVAL+#{idx})
+					, 'b001'
+					, '1234'
+					, #{member.memNm,jdbcType=VARCHAR}
+					, #{member.memEmail,jdbcType=VARCHAR}
+					, #{member.telNum,jdbcType=VARCHAR}
+					, #{member.addr1,jdbcType=VARCHAR}
+					, #{member.addr2,jdbcType=VARCHAR}
+			)	
+			
+			
+		
+		</foreach>
+		
+		SELECT * FROM DUAL
+	</insert>
+	
+	<select id="selectClasses" parameterType="Join_Year_SCH_VO" resultType="Join_Year_SCH_VO">
+		
+		 SELECT  
+                        AA.YEAR, 
+				        AA.CLASSES, 
+				        CC.MEM_NM, 
+				        AA.EDUPSN_ID
+				        FROM YEAR_CLASS AA,
+				             EDUPSN BB,
+				             SCH_MEMBER CC 
+				        WHERE AA.EDUPSN_ID=BB.EDUPSN_ID 
+				        AND BB.EDUPSN_ID=CC.MEM_ID
+				     	AND AA.CLASSES= #{classes} AND SUBSTR(AA.EDUPSN_ID,1,INSTR(AA.EDUPSN_ID,'-')-1)=#{studId}
+	</select>  
+	
+	<select id="getClassesList" resultType="string" parameterType="string">
+		SELECT CLASSES FROM YEAR_CLASS WHERE CLASSES <![CDATA[<> '-']]> AND SUBSTR(EDUPSN_ID,1,INSTR(EDUPSN_ID,'-')-1)=#{id}
+	</select>  
+	
+	<update id="updateMember" parameterType="Join_Year_SCH_VO">
+		UPDATE YEAR_CLASS SET CLASSES=#{classes} WHERE EDUPSN_ID=#{edupsnId}
+	</update>
+	
+	<update id="setClasses" parameterType="Join_Year_SCH_VO">
+		UPDATE YEAR_CLASS SET CLASSES='-' WHERE SUBSTR(CLASSES,0,1)>#{classes} OR SUBSTR(CLASSES,3,3)>#{edupsnId} 
+	</update>
+	
+	<!-- <delete id="deleteMember" parameterType="string">
+		UPDATE MEMBER
+		SET
+			MEM_DELETE = '1'
+		WHERE MEM_ID = #{memId}
+	</delete> -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
